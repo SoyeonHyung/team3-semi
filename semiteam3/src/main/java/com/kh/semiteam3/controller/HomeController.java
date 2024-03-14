@@ -11,5 +11,4 @@ public class HomeController {
 		return "/WEB-INF/views/home.jsp";
 	}
 	
-
 }
