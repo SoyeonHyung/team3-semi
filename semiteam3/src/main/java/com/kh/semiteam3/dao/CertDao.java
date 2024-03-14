@@ -25,6 +25,7 @@ public class CertDao {
 		jdbcTemplate.update(sql, data);
 	}
 	
+	
 	//삭제
 	public boolean delete(String certEmail) {
 		String sql = "delete cert where cert_email = ?";
