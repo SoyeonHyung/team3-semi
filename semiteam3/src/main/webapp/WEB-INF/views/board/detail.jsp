@@ -403,7 +403,7 @@
 				test="${sessionScope.loginId != null && (sessionScope.loginId == boardDto.boardWriter || sessionScope.loginGrade == '관리자')}">
 				<div>
 					<a class="btn"
-						href="http://localhost:8080/reportBoard/insert?reportBoardOrigin=${boardDto.boardNo}"><pre>신고</pre></a>
+						href="http://localhost:8080/reportReply/insert?reportReplyOrigin={replyDto.replyNo}"><pre>신고</pre></a>
 				</div>
 			</c:if>
 

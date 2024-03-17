@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.semiteam3.dao.MemberDao;
 import com.kh.semiteam3.dao.ReportReplyDao;
 import com.kh.semiteam3.dto.MemberDto;
+import com.kh.semiteam3.dto.ReplyDto;
 import com.kh.semiteam3.dto.ReportReplyDto;
 import com.kh.semiteam3.service.AttachService;
 import com.kh.semiteam3.vo.PageVO;
@@ -82,18 +83,24 @@ public class ReportReplyController {
 		@GetMapping("/insert")
 		public String insert(@RequestParam Integer reportReplyOrigin, Model model) {
 			ReportReplyDto reportReplyDto = reportReplyDao.selectOne(reportReplyOrigin);
+			model.addAttribute("reportReplyDto", reportReplyDto);
 			return "/WEB-INF/views/reportReply/insert.jsp";
+			
 		}
 		
 		@PostMapping("/insert")
 		public String insert(@ModelAttribute ReportReplyDto reportReplyDto, 
+							@ModelAttribute ReplyDto replyDto,//댓글 달려잇는 게시글 번호 알아내기 위해 
 							HttpSession session, Model model) {
 			String loginId = (String)session.getAttribute("loginId");
 			reportReplyDto.setReportReplyWriter(loginId);
 			
+			int sequence = reportReplyDao.getSequence();//번호 미리 추출
+			reportReplyDto.setReportReplyNo(sequence);//댓글정보에 추출한 번호 포함  
 			reportReplyDao.insert(reportReplyDto);
 			
-			return "redirect:detail?reportReplyNo="+reportReplyDto.getReportReplyOrigin();
+			//return "redirect:detail?reportReplyNo="+reportReplyDto.getReportReplyOrigin();
+			return "redirect:http://localhost:8080/board/detail?boardNo="+replyDto.getReplyOrigin();
 		}
 		
 		//상세

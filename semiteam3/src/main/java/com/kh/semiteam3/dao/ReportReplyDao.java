@@ -79,7 +79,7 @@ public class ReportReplyDao {
 		String sql = "insert into report_reply("
 						+ "report_reply_no, report_reply_content, "
 						+ "reply_no, member_id, report_reply_reason "
-					+ ") values(report_reply_seq.nextval, ?, ?, ?, ?)";
+					+ ") values(?, ?, ?, ?, ?)";
 		Object[] data = {
 				reportReplyDto.getReportReplyNo(), 
 				reportReplyDto.getReportReplyContent(), 
@@ -88,6 +88,10 @@ public class ReportReplyDao {
 				reportReplyDto.getReportReplyReason() 
 		};
 		jdbcTemplate.update(sql, data);
+	}
+	public int getSequence() {
+		String sql = "select report_reply_seq.nexval from dual";
+		return jdbcTemplate.queryForObject(sql, int.class);
 	}
 	
 	//삭제
