@@ -145,6 +145,9 @@ ul > li{
 		- 로고, 검색창, 삿종 메뉴들을 배치
 		- div는 투명한 영역
 	 --%>
+ 	<div class="cell center">
+			<h1 class="center"><a href="/" class="link">노실?</a></h1>
+	</div>
 	<div class="cell">
 		<ul class="menu" width="400px">
 
@@ -163,8 +166,8 @@ ul > li{
 
 <!-- 			<li><a href="/inquiry/list"><i class="fa-solid fa-question"></i>
 					<i class="fa-solid fa-list"></i></a></li> -->
-			<li><a href="/"><i class="fa-solid fa-home"></i> <i
-					class="fa-solid fa-arrow-right-to-bracket"></i></a></li>
+			<!-- <li><a href="/"><i class="fa-solid fa-home"></i> <i
+					class="fa-solid fa-arrow-right-to-bracket"></i></a></li> -->
 			<li class="menu-end"><c:choose>
 				<c:when test="${sessionScope.loginId !=null}">
 					<a href="/member/mypage"> <i class="fa-solid fa-user"></i>${sessionScope.loginNick}

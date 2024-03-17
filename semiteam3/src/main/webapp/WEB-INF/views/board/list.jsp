@@ -7,7 +7,7 @@
 
 	<jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 	
-	<div class="container w-1100" style="display:flex;">
+	<div class="container w-1200" style="display:flex;">
 	<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
 	<div class="container w-900">
 	<%-- 제목칸 --%>

@@ -49,6 +49,14 @@
 .responsive-img {
 	width: 100%
 }
+.swiper-slide {
+    display: flex; /* Flexbox 레이아웃 사용 */
+    justify-content: center; /* 가로 중앙 정렬 */
+}
+.swiper-slide-next {
+    z-index: -10;
+}
+
 </style>
 
 <!-- jquery cdn -->
@@ -86,7 +94,7 @@
 
 	<jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 	
-	<div id="maincontainer" class="cell">
+	<div id="maincontainer w-100" class="cell">
 		<div class="container w-100">
 			<div class="cell center">
 				<!-- Slider main container -->
@@ -95,19 +103,19 @@
 					<div class="swiper-wrapper">
 						<!-- Slides -->
 						<div class="swiper-slide">
-							<img src="https://picsum.photos/id/25/600/400">
+							<img src="/image/home/main2.png">
 						</div>
 						<div class="swiper-slide">
-							<img src="https://picsum.photos/id/27/600/400">
+							<img src="/image/home/event.png">
 						</div>
 						<div class="swiper-slide">
-							<img src="https://picsum.photos/id/28/600/400">
+							<img src="https://picsum.photos/id/27/1920/400">
 						</div>
 						<div class="swiper-slide">
-							<img src="https://picsum.photos/id/29/600/400">
+							<img src="https://picsum.photos/id/29/1920/400">
 						</div>
 						<div class="swiper-slide">
-							<img src="https://picsum.photos/id/33/600/400">
+							<img src="https://picsum.photos/id/33/1920/400">
 						</div>
 					</div>
 					<!-- If we need pagination -->
