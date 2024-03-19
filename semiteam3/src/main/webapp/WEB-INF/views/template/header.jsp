@@ -71,6 +71,13 @@ body {
 	background-color: #eeeeee;
 }
 
+.set-color {
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+}
+
   .Logo {        height: 220px;
       }
    .nosilLogo:hover {
@@ -229,7 +236,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			</c:if>
 		</ul>
 	</div>
-	<div></div>
 </body>
 </html>
 
