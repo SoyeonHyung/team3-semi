@@ -78,12 +78,15 @@ body {
 	border-radius: 10px;
 }
 
-  .Logo {        height: 220px;
-      }
-   .nosilLogo:hover {
-   	transform: scale(1.25, 1.25);
-	transition: 0.2s ease-out;
-      }
+.Logo {
+	height: 220px;
+}
+
+.nosilLogo:hover {
+   	transform: scale(1.15, 1.15);
+	transition: 0.3s ease-in-out;
+	
+}
      </style>
 
 <script>
@@ -179,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	<div class="cell center Logo ">
 		<a href="/" class="link "> 
        		<img src="/image/home/nosilLogo.png" alt="nosilLogo" 
-       			class="nosilLogo w-50 m-10" id="changeName">
+       			class="nosilLogo w-50 m-10" id="changeName" style="transition-timing-function: ease-in;">
 		</a>
     </div>
 </div>
