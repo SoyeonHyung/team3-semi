@@ -60,6 +60,37 @@
 		minDate : "today",
 		enableminute : false,
 	});
+	
+	$(function() {
+		var loginGrade = "${sessionScope.loginGrade}";
+
+		// 관리자인 경우 마감 시간 입력 필드를 숨깁니다.
+		if (loginGrade === "관리자") {
+			$("#datetimepicker").closest(".cell.right").hide();
+		}
+
+		$("button.positive").click(function() {
+			var title = $("input[name='boardTitle']").val().trim();
+			var content = $("textarea[name='boardContent']").val().trim();
+
+			// 마감 시간 
+			if (loginGrade !== "관리자") {
+				var limitTime = $("input[name='boardLimitTime']").val().trim();
+				if (limitTime === '') {
+					alert('마감 시간을 입력해주세요.');
+					return false; // 작성 완료 이벤트를 중지합니다.
+				}
+			}
+
+			// 관리자가 아닌 경우 제목과 내용을 모두 입력하고 마감 시간을 설정해야 합니다.
+			if (loginGrade !== "관리자" && (title === '' || content === '')) {
+				alert('제목과 내용을 모두 입력해주세요.');
+				return false; // 작성 완료 이벤트를 중지합니다.
+			}
+
+		});
+
+	});
 
 </script>
 

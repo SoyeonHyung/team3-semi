@@ -8,7 +8,7 @@
 
 
 $(function(){
-    $("a.link-confirm").click(function(){
+    $("a.link-confirm").off().click(function(){
         var message = $(this).data("message");
         //console.log(message);
         if(message == undefined) {
@@ -16,8 +16,22 @@ $(function(){
         }
         var choice = window.confirm(message);
         return choice;
-        //return true;//통과
-        //return false;//차단
+    });
+});
+
+//버튼일 때...
+$(function(){
+    $("button.empty-check").off().click(function(){
+        var keyword = $("input[name='keyword']").val(); // 검색어 입력란의 값 가져오기
+        if (!keyword.trim()) { // 검색어가 비어있는지 확인
+            var message = $(this).data("message");
+            if (message === undefined) {
+                 message = "검색어를 입력해주세요.";
+            }
+            window.alert(message);
+        } else {
+            $(this).closest('form').submit();
+        }
     });
 });
 

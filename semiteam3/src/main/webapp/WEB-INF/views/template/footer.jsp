@@ -18,10 +18,10 @@ hr {
 	</div>
 	<div class="cell center">
 		<h2 class="center">상호명 : (주)노실 | 사업자 등록번호 : 123-45-67890 | 대표이사 :
-			형소연</h2>
+			즙지환</h2>
 		<h3 class="center">서울 영등포구 선유동2로 57 이레빌딩 19층</h3>
 		<h4>
-			<a href="/inquiry/list" class="link">고객센터</a> | 010-8924-4676 |
+			<a href="/inquiry/list" class="link">고객센터</a> | 010-1234-5678 |
 			kh13soyeon@gmail.com
 		</h4>
 	</div>

@@ -9,6 +9,8 @@
 	width: 100%;
 	height: 400px;
 }
+
+
 </style>
 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
@@ -16,6 +18,7 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=44051ef145f6b735ac8da5c7428992fc&libraries=services"></script>
 <script type="text/javascript">
+	/*
 	$(function() {
 		var mapContainer = document.querySelector('.map'); // 지도를 표시할 div 
 		var mapOption = {
@@ -79,6 +82,38 @@
 											});
 						});
 	});
+	 */
+
+	$(function() {
+		var loginGrade = "${sessionScope.loginGrade}";
+
+		// 관리자인 경우 마감 시간 입력 필드를 숨깁니다.
+		if (loginGrade === "관리자") {
+			$("#datetimepicker").closest(".cell.right").hide();
+		}
+
+		$("button.positive").click(function() {
+			var title = $("input[name='boardTitle']").val().trim();
+			var content = $("textarea[name='boardContent']").val().trim();
+
+			// 마감 시간 
+			if (loginGrade !== "관리자") {
+				var limitTime = $("input[name='boardLimitTime']").val().trim();
+				if (limitTime === '') {
+					alert('마감 시간을 입력해주세요.');
+					return false; // 작성 완료 이벤트를 중지합니다.
+				}
+			}
+
+			// 관리자가 아닌 경우 제목과 내용을 모두 입력하고 마감 시간을 설정해야 합니다.
+			if (loginGrade !== "관리자" && (title === '' || content === '')) {
+				alert('제목과 내용을 모두 입력해주세요.');
+				return false; // 작성 완료 이벤트를 중지합니다.
+			}
+
+		});
+
+	});
 </script>
 
 
@@ -88,57 +123,58 @@
 
 
 <div class="container w-800">
-	<%-- 제목칸 --%>
-	<div class="cell center">
-		<c:if test="${param.category == '축구'}">
-			<h2>축구게시글 작성</h2>
-		</c:if>
-		<c:if test="${param.category == '야구'}">
-			<h2>야구게시글 작성</h2>
-		</c:if>
-		<c:if test="${param.category == '농구'}">
-			<h2>농구게시글 작성</h2>
-		</c:if>
-		<c:if test="${param.category == 'E-스포츠'}">
-			<h2>게임게시글 작성</h2>
-		</c:if>
-		<c:if test="${param.category =='관리자'}">
-			<h2>전체 공지 작성</h2>
-		</c:if>
-	</div>
-	<div class="cell">
-		<form class="free-pass" action="write?category=${param.category}"
-			method="post">
-			<div class="cell">
-				<input type="hidden" name="boardCategory" value="${param.category}">
-			</div>
-
-			<div class="cell right">
-				<label for="datetimepicker">마감 시간</label> <input type="text"
-					name="boardLimitTime" id="datetimepicker"
-					class="form-control tool w-50">
-			</div>
-
-			<div class="cell">
-				<input class="tool w-100" name="boardTitle" type="text"
-					placeholder="제목">
-			</div>
-			<div class="cell">
-				<textarea class="tool w-100" name="boardContent" placeholder="내용 입력"></textarea>
-			</div>
-			<div class="flex-cell">
-				<div class="cell w-50">
-					<a href="list?category=${param.category}"
-						class="btn negative w-100"> 취소 </a>
+	<div class="set-color">
+		<%-- 제목칸 --%>
+		<div class="cell center title">
+			<c:if test="${param.category == '축구'}">
+				<h2>축구게시글 작성</h2>
+			</c:if>
+			<c:if test="${param.category == '야구'}">
+				<h2>야구게시글 작성</h2>
+			</c:if>
+			<c:if test="${param.category == '농구'}">
+				<h2>농구게시글 작성</h2>
+			</c:if>
+			<c:if test="${param.category == 'E-스포츠'}">
+				<h2>게임게시글 작성</h2>
+			</c:if>
+			<c:if test="${param.category =='관리자'}">
+				<h2>전체 공지 작성</h2>
+			</c:if>
+		</div>
+		<div class="cell">
+			<form class="free-pass" action="write?category=${param.category}"
+				method="post">
+				<div class="cell">
+					<input type="hidden" name="boardCategory" value="${param.category}">
 				</div>
-				<div class="cell w-50">
-					<button class="btn positive w-100">작성완료</button>
+
+				<div class="cell right">
+					<label for="datetimepicker">마감 시간</label> <input type="text"
+						name="boardLimitTime" id="datetimepicker"
+						class="form-control tool w-50">
 				</div>
-			</div>
-		</form>
+
+				<div class="cell">
+					<input class="tool w-100" name="boardTitle" type="text"
+						placeholder="제목">
+				</div>
+				<div class="cell">
+					<textarea class="tool w-100" name="boardContent"
+						placeholder="내용 입력"></textarea>
+				</div>
+				<div class="flex-cell">
+					<div class="cell w-50">
+						<a href="list?category=${param.category}"
+							class="btn negative w-100"> 취소 </a>
+					</div>
+					<div class="cell w-50">
+						<button class="btn positive w-100">작성완료</button>
+					</div>
+				</div>
+			</form>
+		</div>
 	</div>
-
-
 </div>
 
 

@@ -71,13 +71,13 @@ body {
 	background-color: #eeeeee;
 }
 
-  .Logo {        height: 220px;
+  .Logo {        height: 220px;
       }
    .nosilLogo:hover {
    	transform: scale(1.25, 1.25);
 	transition: 0.2s ease-out;
       }
-     </style>
+     </style>
 
 <script>
 	$(function() {
@@ -232,7 +232,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	<div></div>
 </body>
 </html>
-
 
 
 

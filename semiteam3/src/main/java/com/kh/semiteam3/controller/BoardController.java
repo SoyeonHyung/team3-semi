@@ -155,8 +155,15 @@ public class BoardController {
 		@RequestMapping("/list") //게시글 작성자 아이디에서 닉네임 보이게 수정
 		public String list(@RequestParam String category,
                @ModelAttribute PageVO pageVO,
-               @RequestParam(required = false) String status,
+               @RequestParam(required = false) String status, HttpSession session,
                Model model) {
+			//
+			String loginId = (String)session.getAttribute("loginId");
+			
+			MemberDto memberDto2 = memberDao.selectOne(loginId);
+			
+			model.addAttribute("memberDto", memberDto2);
+			
 		    int count;
 		    if (pageVO.getColumn().equals("member_nick")) {
 		        count = boardDao.countForNick(pageVO);

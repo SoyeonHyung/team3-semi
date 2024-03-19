@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.semiteam3.dao.BoardDao;
+import com.kh.semiteam3.dao.MemberDao;
 import com.kh.semiteam3.dto.BoardDto;
+import com.kh.semiteam3.dto.MemberDto;
 import com.kh.semiteam3.vo.PageVO;
 
 @Controller
@@ -27,14 +29,54 @@ public class HomeController {
 	@Autowired
 	private BoardDao boardDao;
 	
+	@Autowired
+	private MemberDao memberDao;
+	
 
 	@RequestMapping("/")
-	public String home(@ModelAttribute BoardDto boardDto, 
-									Model model) {
+	public String home(Model model) {
+		
 	    List<BoardDto> footballList = boardDao.boardStatus(new PageVO(), "축구", "recruiting");
 	    List<BoardDto> baseballList = boardDao.boardStatus(new PageVO(), "야구", "recruiting");
 	    List<BoardDto> basketballList = boardDao.boardStatus(new PageVO(), "농구", "recruiting");
 	    List<BoardDto> ESportsList = boardDao.boardStatus(new PageVO(), "E-스포츠", "recruiting");
+	    
+	    
+	    for (BoardDto boardDto : footballList) {
+	        MemberDto memberDto = memberDao.selectOne(boardDto.getBoardWriter());
+	        if (memberDto != null) {
+	            boardDto.setBoardWriter(memberDto.getMemberNick());
+	        } else {
+	            boardDto.setBoardWriter("탈퇴한사용자");
+	        }
+	    }
+	    
+	    for (BoardDto boardDto : baseballList) {
+	        MemberDto memberDto = memberDao.selectOne(boardDto.getBoardWriter());
+	        if (memberDto != null) {
+	            boardDto.setBoardWriter(memberDto.getMemberNick());
+	        } else {
+	            boardDto.setBoardWriter("탈퇴한사용자");
+	        }
+	    }
+	    
+	    for (BoardDto boardDto : basketballList) {
+	        MemberDto memberDto = memberDao.selectOne(boardDto.getBoardWriter());
+	        if (memberDto != null) {
+	            boardDto.setBoardWriter(memberDto.getMemberNick());
+	        } else {
+	            boardDto.setBoardWriter("탈퇴한사용자");
+	        }
+	    }
+	    
+	    for (BoardDto boardDto : ESportsList) {
+	        MemberDto memberDto = memberDao.selectOne(boardDto.getBoardWriter());
+	        if (memberDto != null) {
+	            boardDto.setBoardWriter(memberDto.getMemberNick());
+	        } else {
+	            boardDto.setBoardWriter("탈퇴한사용자");
+	        }
+	    }
 		
 		model.addAttribute("footballList", footballList);
 		model.addAttribute("baseballList", baseballList);

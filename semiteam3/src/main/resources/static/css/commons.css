@@ -82,10 +82,11 @@
     - 버튼 - .btn
 */
 .tool , .btn {
-    font-size: 20px;
-    padding: 0.5em 1em;
-    outline: none;/*선택시 자동강조효과 제거*/
-    border: 1px solid #bda488;
+
+    font-size: 16px; /* 원하는 크기로 조정 */
+    padding: 0.3em 0.8em; /* 원하는 크기로 조정 */
+    outline: none; /* 선택시 자동강조효과 제거 */
+    border: 1px solid #e3c7a6;
     border-radius: 0.1em;
 }
 
@@ -147,7 +148,8 @@ textarea.tool.tool-fixed {
     display: inline-block;
     text-align: center;
     cursor: pointer;
-    border: none;
+    border: none; 
+    
 }
 
 .btn.positive {
