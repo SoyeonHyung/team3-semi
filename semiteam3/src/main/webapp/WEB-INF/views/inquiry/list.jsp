@@ -8,11 +8,11 @@
 
 <div class="container w-800">
 	<div class="cell center">
-		<h1>문의게시판</h1>
+		<h1>Q&A</h1>
 	</div>
-	<div class="cell">타인에 대한 무분별한 비방 또는 욕설은 경고 없이 삭제될 수 있습니다</div>
+	
 	<div class="cell right">
-		<h2><a class="link" href="insert">+문의하기</a></h2>
+		<h2><a class="btn positive" href="insert">문의하기</a></h2>
 	</div>
 	<div class="cell">
 		<%-- 테이블 --%>

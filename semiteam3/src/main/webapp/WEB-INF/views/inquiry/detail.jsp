@@ -75,7 +75,7 @@
 				href="delete?inquiryNo=${InquiryDto.inquiryNo}">글삭제</a>
 		</c:if>
 		
-		<c:if test="${sessionScope.loginGrade == '관리자'}">
+		<c:if test="${sessionScope.loginGrade == '관리자' && InquiryDto.inquiryTarget == null}">
 			<a class="btn positive" href="insert?inquiryTarget=${InquiryDto.inquiryNo}">답글쓰기</a>
 		</c:if>
 		<a class="btn positive" href="list">글목록</a>
