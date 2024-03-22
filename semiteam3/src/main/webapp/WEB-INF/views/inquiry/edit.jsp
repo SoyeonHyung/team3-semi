@@ -8,7 +8,7 @@
 <form class="free-pass" action="edit" method="post" autocomplete="off">
     <input type="hidden" name="inquiryNo" value="${inquiryDto.inquiryNo}">
 
-<div class="container w-800">
+<div class="container w-1000">
     <div class="cell center"><h1>문의게시글 수정</h1></div>
     <div class="cell">
         <label>제목</label>
@@ -25,3 +25,5 @@
     </div>
 </div>
 </form>
+
+<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

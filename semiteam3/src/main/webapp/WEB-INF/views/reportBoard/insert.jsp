@@ -23,7 +23,7 @@
 	
 	<form action="insert" method="post" autocomplete="off">
 
-		<div class="container w-800">
+		<div class="container w-1000">
 			<div class="cell center">
 				<h1>게시글 신고</h1>
 			</div>

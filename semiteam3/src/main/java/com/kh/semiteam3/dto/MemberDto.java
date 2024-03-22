@@ -15,7 +15,7 @@ public class MemberDto {
 	private String memberPost;
 	private String memberAddress1;
 	private String memberAddress2;
-	private Timestamp memberLogin;
+	private Date memberLogin;//최종로그인 수정
 	public String getMemberId() {
 		return memberId;
 	}
@@ -82,10 +82,10 @@ public class MemberDto {
 	public void setMemberAddress2(String memberAddress2) {
 		this.memberAddress2 = memberAddress2;
 	}
-	public Timestamp getMemberLogin() {
+	public Date getMemberLogin() {
 		return memberLogin;
 	}
-	public void setMemberLogin(Timestamp memberLogin) {
+	public void setMemberLogin(Date memberLogin) {
 		this.memberLogin = memberLogin;
 	}
 	public MemberDto() {

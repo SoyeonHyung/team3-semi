@@ -6,6 +6,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.kh.semiteam3.interceptor.AdminInterceptor;
+import com.kh.semiteam3.interceptor.AdminListInterceptor;
 import com.kh.semiteam3.interceptor.BoardViewInterceptor;
 import com.kh.semiteam3.interceptor.MemberInterceptor;
 import com.kh.semiteam3.interceptor.NonMemberInterceptor;
@@ -21,32 +22,29 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 	private BoardViewInterceptor boardViewInterceptor;
 	@Autowired
 	private NonMemberInterceptor NonMemberInterceptor;
+	@Autowired
+	private AdminListInterceptor adminListInterceptor;
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		
 		registry.addInterceptor(memberInterceptor)
 					.addPathPatterns(
-							"/member/**",
-							"/inquiry/**",
-							"/basketball/**",
-							"/football/**",
-							"/baseball/**",
-							"/esports/**",
-							"/reportBoard/**"
+							"/member/**", "/inquiry/**",
+							"/board/**", "/board/write"
 							)
 					.excludePathPatterns(
-							"/member/join*",
-							"/member/login","/member/find*","/member/exitFinish",
-							"/baskerball/list", "/basketball/detail",
-							"/football/list", "/football/detail",
-							"/baseball/list", "/baseball/detail",
-							"/esports/list", "/esports/detail"
-
+							"/member/join*", "/member/login", "/member/find*",
+							"/member/exitFinish", "/board/list*", "/board/detail*"
 							);
 		
 		// 관리자 인터셉터 등록
-
+		
+		//카테고리가 관리자면 관리자만 접근가능
+		 registry.addInterceptor(adminListInterceptor)
+		 .addPathPatterns("/board/list*");
+		
+		//세션에 grade가 관리자면 접근가능
 		registry.addInterceptor(adminInterceptor)
 						.addPathPatterns(
 								"/admin/**",
@@ -60,9 +58,9 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 		registry.addInterceptor(boardViewInterceptor)
 													.addPathPatterns("/board/detail");
 		
-		//비로그인시 접근 제한
-		registry.addInterceptor(NonMemberInterceptor)
-		.addPathPatterns("/board/write");
+//		//비로그인시 접근 제한
+//		registry.addInterceptor(NonMemberInterceptor)
+//		.addPathPatterns("/board/write");
 	
 	}	
 

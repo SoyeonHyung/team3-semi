@@ -43,3 +43,4 @@ public class BoardLikeDao {//*좋아요*는 수정이 없어!(인증번호 같�
 		return jdbcTemplate.queryForObject(sql, int.class, data);
 	}
 }
+

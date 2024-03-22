@@ -66,4 +66,10 @@ public class AttachDao {
 	    };
 	    return jdbcTemplate.update(sql, data) > 0;
 	}
+
+	public int findAttachNo(String memberId) {
+		String sql = "select attach_no from member_attach where member_id = ?";
+		Object[] data = {memberId};
+		return jdbcTemplate.queryForObject(sql, int.class, data);
+	}
 }

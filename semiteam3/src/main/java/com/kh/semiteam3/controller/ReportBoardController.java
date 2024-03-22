@@ -21,9 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.semiteam3.dao.BoardDao;
 import com.kh.semiteam3.dao.MemberDao;
 import com.kh.semiteam3.dao.ReportBoardDao;
-
-import com.kh.semiteam3.dto.BoardDto;
-import com.kh.semiteam3.dto.MemberDto;
 import com.kh.semiteam3.dto.ReportBoardDto;
 import com.kh.semiteam3.service.AttachService;
 import com.kh.semiteam3.vo.PageVO;
@@ -120,5 +117,18 @@ public class ReportBoardController {
 
 		return "/WEB-INF/views/reportBoard/detail.jsp";
 	}
+	
+	//프로필 다운로드 페이지
+			@RequestMapping("/image")
+			public String image(HttpSession session) {
+				try {
+					String loginId = (String)session.getAttribute("loginId");
+				int attachNo = memberDao.findAttachNo(loginId);
+				return "redirect:/download?attachNo=" + attachNo;
+			}
+			catch(Exception e) {
+				return "redirect:/image/user.svg";
+				}
+			}
 
 }

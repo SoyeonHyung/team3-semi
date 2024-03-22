@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kh.semiteam3.dto.AttachDto;
 import com.kh.semiteam3.dto.MemberDto;
 import com.kh.semiteam3.mapper.MemberMapper;
 
@@ -133,6 +134,24 @@ public class MemberDao {
 	//찜목록(좋아요 누른 글 목록)
 	
 
+	public boolean Update(MemberDto memberDto) {
+		String sql = "update member "
+				+ "set "
+				+ "member_id = ?, member_pw = ?, "
+				+ "member_nick = ?, member_contact = ?, member_grade = ?, "
+				+ "member_email = ?, member_joib = ?, member_birth = ?, member_post = ?, "
+				+ "member_address1 = ?, member_address2 = ?, member_login = ? "
+				+ "where member_id = ?";
+		Object[] data = {
+				memberDto.getMemberId(), memberDto.getMemberPost(),
+				memberDto.getMemberNick(), memberDto.getMemberContact(),
+				memberDto.getMemberGrade(), memberDto.getMemberEmail(),
+				memberDto.getMemberJoin(), memberDto.getMemberBirth(),
+				memberDto.getMemberPost(), memberDto.getMemberAddress1(),
+				memberDto.getMemberAddress2(), memberDto.getMemberLogin(),
+		};
+		return jdbcTemplate.update(sql, data)>0;
+	}
 }
 	
 	

@@ -45,8 +45,31 @@ input[name=memberAddress2] {
 	background-image: url("/image/joinImage/home.png");
 }
 
+input[name=memberId],[name=memberPw], 
+[id="pw-reinput"],[name=memberNick] ,
+[name=memberBirth], [name=memberContact],
+[name=memberEmail], [name=memberPost],
+[name=memberAddress1],[name=memberAddress2]  
+{
+        
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
 .fa-asterisk {
 	color: red;
+}
+.box {
+	width: 800px;
+	background-color: #f8f9fa;
+	color: #333;
+	padding: 20px;
+	/*top: 330px;*/
+	height: fit-content;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
 }
 </style>
 
@@ -391,7 +414,7 @@ input[name=memberAddress2] {
         });
     });
 </script>
-
+<div class="box cell container">
 <form action="join" method="post" enctype="multipart/form-data"
 	class="check-form" autocomplete="off">
 
@@ -542,7 +565,9 @@ input[name=memberAddress2] {
 				<input type="file" name="attach" class="too w-100">
 			</div>
 
-			<div class="flex-cell">
+				
+
+				<div class="flex-cell">
 				<div class="w-100 left">
 					<button type="button" class="btn btn-prev w-100 pink">이전</button>
 				</div>
@@ -556,5 +581,6 @@ input[name=memberAddress2] {
 
 	</div>
 </form>
+</div>
 
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

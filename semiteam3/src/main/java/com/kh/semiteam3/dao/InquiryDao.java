@@ -23,7 +23,7 @@ public class InquiryDao {
 
 		// 통합 페이징
 		public List<InquiryDto> selectListByPaging(PageVO pageVO) {
-			if (pageVO.isSearchInquiry()) {// 검색
+			if (pageVO.isSearchOther()) {// 검색
 				String sql = "select * from (" 
 					+ "select rownum rn, TMP.* from (" 
 					+ "select "
@@ -63,18 +63,47 @@ public class InquiryDao {
 			
 		}
 		
+		// 닉네임 검색
+		public List<InquiryDto> selectByNick(PageVO pageVO) {
+		    String sql = "SELECT * FROM ("
+		            + "SELECT rownum rn, TMP.* FROM ("
+		            + "SELECT i.inquiry_no, i.inquiry_writer, i.inquiry_title, "
+		            + "i.inquiry_content, i.inquiry_wtime, i.inquiry_etime, "
+		            + "i.inquiry_group, i.inquiry_target, i.inquiry_depth "
+		            + "FROM inquiry i JOIN member m ON i.inquiry_writer = m.member_id "
+		            + "WHERE INSTR(m.member_nick, ?) > 0 "
+		            + "connect by prior i.inquiry_no=i.inquiry_target " 
+		            + "start with i.inquiry_target is null "
+		            + "ORDER BY i.inquiry_no DESC"
+		            + ") TMP"
+		            + ") WHERE rn BETWEEN ? AND ?";
+
+		    Object[] data = {pageVO.getKeyword(), pageVO.getBeginRow(), pageVO.getEndRow()};
+		    return jdbcTemplate.query(sql, inquiryMapper, data);
+		}
 
 		// 카운트-목록 검색 통합
 		public int count(PageVO pageVO) {
-			if (pageVO.isSearchInquiry()) {// 검색
-				String sql = "select count(*) from inquiry " 
-							+ "where instr(" + pageVO.getColumn() + ", ?) > 0";
+			if (pageVO.isSearchOther()) {// 검색
+				String sql = "SELECT COUNT(*) FROM inquiry i JOIN member m ON i.inquiry_writer = m.member_id WHERE INSTR(m.member_nick, ?) > 0";
 				Object[] data = { pageVO.getKeyword() };
 				return jdbcTemplate.queryForObject(sql, int.class, data);
 			} else {// 목록
 				String sql = "select count(*) from inquiry";
 				return jdbcTemplate.queryForObject(sql, int.class);
 			}
+		}
+		
+		// 닉네임 검색 카운트
+		public int countForNick(PageVO pageVO) {
+			if (pageVO.isSearch()) { // 검색
+		        String sql = "SELECT COUNT(*) FROM inquiry i JOIN member m ON i.inquiry_writer = m.member_id WHERE m.member_nick LIKE ?";
+		        Object[] data = {"%" + pageVO.getKeyword() + "%"};
+		        return jdbcTemplate.queryForObject(sql, int.class, data);
+		    } else { // 목록
+		        String sql = "SELECT COUNT(*) FROM inquiry";
+		        return jdbcTemplate.queryForObject(sql, int.class);
+		    }
 		}
 
 		// 단일조회(상세)
@@ -118,4 +147,5 @@ public class InquiryDao {
 			String sql = "select inquiry_seq.nextval from dual";
 			return jdbcTemplate.queryForObject(sql, int.class);
 		}
+
 	}

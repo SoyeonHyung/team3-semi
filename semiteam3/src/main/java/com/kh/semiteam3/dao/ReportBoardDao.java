@@ -23,7 +23,7 @@ public class ReportBoardDao {
 	
 	//통합 페이징(목록 + 검색)
 	public List<ReportBoardDto> selectListByPaging(PageVO pageVO){
-		if(pageVO.isSearch()) {
+		if(pageVO.isSearchOther()) {
 			String sql = "select * from("
 					+ "select rownum rn, TMP.*from("
 					+ "select "
@@ -64,7 +64,7 @@ public class ReportBoardDao {
 	
 	//통합 페이지 카운트(목록 + 검색)
 		public int count(PageVO pageVO) {
-			if(pageVO.isSearch()) {//검색
+			if(pageVO.isSearchOther()) {//검색
 				String sql = "select count(*) from report_board "
 						+ "where instr("+pageVO.getColumn()+", ?) > 0";
 				Object[] data = {pageVO.getKeyword()};

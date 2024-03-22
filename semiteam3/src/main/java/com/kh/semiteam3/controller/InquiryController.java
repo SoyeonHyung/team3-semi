@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.semiteam3.dao.InquiryDao;
 import com.kh.semiteam3.dao.MemberDao;
-import com.kh.semiteam3.dto.BoardDto;
 import com.kh.semiteam3.dto.InquiryDto;
 import com.kh.semiteam3.dto.MemberDto;
 import com.kh.semiteam3.service.AttachService;
@@ -49,11 +48,24 @@ public class InquiryController {
 	@RequestMapping("/list")
 	public String list(@ModelAttribute PageVO pageVO, 
 						Model model) {
-		int count = inquiryDao.count(pageVO);
+		int count;
+		if (pageVO.getColumn().equals("member_nick")) {
+	        count = inquiryDao.countForNick(pageVO);
+	    } else {
+	        count = inquiryDao.count(pageVO);
+	    }
+	
 		pageVO.setCount(count);
+		
 		model.addAttribute("pageVO", pageVO);
 		
-		List<InquiryDto> list = inquiryDao.selectListByPaging(pageVO);
+		List<InquiryDto> list;
+		if (pageVO.getColumn().equals("member_nick")) { // 수정된 부분: 닉네임 검색일 경우 selectByNick 메소드 호출
+	        list = inquiryDao.selectByNick(pageVO);
+	    } else {
+	        list = inquiryDao.selectListByPaging(pageVO);
+	    }
+		
 		model.addAttribute("list", list);
 		
 	    for (InquiryDto inquiryDto : list) {
@@ -165,6 +177,19 @@ public class InquiryController {
 				}
 				inquiryDao.update(inquiryDto);
 				return "redirect:detail?inquiryNo=" + inquiryDto.getInquiryNo();
+			}
+	
+	//프로필 다운로드 페이지
+			@RequestMapping("/image")
+			public String image(HttpSession session) {
+				try {
+					String loginId = (String)session.getAttribute("loginId");
+				int attachNo = memberDao.findAttachNo(loginId);
+				return "redirect:/download?attachNo=" + attachNo;
+			}
+			catch(Exception e) {
+				return "redirect:/image/user.svg";
+				}
 			}
 
 		}

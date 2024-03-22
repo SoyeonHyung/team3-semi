@@ -61,6 +61,12 @@
 .w-1100 { width: 1100px; }
 .w-1150 { width: 1150px; }
 .w-1200 { width: 1200px; }
+.w-1300 { width: 1300px; }
+.w-1400 { width: 1400px; }
+.w-1500 { width: 1500px; }
+.w-1600 { width: 1600px; }
+.w-1700 { width: 1700px; }
+.w-1800 { width: 1800px; }
 
 .w-100 { width:100%; }
 .w-90 { width:90%; }
@@ -76,8 +82,8 @@
     - 버튼 - .btn
 */
 .tool , .btn {
-    font-size: 20px;
-    padding: 0.5em 1em;
+    font-size: 16px; /* 원하는 크기로 조정 */
+    padding: 0.3em 0.8em; /* 원하는 크기로 조정 */
     outline: none;/*선택시 자동강조효과 제거*/
     border: 1px solid #e3c7a6;
     border-radius: 0.1em;
@@ -85,7 +91,7 @@
 
 /* 입력창은 focus 효과가 발생할 때 테두리를 강조 */
 .tool:focus {
-    border-color: #e3c7a6;
+    border-color: #bda488;
 }
 
 /* 밑줄만 있는 입력창 구현 .tool.underline*/
@@ -136,16 +142,17 @@ textarea.tool.tool-fixed {
 */
 
 .btn {/* a태그를 버튼으로 쓸 경우 */
-    color: #e3c7a6;
+    color: #bda488;
     text-decoration: none; /* 밑줄 제거 */
     display: inline-block;
     text-align: center;
     cursor: pointer;
-    border: none;
+    border: none; 
+    
 }
 
 .btn.positive {
-    background-color: #e3c7a6;
+    background-color: #bda488;
     color: white;
 }
 .btn.negative {
@@ -324,7 +331,7 @@ textarea.tool.tool-fixed {
 .table.table-border > tfoot > tr > th, 
 .table.table-border > tfoot > tr > td 
 {
-    border:1px solid #e3c7a6;
+    border:1px solid #bda488;
 }
 
 /*
@@ -335,7 +342,7 @@ textarea.tool.tool-fixed {
 .table.table-stripe > thead > tr,
 .table.table-stripe > tbody > tr:nth-child(2n) 
 {
-    background-color: #e3c7a6;
+    background-color: #bda488;
 }
 
 /*
@@ -343,7 +350,7 @@ textarea.tool.tool-fixed {
     - 제목은 제외한 내용 줄만 마우스가 올라가면 색상이 변하도록 구현
 */
 .table.table-hover > tbody > tr:hover {
-    background-color: #e3c7a1;
+    background-color: #f0eae2;
 }
 
 /*
@@ -353,13 +360,61 @@ textarea.tool.tool-fixed {
     border-top: 1px solid #2d3436;
     border-bottom: 1px solid #2d3436;
 }
+
 .table.table-horizontal > thead {
     border-bottom: 1px solid #2d3436;
 }
-.table.table-horizontal > tfoot
-{
+.table.table-horizontal > tfoot {
     border-top: 1px solid #2d3436;
 }
+
+.table.table-horizontal2 td {
+        vertical-align: middle; /* 셀 내에서 수직 정렬을 가운데로 설정합니다. */
+    }
+
+.table.table-horizontal2 {
+    border-collapse: collapse; /* 테이블 셀 경계를 합칩니다. */
+}
+
+.table.table-horizontal2 th,
+.table.table-horizontal2 td {
+    border: none; /* 모든 셀에 선을 없앱니다. */
+}
+
+.table.table-horizontal2 > thead th,
+.table.table-horizontal2 > tbody th,
+.table.table-horizontal2 > tfoot th,
+.table.table-horizontal2 > thead td,
+.table.table-horizontal2 > tbody td,
+.table.table-horizontal2 > tfoot td {
+    border-bottom: 1px solid #ddd; 
+}
+
+.table.table-horizontal2 > thead th {
+    border-bottom: 2px solid #ddd; 
+}
+
+.table.table-horizontal2 > tfoot td {
+    border-top: 1px solid #ddd; 
+}
+
+.table.table-horizontal2 td a.link {
+    max-width: 14em;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    padding: 0;
+}
+
+.table.table-horizontal2 td a.link > .title2 {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    max-width: 100%;
+    padding: 0;
+}
+
+
 /* :not() 을 이용하여 특정 대상을 선택에서 제거할 수 있다 */
 .table.table-horizontal > tbody > tr:not(tr:last-child) {
     border-bottom: 1px solid #b2bec3;
@@ -376,7 +431,7 @@ textarea.tool.tool-fixed {
     display: inline-block;
 }
 .link:hover {
-    color: #0984e3;
+    color: #b68c5d;
 }
 
 .link.link-animation {
@@ -402,7 +457,7 @@ textarea.tool.tool-fixed {
         - transform 속성을 통해 원하는 작업을 부여
         - transition 속성을 통해 움직임 정도를 구현
     */
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 /*
@@ -621,12 +676,13 @@ textarea.tool.tool-fixed {
 */
 .menu,
 .menu ul {
-    background-color: #e3c7a6;
+    background-color: #eeeeee;
+    
 }
 .menu li {
     font-size: 20px;
     width: 200px;
-    color: white;
+    color: #e4b176;
     padding: 0.25em;
     text-align: center;
 }
@@ -644,13 +700,13 @@ textarea.tool.tool-fixed {
 
 /* 모든 메뉴에 마우스가 올라가면 강조 표시 */
 .menu li:hover{
-    background-color: #ddb484;
+    color: #be9362;
 }
 
 /* 2차 메뉴(ul)의 위치를 미세조정 */
 .menu > li > ul {
     top:100%;
-    left:0;
+    left:0%;
 }
 
 /* 3차 이상의 메뉴(ul)의 위치를 미세조정 */
@@ -688,6 +744,7 @@ textarea.tool.tool-fixed {
     top: 0;
     left: auto;
     right: 100%;
+    
 }
 
 /* 

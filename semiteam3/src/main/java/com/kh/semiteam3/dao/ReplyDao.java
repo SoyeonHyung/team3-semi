@@ -58,4 +58,11 @@ public class ReplyDao {
 		Object[] data = {replyNo};
 		return jdbcTemplate.update(sql, data) > 0;
 	}
+	
+	//내가쓴 댓글
+    public List<ReplyDto> findBylist(String memberId) {
+        String sql = "SELECT * FROM reply WHERE member_id = ?";
+        Object[] data = {memberId};
+        return jdbcTemplate.query(sql, replyMapper, data);
+    }
 }

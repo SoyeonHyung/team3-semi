@@ -9,11 +9,24 @@ public class PageVO {
 	private String column, keyword;//검색항목, 검색어
 	private int count;//전체 개수
 	private int page=1;//현재 페이지
-	private int size=10;//한페이지에 보여줄 게시글 개수
+	private int size=15;//한페이지에 보여줄 게시글 개수
 	private int blockSize=10;//블럭 표시개수
 	
+	//모집중인지 .. 구분 ..?
+	private String status; 
 	
 	
+	public String getStatus() {
+		if(status == null)return "";
+		return status;
+	}
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
 	public PageVO() {
 		super();
 	}
@@ -70,12 +83,22 @@ public class PageVO {
 
 	//계산을 위한 가상의 Getter 메소드 추가
 	public boolean isSearch() {
-		return column != null && keyword != null && category != null;//카테고리 추가
+		return column != null && keyword != null && category != null; //카테고리 추가
 	}
-	//문의게시글 관련 계산을 위한 가상의 Getter 메소드 추가
-	public boolean isSearchInquiry() {
+	
+	//신고/문의게시글 관련 계산을 위한 가상의 Getter 메소드 추가
+	public boolean isSearchOther() {
 		return column != null && keyword != null;//카테고리 추가
 	}
+	
+	//모집중인 게시글만 보기 추가위해 만드는 메소드!!!!?
+	public boolean isOnlyRecruiting() {
+		return category != null && status != null;
+	}
+	public boolean isOnlyRecruitingAndSearch() {
+		return column != null && keyword != null && category != null && status != null;
+	}
+	
 	
 	public int getBeginRow() {
 		//return getEndRow() - (size-1);
@@ -105,7 +128,8 @@ public class PageVO {
 	}
 	//물음표 뒤에 붙는 데이터 중 공통된 부분
 	public String getQueryString() {
-		return "&size="+size+"&column="+getColumn()+"&keyword="+getKeyword();
+		return "&size=" + size + "&column=" + getColumn() + "&keyword=" + getKeyword()
+							+ "&status=" + getStatus();
 	}
 	
 
@@ -117,6 +141,8 @@ public class PageVO {
 	public int getNextBlock() {
 		return getEndBlock()+1;
 	}
+	
+
 
 
 }

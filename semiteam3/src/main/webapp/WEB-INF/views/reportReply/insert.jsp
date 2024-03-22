@@ -7,29 +7,12 @@
 <title>댓글 신고</title>
 <script src="/js/exit.js"></script>
 </head>
-
-
 <body>
 	<jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
-	
-	<script type="text/javascript"> //헤더 아래에 있어야 작동
-	$(document).ready(function() {
-		$("form").submit(function() {
-			alert("신고가 완료되었습니다");
-		});
-	});
-	</script>
-	
-	<div class="container w-800">
+	<div class="container w-1000">
 		<div class="cell center">
 			<h1>댓글 신고</h1>
 		</div>
-		
-		<div class="cell">
-				<input name="reportReplyOrigin" type="hidden"
-					value="${param.reportReplyOrigin}">
-		</div>
-		
 		<div class="cell">
 			<label>신고사유</label> <select name="reportReplyReason" required
 				class="tool w-100">
@@ -39,16 +22,13 @@
 				<option value="무의미한 글">무의미한 글</option>
 			</select>
 		</div>
-		
 		<div class="cell">
 			<label>신고내용</label>
 			<textarea name="reportReplyContent" required class="tool w-100"
 				rows="10"></textarea>
 		</div>
 		<div class="cell right">
-			<c:if test="${sessionScope.loginGrade == '관리자'}">
-					<a href="list" class="btn">목록</a>
-			</c:if>
+			<a href="list" class="btn">목록</a>
 			<button class="btn positive">등록</button>
 		</div>
 	</div>

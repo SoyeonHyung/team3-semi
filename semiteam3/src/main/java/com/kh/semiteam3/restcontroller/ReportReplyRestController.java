@@ -26,7 +26,7 @@ public class ReportReplyRestController {
 	}
 	//댓글 신고 할때는 그 신고당한 번호랑 
 	@Autowired
-	private ReportReplyDao reportReplayDao;
+	private ReportReplyDao reportReplyDao;
 	
 	@Autowired
 	private ReplyDao replyDao;
@@ -34,25 +34,21 @@ public class ReportReplyRestController {
 	@Autowired
 	private MemberDao memberDao;
 	
-	//list가 굳이 필요할까
 	
-	//삭제는?
 	
-	//신고 등록(사용자가 댓글 신고하면 끝임 그냥!) 
 	@PostMapping("/insert")
 	public void insert(@ModelAttribute ReportReplyDto reportReplyDto, HttpSession session) {
-		String loginId = (String) session.getAttribute("loginId");
-		
-		int sequence = reportReplayDao.getSequence();
-		
+		String loginId = (String) session.getAttribute("loginId");//댓글신고자
+
+		// 댓글 수 증가
+		//boardDao.increaseBoardReply(replyDto.getReplyOrigin());
+
+		int sequence = reportReplyDao.getSequence();
+
 		reportReplyDto.setReportReplyWriter(loginId);
 		reportReplyDto.setReportReplyNo(sequence);
-		
-		reportReplayDao.insert(reportReplyDto);
+
+		reportReplyDao.insert(reportReplyDto);
 	}
-	
-	
-	
-	
 	
 }
