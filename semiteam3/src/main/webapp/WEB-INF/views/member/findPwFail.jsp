@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
-<h1>정보 틀림!</h1>
+<div class="container w-600">
+	<div class="cell center">
+		<h2>존재하지 않는 아이디/이메일입니다</h2>
+	</div>
+	<div class="cell center">
+		<h3><a href="findPw" class="link link-animation">다시 입력하기</a></h3>
+	</div>
+</div>
 
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

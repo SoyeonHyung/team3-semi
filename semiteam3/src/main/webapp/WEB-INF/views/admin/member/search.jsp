@@ -31,10 +31,10 @@
 }
 
 .box {
-	width: 800px;
-	background-color: #f8f9fa;
+	width: 1000px;
+	background-color: #fff;
 	color: #333;
-	padding: 20px;
+	padding: 10px;
 	/*top: 330px;*/
 	height: fit-content;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -51,9 +51,9 @@
  --%>
 <div class="container" style="display: flex; width:1300px;">
 		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
-<div class="box cell container w-1000">
+<div class="box container w-1000 center">
 <h1>회원 관리</h1>
- <div class="cell">
+<div class="cell width-fill right pe-10">
 	<form action="search" method="get">
 		<select class="tool" name="column">
 			<option value="member_id" ${param.column == 'member_id' ? 'selected' : ''}>아이디</option>

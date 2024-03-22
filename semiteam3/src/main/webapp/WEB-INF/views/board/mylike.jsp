@@ -4,12 +4,12 @@
 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
+<body>
 <!-- 작성글 내역 표시 -->
 <div class="container" style="display: flex; width:1300px;">
 		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
 <div class="container w-1000 set-color">
 <h2>찜목록</h2>
-<body>
         <div class="cell">
 		<table class="table table-horizontal table-hover">
 			<thead class="center">
@@ -46,9 +46,9 @@
 			<jsp:include page="/WEB-INF/views/template/navigator.jsp"></jsp:include>
 		</div>
 	</div>
+	</div>
+	</div>
 	</body>
-	</div>
-	</div>
 </html>
 
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

@@ -7,12 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 신고</title>
-</head>
-<body>
 	<jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 	<style>
 	.box {
-		width: 800px;
+		width: 1000px;
 		background-color: #f8f9fa;
 		color: #333;
 		padding: 20px;
@@ -22,9 +20,11 @@
 		border-radius: 10px;
 	}
 	</style>
+</head>
+<body>
 	<div class="container" style="display: flex; width:1300px;">
 		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
-	<div class="box cell container">
+	<div class="box cell container w-1000">
 		<div class="cell">
 			<h2>게시글 신고</h2>
 		</div>
@@ -61,7 +61,8 @@
 		<div>
 			<a class="btn negative link-confirm" data-message="정말 삭제하시겠습니까?"
 					href="delete?reportBoardNo=${reportBoardDto.reportBoardNo}">게시글 신고글삭제</a>
-			<a class="btn positive" href="list">게시글 신고글 목록</a>
+			<a class="btn positive" onclick="history.back()">게시글 신고글 목록</a>
+<!-- 			<a class="btn positive" href="list">게시글 신고글 목록</a> -->
 			<a class="btn positive" href="/board/detail?boardNo=${reportBoardDto.reportBoardOrigin}">신고된 게시글 보러가기</a>
 
 		</div>

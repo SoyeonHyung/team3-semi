@@ -82,7 +82,7 @@ body {
 	height: 220px;
 }
 .nosilLogo:hover {
-	transform: scale(1.25, 1.25);
+	transform: scale(1.1, 1.1);
 	transition: 0.2s ease-out;
 }
 .relative-box{
@@ -104,6 +104,7 @@ body {
 
 <script>
 	$(function() {
+		
 		var options = {
 			toolbar : [
 			// [groupName, [list of button]]

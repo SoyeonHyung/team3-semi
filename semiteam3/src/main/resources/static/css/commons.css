@@ -83,15 +83,15 @@
 */
 .tool , .btn {
     font-size: 16px; /* 원하는 크기로 조정 */
-    padding: 0.3em 0.8em; /* 원하는 크기로 조정 */
+    padding: 0.5em 0.8em; /* 원하는 크기로 조정 */
     outline: none;/*선택시 자동강조효과 제거*/
-    border: 1px solid #e3c7a6;
+    border: 1px solid #e4b176;
     border-radius: 0.1em;
 }
 
 /* 입력창은 focus 효과가 발생할 때 테두리를 강조 */
 .tool:focus {
-    border-color: #bda488;
+    border-color: #e4b176;
 }
 
 /* 밑줄만 있는 입력창 구현 .tool.underline*/
@@ -142,17 +142,16 @@ textarea.tool.tool-fixed {
 */
 
 .btn {/* a태그를 버튼으로 쓸 경우 */
-    color: #bda488;
+    color: #e4b176;
     text-decoration: none; /* 밑줄 제거 */
     display: inline-block;
     text-align: center;
     cursor: pointer;
-    border: none; 
     
 }
 
 .btn.positive {
-    background-color: #bda488;
+    background-color: #e4b176;
     color: white;
 }
 .btn.negative {
@@ -233,6 +232,7 @@ textarea.tool.tool-fixed {
 
 .my-0 { margin-top:0px; margin-bottom: 0px; }
 .my-10 { margin-top:10px; margin-bottom: 10px; }
+.my-15 { margin-top:15px; margin-bottom: 15px; }
 .my-20 { margin-top:20px; margin-bottom: 20px; }
 .my-30 { margin-top:30px; margin-bottom: 30px; }
 .my-40 { margin-top:40px; margin-bottom: 40px; }
@@ -318,7 +318,7 @@ textarea.tool.tool-fixed {
 .table > tfoot > tr > td
 {
     text-align: center;
-    padding: 0.25em;
+    padding: 0.5em;
 }
 
 /*
@@ -331,7 +331,7 @@ textarea.tool.tool-fixed {
 .table.table-border > tfoot > tr > th, 
 .table.table-border > tfoot > tr > td 
 {
-    border:1px solid #bda488;
+    border:1px solid #e4b176;
 }
 
 /*
@@ -342,7 +342,7 @@ textarea.tool.tool-fixed {
 .table.table-stripe > thead > tr,
 .table.table-stripe > tbody > tr:nth-child(2n) 
 {
-    background-color: #bda488;
+    background-color: #e4b176;
 }
 
 /*
@@ -477,7 +477,7 @@ textarea.tool.tool-fixed {
 
 .page-navigator > a {
     display: inline-block;
-    color: #2d3436;
+    color: #e4b176;
     text-decoration: none;
 /*     border: 1px solid #2d3436; */
 	border: 1px solid transparent; /* 투명테두리 */
@@ -493,8 +493,8 @@ textarea.tool.tool-fixed {
 .page-navigator > a.on ,
 .page-navigator > a:not(.off):hover
 {
-    color: #0984e3;
-    border-color: #0984e3;
+    color: #e4b176;
+    border-color: #e4b176;
 }
 
 /* off 클래스에 대한 효과 추가 */
@@ -823,9 +823,22 @@ textarea.tool.tool-fixed {
     box-shadow: 0 0 1px 0 #ccc;
 }
 .progressbar > .guage{
-    width: 0;
+/*     width: 0; */
+/*     height: 5px; */
+/*     background: rgb(2,0,36); */
+/*     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 11%, rgba(8,39,141,1) 26%, rgba(6,85,171,1) 42%, rgba(4,131,202,1) 60%, rgba(2,169,227,1) 80%, rgba(0,212,255,1) 100%); */
+/*     transition: width 0.25s ease-out; */
+
+
+    width: 0%;
     height: 5px;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 11%, rgba(8,39,141,1) 26%, rgba(6,85,171,1) 42%, rgba(4,131,202,1) 60%, rgba(2,169,227,1) 80%, rgba(0,212,255,1) 100%);
-    transition: width 0.25s ease-out;
+    background: rgb(238,174,202);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    transition: width 0.1s ease-in-out;
+
 }
+
+
+
+
+

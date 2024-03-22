@@ -76,7 +76,7 @@ public class ReportBoardController {
 			int attachNo = Integer.parseInt(key);//숫자로 변환
 			attachService.remove(attachNo);//파일삭제+DB삭제
 		}
-
+		boardDao.decreaseBoardReport(reportBoardDto.getReportBoardOrigin());
 		reportBoardDao.delete(reportBoardNo);
 		return "redirect:list";
 	}

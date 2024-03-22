@@ -131,7 +131,7 @@
 
 			<%--전체공지 테이블 --%>
 			<div class="cell">
-				<table class="table table-horizontal table-hover">
+				<table class="table table-horizontal table-hover ">
 
 
 					<c:forEach var="boardDto" items="${adminListAll}">

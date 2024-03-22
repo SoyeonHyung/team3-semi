@@ -31,8 +31,8 @@
 }
 
 .box {
-	width: 800px;
-	background-color: #f8f9fa;
+	width: 1000px;
+	background-color: #fff;
 	color: #333;
 	padding: 20px;
 	/*top: 330px;*/
@@ -44,7 +44,7 @@
 
 <div class="container" style="display: flex; width:1300px;">
 		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
-<div class="box cell container w-1000">
+<div class="box container">
 	<div class="cell center">
 		<h2>${memberDto.memberNick}님의 상세 정보</h2>
 	</div>
@@ -103,13 +103,13 @@
 			</tr>
 		</table>
 	</div>
-	</div>
-	
-	<div class="cell right">
+	<div class="cell right pe-20">
 		<a class="btn positive" href="edit?memberId=${memberDto.memberId}">수정</a>
 		<a href="delete?memberId=${memberDto.memberId}" class="link-confirm btn negative" data-message="정말 탈퇴시키시겠습니까?">
-			회원강제탈퇴</a>
+			회원 강제탈퇴</a>
 	</div>
+</div>
+	
 </div>
 
 

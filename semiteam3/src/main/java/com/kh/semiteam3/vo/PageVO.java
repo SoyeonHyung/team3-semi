@@ -99,6 +99,10 @@ public class PageVO {
 		return column != null && keyword != null && category != null && status != null;
 	}
 	
+	public boolean isCategory() {
+		return category != null;
+	}
+	
 	
 	public int getBeginRow() {
 		//return getEndRow() - (size-1);

@@ -7,7 +7,8 @@
 
 <form class="free-pass" action="edit" method="post" autocomplete="off">
     <input type="hidden" name="inquiryNo" value="${inquiryDto.inquiryNo}">
-
+<div class="container" style="display: flex; width: 1300px;">
+		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include> 
 <div class="container w-1000">
     <div class="cell center"><h1>문의게시글 수정</h1></div>
     <div class="cell">
@@ -23,6 +24,7 @@
         <a href="list" class="btn">목록</a>
         <button class="btn positive">수정하기</button>
     </div>
+</div>
 </div>
 </form>
 

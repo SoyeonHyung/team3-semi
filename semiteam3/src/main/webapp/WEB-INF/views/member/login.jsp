@@ -10,58 +10,58 @@
     </c:if>
 </script>	
 <style>
-    .input {
-        width: 350px;
-        padding: 0.5em 1em;
-        border: 0.1px;
-    }
-    .form-container {
-        width: 450px;
-        margin: 0 auto;
-    }
-    .form-container h1 {
-        color: #e3c7a6;
-        text-align: center;
-    }
-    .form-group {
-        margin-bottom: 20px;
-    }
-    .form-group label {
-        display: block;
-        margin-bottom: 5px;
-    }
-    .form-group input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
-    .form-feedback {
-        color: red;
-        font-size: 14px;
-    }
-    .form-actions {
-        text-align: center;
-    }
-    .form-actions button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        background-color: #e3c7a6;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-    }
-     .box{
-        width: 500px;
-        background-color: #f8f9fa;
-        color: #333;
-        padding: 20px;
-        /*top: 330px;*/
-        height: fit-content;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
+.input {
+	width: 350px;
+	padding: 0.5em 1em;
+	border: 0.1px;
+}
+.form-container {
+	width: 450px;
+	margin: 0 auto;
+}
+.form-container h1 {
+	color: #e3c7a6;
+	text-align: center;
+}
+.form-group {
+	margin-bottom: 20px;
+}
+.form-group label {
+	display: block;
+	margin-bottom: 5px;
+}
+.form-group input {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+.form-feedback {
+	color: red;
+	font-size: 14px;
+}
+.form-actions {
+	text-align: center;
+}
+.form-actions button {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	background-color: #e3c7a6;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
+.box{
+	width: 500px;
+	background-color: #f8f9fa;
+	color: #333;
+	padding: 20px;
+	height: fit-content;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	/*top: 330px;*/
 }
 
 a{

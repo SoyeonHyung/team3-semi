@@ -45,32 +45,35 @@ input[name=memberAddress2] {
 	background-image: url("/image/joinImage/home.png");
 }
 
-input[name=memberId],[name=memberPw], 
-[id="pw-reinput"],[name=memberNick] ,
-[name=memberBirth], [name=memberContact],
-[name=memberEmail], [name=memberPost],
+input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
+[name=memberBirth], [name=memberContact],[name=memberEmail], [name=memberPost],
 [name=memberAddress1],[name=memberAddress2]  
 {
-        
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
 
 .fa-asterisk {
 	color: red;
 }
 .box {
-	width: 800px;
+	width: 500px;
 	background-color: #f8f9fa;
 	color: #333;
 	padding: 20px;
-	/*top: 330px;*/
 	height: fit-content;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 }
+.btn-prev{
+	border: none;
+}
+.btn-next{
+	border: none;
+}
+
 </style>
 
 <script type="text/template" id="cert-template">
@@ -414,43 +417,44 @@ input[name=memberId],[name=memberPw],
         });
     });
 </script>
+
 <div class="box cell container">
 <form action="join" method="post" enctype="multipart/form-data"
 	class="check-form" autocomplete="off">
 
-	<div class="container w-500">
+	<div class="container w-450">
 		<div class="cell title center">
 			<h1>회원가입</h1>
 		</div>
-		<div class="cell center red">
-			<p>
-				<i class="fa-solid fa-asterisk"></i> 표시는 필수항목입니다.
-			</p>
-		</div>
-
 
 		<!-- 진행바 -->
-		<div class="cell">
-			<div class="progressbar">
-				<div class="guage"></div>
-			</div>
-		</div>
+<!-- 		<div class="cell"> -->
+<!-- 			<div class="progressbar"> -->
+<!-- 				<div class="guage"></div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 
 
 		<!-- 1페이지 - 필수항목들만 모아놓음
 							(아이디 / 비밀번호 + 확인 / 닉네임) -->
-		<div class="cell page">
+		<div class="cell page w-450">
+		<div class="cell right">
+			<p>
+				<i class="fa-solid fa-asterisk" style="color:red"></i> 
+				표시는 필수항목입니다.
+			</p>
+		</div>
 			<div class="cell">
-				<label> 아이디 <i class="fa-solid fa-asterisk"></i>
-				</label> <input type="text" name="memberId" class="tool tool-image w-100"
+				 아이디 <i class="fa-solid fa-asterisk"></i>
+				 <input type="text" name="memberId" class="tool tool-image w-100"
 					placeholder="소문자 시작, 숫자포함 8~20자">
 				<div class="success-feedback">멋진 아이디네요!</div>
 				<div class="fail-feedback">아이디는 소문자 시작, 숫자 포함 8~20자로 작성하세요</div>
 			</div>
 
 			<div class="cell">
-				<label> 비밀번호 <i class="fa-solid fa-asterisk"></i>
-				</label> <input type="password" name="memberPw"
+				비밀번호 <i class="fa-solid fa-asterisk"></i>
+				 <input type="password" name="memberPw"
 					class="tool tool-image w-100"
 					placeholder="대소문자, 숫자, 특수문자(!@#$) 포함 6~15자">
 				<div class="success-feedback">비밀번호가 올바른 형식입니다</div>
@@ -459,8 +463,8 @@ input[name=memberId],[name=memberPw],
 			</div>
 
 			<div class="cell">
-				<label> 비밀번호 확인 <i class="fa-solid fa-asterisk red"></i>
-				</label> <input type="password" placeholder="" id="pw-reinput"
+				 비밀번호 확인 <i class="fa-solid fa-asterisk"></i>
+				 <input type="password" placeholder="" id="pw-reinput"
 					class="tool tool-image w-100">
 				<div class="fail2-feedback">비밀번호를 먼저 입력하세요</div>
 				<div class="fail-feedback">비밀번호가 일치하지 않습니다</div>
@@ -468,8 +472,8 @@ input[name=memberId],[name=memberPw],
 			</div>
 
 			<div class="cell">
-				<label> 닉네임 <i class="fa-solid fa-asterisk"></i>
-				</label> <input type="text" name="memberNick" class="tool tool-image w-100"
+				 닉네임 <i class="fa-solid fa-asterisk"></i>
+				 <input type="text" name="memberNick" class="tool tool-image w-100"
 					placeholder="한글, 숫자 2~10글자(반드시 한글로 시작)">
 				<div class="fail-feedback">닉네임은 한글 시작, 한글 또는 숫자 2~10자로 작성하세요</div>
 				<div class="success-feedback">닉네임 형식이 일치합니다</div>
@@ -478,21 +482,30 @@ input[name=memberId],[name=memberPw],
 			<div class="flex-cell">
 				<div class="w-100 left"></div>
 				<div class="w-100 right">
-					<button type="button" class="btn btn-next w-100">다음</button>
+					<button type="button" class="btn btn-next w-100">
+						다음
+						<i class="fa-solid fa-angle-right"></i>
+					</button>
 				</div>
 			</div>
 		</div>
 
 
 		<!-- 2페이지 - 필수항목 중 이메일 인증 -->
-		<div class="cell page">
+		<div class="cell page w-450">
+		<div class="cell right">
+			<p>
+				<i class="fa-solid fa-asterisk" style="color:red"></i> 
+				표시는 필수항목입니다.
+			</p>
+		</div>
 			<div class="cell">
-				<label> 이메일 <i class="fa-solid fa-asterisk"></i>
-				</label>
-				<div class="flex-cell" style="flex-wrap: wrap;">
+				이메일 <i class="fa-solid fa-asterisk"></i>
+				
+				<div class="flex-cell w-100" style="flex-wrap: wrap;">
 					<input type="email" name="memberEmail"
 						placeholder="test1234@kh.com" class="tool tool-image width-fill">
-					<button type="button" class="btn negative btn-send-cert ms-10">
+					<button type="button" class="btn positive btn-send-cert ms-10">
 						<i class="fa-regular fa-paper-plane"></i>
 					</button>
 					<div class="fail-feedback w-100">잘못된 이메일 형식입니다</div>
@@ -504,29 +517,35 @@ input[name=memberId],[name=memberPw],
 
 			<div class="flex-cell">
 				<div class="w-100 left">
-					<button type="button" class="btn btn-prev w-100 pink">이전</button>
+					<button type="button" class="btn btn-prev w-100 pink">
+						<i class="fa-solid fa-angle-left"></i>
+						이전
+					</button>
 				</div>
 				<div class="w-100 right">
-					<button type="button" class="btn btn-next w-100">다음</button>
+					<button type="button" class="btn btn-next w-100">
+						다음
+						<i class="fa-solid fa-angle-right"></i>
+					</button>
 				</div>
 			</div>
 		</div>
 
 		<!-- 3페이지 - 생년월일/연락처/주소 -->
-		<div class="cell page">
+		<div class="cell page  w-450">
 			<div class="cell">
-				<label> 생년월일 <input name="memberBirth"
+				 생년월일 <input name="memberBirth"
 					class="tool tool-image w-100" type="date">
-				</label>
+				
 			</div>
 
 			<div class="cell">
-				<label> 연락처 </label> <input name="memberContact"
+				 연락처  <input name="memberContact"
 					class="tool tool-image w-100" type="tel">
 			</div>
 
 			<div class="cell">
-				<label>주소</label>
+				주소
 			</div>
 			<div class="cell">
 				<input name="memberPost" class="tool tool-image w-50"
@@ -549,27 +568,42 @@ input[name=memberId],[name=memberPw],
 
 			<div class="flex-cell">
 				<div class="w-100 left">
-					<button type="button" class="btn btn-prev w-100 pink">이전</button>
+					<button type="button" class="btn btn-prev w-100 pink">
+						<i class="fa-solid fa-angle-left"></i>
+						이전
+					</button>
 				</div>
 				<div class="w-100 right">
-					<button type="button" class="btn btn-next w-100">다음</button>
+					<button type="button" class="btn btn-next w-100">
+						다음
+						<i class="fa-solid fa-angle-right"></i>
+					</button>
 				</div>
 			</div>
 		</div>
 
 
 		<!-- 4페이지 - 프로필사진 -->
-		<div class="cell page">
+		<div class="cell page w-450 center">
 			<div class="cell">
-				<label>프로필 이미지</label>
-				<input type="file" name="attach" class="too w-100">
+				<label for="attach">
+					<img src="/image/user.svg" width="200px">
+				</label>
+				<label for="attach">
+					<P style="color:gray">클릭하여 프로필을 변경하세요(선택)</P>
+				</label>
+				<input type="file" id="attach" name="attach" 
+						class="too w-100" style="display:none">
 			</div>
 
 				
 
 				<div class="flex-cell">
 				<div class="w-100 left">
-					<button type="button" class="btn btn-prev w-100 pink">이전</button>
+					<button type="button" class="btn btn-prev w-100 pink">
+						<i class="fa-solid fa-angle-left"></i>
+						이전
+					</button>
 				</div>
 				<div class="w-100 right">
 					<button type="submit" class="btn positive w-100">회원가입</button>

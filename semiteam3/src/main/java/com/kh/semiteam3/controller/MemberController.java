@@ -1,6 +1,7 @@
 package com.kh.semiteam3.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.semiteam3.dao.AttachDao;
+import com.kh.semiteam3.dao.BoardDao;
 import com.kh.semiteam3.dao.MemberDao;
 import com.kh.semiteam3.dto.AttachDto;
 import com.kh.semiteam3.dto.MemberDto;
@@ -36,6 +38,9 @@ public class MemberController {
 	
 	@Autowired
 	private EmailService emailService;
+	
+	@Autowired
+	private BoardDao boardDao;
 	
 	
 	//회원가입 페이지
@@ -333,5 +338,9 @@ public class MemberController {
 	public String findPwFail() {
 		return "/WEB-INF/views/member/findPwFail.jsp";
 	}
+	
+	
+	
+
 	
 }

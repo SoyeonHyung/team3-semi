@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 신고</title>
+	<jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <script src="/js/exit.js"></script>
 
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
 	<script type="text/javascript"> //헤더 아래에 있어야 작동
 	$(document).ready(function() {
@@ -22,7 +22,8 @@
 	</script>
 	
 	<form action="insert" method="post" autocomplete="off">
-
+		<div class="container" style="display: flex; width:1300px;">
+			<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
 		<div class="container w-1000">
 			<div class="cell center">
 				<h1>게시글 신고</h1>
@@ -52,6 +53,7 @@
 				</c:if>
 				<button class="btn positive" type="submit">등록</button>
 			</div>
+		</div>
 		</div>
 	</form>
 	

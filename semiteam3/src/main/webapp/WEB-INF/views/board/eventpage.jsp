@@ -28,7 +28,8 @@
 }
 
 </style>
-
+<div class="container" style="display: flex; width: 1300px;">
+		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include> 
 <div class="container w-1000 set-color">
 	<div class="cell title left">노실? OPEN EVENT!!!</div>
 	<div class="cell info">
@@ -48,5 +49,5 @@
 	</div>
 
 </div>
-
+</div>
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

@@ -31,10 +31,6 @@ public class ReplyRestController {
 	@Autowired
 	private MemberDao memberDao;
 
-//	@PostMapping("/list")
-//	public List<ReplyDto> list(@RequestParam int replyOrigin) {
-//		return replyDao.selectList(replyOrigin);
-//	}
 	@PostMapping("/list")
 	public List<ReplyDto> list(@RequestParam int replyOrigin) {
 	    List<ReplyDto> list = replyDao.selectList(replyOrigin);
@@ -51,8 +47,11 @@ public class ReplyRestController {
 	}
 
 	@PostMapping("/delete")
-	public void delete(@RequestParam int replyNo) {
-		replyDao.delete(replyNo);
+	public void delete(@RequestParam int replyNo, @RequestParam int replyOrigin) {
+	    // 댓글 수 감소
+	    boardDao.decreaseBoardReply(replyOrigin);
+	    
+	    replyDao.delete(replyNo);
 	}
 
 	@PostMapping("/insert")

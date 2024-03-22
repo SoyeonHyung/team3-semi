@@ -5,10 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>댓글 신고</title>
+	<jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <script src="/js/exit.js"></script>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
+	<div class="container" style="display: flex; width:1300px;">
+		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
 	<div class="container w-1000">
 		<div class="cell center">
 			<h1>댓글 신고</h1>
@@ -31,6 +33,7 @@
 			<a href="list" class="btn">목록</a>
 			<button class="btn positive">등록</button>
 		</div>
+	</div>
 	</div>
 	<jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
 </body>
