@@ -4,57 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
-<style>
-.category{
-    font-size: 20px;
-    color: #e4b176;
-}
-p { /* p태그 전체를 뜻한다*/
-	font-size: 24pt;
-}
 
-</style>
-<body>
-<!-- 작성글 내역 표시 -->
-<div class="container" style="display: flex; width:1300px;">
-	<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
-	<div class="container w-1000 set-color">
-		<p class="left">내가 쓴 글</p>
-			<div class="myWriting category right">
-					<a href="" class="link">All</a>
-					<a href="" class="link"><i class="fa-solid fa-soccer-ball"></i></a>
-					<a href="" class="link"><i class="fa-solid fa-baseball"></i></a>
-					<a href="" class="link"><i class="fa-solid fa-basketball"></i></a>
-					<a href="" class="link"><i class="fa-solid fa-gamepad"></i></li></a>
-			</div>
-        <div class="cell">
-		<table class="table table-horizontal table-hover">
-			<thead class="center">
-				<tr>
-					<th>번호</th>
-					<th width="40%">제목</th>
-					<th>작성일</th>
-					<th>마감일</th>
-					<th>조회수</th>
-				</tr>
-			</thead>
-			<c:forEach var="boardDto" items="${boardList}">
-				<tr>
-					<td>${boardDto.boardNo}</td>
-					<%-- 제목칸 --%>
-					<td class="left" width="40%">
-						<%-- 제목 출력 --%> <a class="link"
-						href="detail?boardNo=${boardDto.boardNo}">
-							${boardDto.boardTitle} </a>
-					</td>
-					
-					<%-- dto 에서 가상의 메소드 하나 만들어주기 --%>
-					<td>${boardDto.boardWriteTimeStr}</td>
-					<%-- dto 에서 가상의 메소드 하나 만들어주기 --%>
-					<td>${boardDto.boardLimitTime}</td>
-					<td>${boardDto.boardView}</td>
-				</tr>
-			</c:forEach>
 <style>
 .category {
 	font-size: 20px;

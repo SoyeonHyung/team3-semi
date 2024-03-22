@@ -170,15 +170,15 @@ span{
         </tr>
         <tr>
             <th><i class="fa-regular fa-clock"></i> 로그인일시</th>
-            <span class="left">
+            <td class="left">
                 <fmt:formatDate value="${memberDto.memberLogin}" 
                                             pattern="y년 M월 d일 H시 m분 s초"/>
-            </span>>
+            <td>
         </tr>
     </table>
-  
- 
 </div>
+
+
 		<div class="cell right pe-30">
 			<a href="/member/password" class="button">비밀번호 변경</a><span> | </span><a
 				href="/member/edit" class="button">개인정보 변경</a><span> | </span><a
