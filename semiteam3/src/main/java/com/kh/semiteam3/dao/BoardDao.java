@@ -245,18 +245,18 @@ public class BoardDao {
    
 
 	
-	//닉네임으로 검색 카운트
-	public int countForNick(PageVO pageVO) {
-	    if (pageVO.isSearch()) { // 검색
-	        String sql = "SELECT COUNT(*) FROM board b JOIN member m ON b.board_writer = m.member_id WHERE m.member_nick LIKE ?";
-	        Object[] data = {"%" + pageVO.getKeyword() + "%"};
-	        return jdbcTemplate.queryForObject(sql, int.class, data);
-	    } else { // 목록
-	        String sql = "SELECT COUNT(*) FROM board WHERE board_category = ?";
-	        Object[] data = {pageVO.getCategory()};
-	        return jdbcTemplate.queryForObject(sql, int.class, data);
-	    }
-	}
+    // 닉네임으로 검색 카운트
+    public int countForNick(PageVO pageVO) {
+        if (pageVO.isSearch()) { // 검색
+            String sql = "SELECT COUNT(*) FROM board b JOIN member m ON b.board_writer = m.member_id WHERE m.member_nick LIKE ? AND b.board_category = ?";
+            Object[] data = {"%" + pageVO.getKeyword() + "%", pageVO.getCategory()};
+            return jdbcTemplate.queryForObject(sql, int.class, data);
+        } else { // 목록
+            String sql = "SELECT COUNT(*) FROM board WHERE board_category = ?";
+            Object[] data = {pageVO.getCategory()};
+            return jdbcTemplate.queryForObject(sql, int.class, data);
+        }
+    }
 	
 	//게시글 상세 조회
 	public BoardDto selectOne(int boardNo) {
