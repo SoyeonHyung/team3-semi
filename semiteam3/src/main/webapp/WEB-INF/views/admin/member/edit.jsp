@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
+<script src="/js/exit.js"></script>
 <style>
     .form-container {
         max-width: 1000px;
@@ -103,7 +104,7 @@
 		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
 <div class="form-container box center w-1000">
 	<h1>${memberDto.memberNick}님의 정보 변경</h1>
-	<form action="edit" method="post">
+	<form action="edit" method="post" class="free-pass">
 	    <input type="hidden" name="memberId" required value="${memberDto.memberId}"><br><br>
 	    
 	    <input type="text" class="edit" name="memberNick" required placeholder="닉네임 *" value="${memberDto.memberNick }"><br>

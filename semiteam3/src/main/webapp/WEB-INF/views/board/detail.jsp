@@ -38,6 +38,13 @@
 .title2 {
 	background-color: #f0eae2;
 }
+.btn-edit{
+ 	background-color:#d6303155;
+ 	color:#fff;
+}
+div > p > img{
+	max-width:960px;
+}
 
 .reply-writer {
     font-weight: 500;
@@ -49,13 +56,19 @@
     cursor: pointer;
 }
 
-.btn-reply-report:hover {
+.not-bell {
+	font-weight: 450;
+}
+
+.not-bell:hover {
+	text-decoration: none;
 	cursor: pointer;
 	color: #f3a683;
 }
 
 .btn-reply-report {
-	font-size: 15.5px;
+	font-size: 15px;
+	cursor: pointer;
 }
 
 
@@ -79,7 +92,7 @@
 				<span class="btn-reply-edit">수정<span class="reply-edit-delete-bar"> | </span></span>
 				<span class="btn-reply-delete">삭제</span>
 			</div>
-				<i class="fa-solid fa-bell btn-reply-report my-10"> 신고</i>
+				<i class="fa-solid fa-bell btn-reply-report ms-10 my-15"><span class="btn-reply-report not-bell"> 신고</span></i>
 		</div>
 	<pre class="reply-content"> 댓글 내용</pre>
 			<%-- <c:if test="${sessionScope.loginId != null && sessionScope.loginId != boardDto.boardWriter}">  --%>
@@ -650,7 +663,7 @@
 							<span class="btn-reply-edit">수정<span class="reply-edit-delete-bar"> | </span></span>
 							<span class="btn-reply-delete">삭제</span>
 						</div>
-							<i class="fa-solid fa-bell btn-reply-report my-10">신고</i>
+							<i class="fa-solid fa-bell btn-reply-report ms-10 my-15"><span class="btn-reply-report not-bell"> 신고</span></i>
 					</div>
 
 					<pre class="reply-content">댓글 내용</pre>
@@ -722,7 +735,7 @@
 									<tr>
 								</c:otherwise>
 							</c:choose>
-							<td class="left" width="80%">
+							<td class="left" width="70%">
 								<div class="my-10">
 									<a class="link" href="detail?boardNo=${boardDto.boardNo}">
 										${boardDto.boardTitle} <span class="reply">[${boardDto.boardReply}]</span>
@@ -777,12 +790,36 @@
 					</form>
 				</div>
 			</div>
+
+		</div>
+	</c:if>
+
+
+
+
+	<hr class="detail">
+
+	<div class="cell" style="min-height: 250px">
+		${boardDto.boardContent}</div>
+
+	<hr class="detail">
+
+	<div class="cell right">
+		<a class="btn btn-writer" href="write?category=${boardDto.boardCategory}">글쓰기</a>
+
+		<%-- 수정과 삭제 링크는 회원이면서 본인글이거나 관리자일 경우만 출력 --%>
+		<c:if
+			test="${sessionScope.loginId != null && (sessionScope.loginId == boardDto.boardWriter || sessionScope.loginGrade == '관리자')}">
+			<a class="btn btn-edit" 
+				href="edit?boardNo=${boardDto.boardNo}">글수정</a>
+			<a class="btn negative link-confirm" data-message="정말 삭제하시겠습니까?"
+				href="delete?boardNo=${boardDto.boardNo}">글삭제</a>
 		</c:if>
 	</div>
 </div>
 </body>
 
-<%--이유는 모르겠지만 이걸 밑에 넣어야 로드가 빨리됨 --%>
+<%--이걸 밑에 넣어야 로드가 빨리됨 --%>
 <script type="text/javascript">
     // 마감 시간 설정 (YYYY, MM, DD, HH, MM, SS 순서)
     <c:if test="${not empty boardDto.boardLimitTimeDate && memberDto.memberGrade ne '관리자'}">
@@ -806,6 +843,7 @@
             if (distance < 0) {
                 clearInterval(timer);
                 document.getElementById("countdown").innerHTML = "마감되었습니다.";
+                document.getElementById("countdown").style.color = "#ff6b6b";
                 return;
             }
 

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
-
+<script src="/js/exit.js"></script>
 <head>
 
 </head>
@@ -234,28 +234,31 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 				$(".cert-wrapper").empty();
 			}
 		})
-		
-		
+
+
 		//이메일 입력을 마친 상황일 때 잘못 입력한 경우만큼은 상태를 갱신
-		$("[name=memberEmail]").blur(
-				function() {
-					var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-					var value = $(this).val();
+		$("[name=memberEmail]")
+				.blur(
+						function() {
+							var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+							var value = $(this).val();
 
-					var isValid = regex.test(value);
+							var isValid = regex.test(value);
 
-					if (isValid == false) {
-						state.memberEmailValid = false;
-					}
+							if (isValid == false) {
+								state.memberEmailValid = false;
+							}
 
-					$(this).removeClass("success fail").addClass(
-							isValid ? "success" : "fail");
+							$(this).removeClass("success fail").addClass(
+									isValid ? "success" : "fail");
 
-					//뒤에 있는 보내기 버튼을 활성화 또는 비활성화
-					$(this).next(".btn-send-cert").prop("disabled", !isValid)
-							.removeClass("positive negative").addClass(
-									isValid ? "positive" : "negative");
-				});
+							//뒤에 있는 보내기 버튼을 활성화 또는 비활성화
+							$(this)
+									.next(".btn-send-cert")
+									.prop("disabled", !isValid)
+									.removeClass("positive negative")
+									.addClass(isValid ? "positive" : "negative");
+						});
 
 		//인증 메일 보내기 이벤트
 		var memberEmail;
@@ -274,52 +277,64 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 				url:"/rest/member/sendCert",
 				method:"post",//제출
 				data:{ memberEmail : email },
-				success: function(response){//성공했을시
-					//템플릿 불러와서 인증번호 입력창을 추가
-					var templateText = $("#cert-template").text();
-					var templateHtml = $.parseHTML(templateText);
-					
-					$(".cert-wrapper").empty().append(templateHtml);
-					
-					memberEmail = email;
+				
+				success: function(response){//데이터가 전송됐을시
+				
+				        // 템플릿 불러와서 인증번호 입력창을 추가
+				        var templateText = $("#cert-template").text();
+				        var templateHtml = $.parseHTML(templateText);
+				        $(".cert-wrapper").empty().append(templateHtml);
+
+				        // 이메일 저장
+				        memberEmail = email;
+
 				},
-				error:function(){
-					aler("시스템 오류. 잠시 후 이용바람");
-				},
-				complete:function(){
-					$(btn).find("i").removeClass("fa-solid fa-spinner fa-spin")  
-                    			.addClass("fa-regular fa-paper-plane");
-					$(btn).prop("disabled", false);
-				},				
-			});
-		});
-		
+						error : function() {
+							alert("시스템 오류. 잠시 후 이용바람");
+						},
+						complete : function() {
+							$(btn).find("i").removeClass(
+									"fa-solid fa-spinner fa-spin").addClass(
+									"fa-regular fa-paper-plane");
+							$(btn).prop("disabled", false);
+						},
+					});
+				});
+
 		//인증번호 확인 이벤트
-		$(document).on("click", ".btn-check-cert", function(){
-			var number = $(".cert-input").val();//인증번호
-			if(memberEmail == undefined || number.length == 0 ) return;
-			
-			$.ajax({
-				url:"/rest/member/checkCert",
-				method:"post",
-				data:{certEmail : memberEmail, certNumber : number},
-				success: function(response){
-					$(".cert-input").removeClass("success fail")
-						.addClass(response === true ? "success" : "fail");
-					
-					if(response === true){
-						 $(".btn-check-cert").prop("disabled", true);
-	                     state.memberEmailValid = true;
-					}
-					else{
-						state.memberEmailValid = false;
-					}
-				},
-				error:function(){
-					alert("오류");
-				},	
-			});
-		});
+		$(document).on(
+				"click",
+				".btn-check-cert",
+				function() {
+					var number = $(".cert-input").val();//인증번호
+					if (memberEmail == undefined || number.length == 0)
+						return;
+
+					$.ajax({
+						url : "/rest/member/checkCert",
+						method : "post",
+						data : {
+							certEmail : memberEmail,
+							certNumber : number
+						},
+						success : function(response) {
+							$(".cert-input").removeClass("success fail")
+									.addClass(
+											response === true ? "success"
+													: "fail");
+
+							if (response === true) {
+								$(".btn-check-cert").prop("disabled", true);
+								state.memberEmailValid = true;
+							} else {
+								state.memberEmailValid = false;
+							}
+						},
+						error : function() {
+							alert("오류");
+						},
+					});
+				});
 
 		$("[name=memberContact]").blur(
 				function() {
@@ -344,7 +359,9 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 						});
 
 		//주소는 세 개의 입력창이 모두 입력되거나 안되거나 둘 중 하나
-		$("[name=memberAddress2]").blur(function(){
+		$("[name=memberAddress2]")
+				.blur(
+						function() {
 							var post = $("[name=memberPost]").val();
 							var address1 = $("[name=memberAddress1]").val();
 							var address2 = $("[name=memberAddress2]").val();
@@ -372,12 +389,15 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 
 			//입력창 중에서 success fail fail2가 없는 창
 			$(this).find(".tool").not(".success, .fail, .fail2").blur();
-// 			console.table(state);
-// 			console.log(state.ok());
-			
+			// 			console.table(state);
+			// 			console.log(state.ok());
+
 			return state.ok();
 		});
 	});
+	<c:if test="${param.error != null}">
+    alert("로그인 정보가 일치하지 않습니다");
+</c:if>
 </script>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -416,11 +436,46 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
         	$("[name=memberAddress2]").val("");
         });
     });
+    
+    
+    $(function(){
+        
+        $("#memberAttach").on("change", function() {
+            var formData = new FormData();
+            formData.append("attach", this.files[0]);
+            $.ajax({
+                url : "/rest/member_attach/upload",
+                method : "post",
+                data : formData,
+                processData : false,
+                contentType : false,
+                success : function(response) {
+                    if (response == null)
+                        return;
+                    $("#preview").attr("src", "image");
+                }
+            });
+        });
+
+    });
+
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+            
+        }
+    }
 </script>
 
 <div class="box cell container">
 <form action="join" method="post" enctype="multipart/form-data"
-	class="check-form" autocomplete="off">
+	class="check-form free-pass"" autocomplete="off">
 
 	<div class="container w-450">
 		<div class="cell title center">
@@ -509,6 +564,7 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 						<i class="fa-regular fa-paper-plane"></i>
 					</button>
 					<div class="fail-feedback w-100">잘못된 이메일 형식입니다</div>
+					<div class="fail2-feedback w-100">잘못된 이메일 형식입니다</div>
 				</div>
 			</div>
 			
@@ -585,17 +641,29 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 
 		<!-- 4페이지 - 프로필사진 -->
 		<div class="cell page w-450 center">
-			<div class="cell">
-				<label for="attach">
-					<img src="/image/user.svg" width="200px">
-				</label>
-				<label for="attach">
-					<P style="color:gray">클릭하여 프로필을 변경하세요(선택)</P>
-				</label>
-				<input type="file" id="attach" name="attach" 
-						class="too w-100" style="display:none">
-			</div>
+		
+<div class="cell center">
+    <form action="mypage" method="post" autocomplete="off" enctype="multipart/form-data" >
+             <c:choose>
+            <c:when test="${empty loginMember.memberAttach}">
+                <label for="memberAttach">
+                    <img src="image" width="200" height="200" alt="Preview Image" id="preview" class="preview">
+                </label>
+            </c:when>
+            <c:otherwise>
+                <label for="memberAttach">
+                    <img src="/image/user.svg" id="preview" width="200" height="200" class="preview">
+                </label>
+            </c:otherwise>
+        </c:choose>
+                  
+        <input type="file" id="memberAttach" name="memberAttach" class="input" 
+                    onchange="previewImage(this)" style="display:none">
+		<div class="gray-text">* 사진을 클릭하여 변경하세요</div>
 
+	</form>
+  </div>  
+  	
 				
 
 				<div class="flex-cell">

@@ -41,7 +41,7 @@
 <style>
 .swiper {
 	width: 100%;
-	height: 500px;
+	height: 450px;
 }
 
 .responsive-img {
@@ -66,8 +66,20 @@
 }
 
 .ing .reply2 {
-	color: #1dd1a1;
+    color: #1dd1a1;
+    align-items: center;
 }
+
+.home-title {
+	font-size: 25px;
+}
+
+.link.home-table-title {
+	font-size: 20px;
+	margin: 10;
+	color: rgba(182, 139, 89, 0.856);
+}
+
 </style>
 
 <!-- jquery cdn -->
@@ -143,8 +155,15 @@
 	</div>
 </div>
 
-<div class="cell flex-cell center mt-50 container w-1700 ">
+<p class="home-title center mt-20">♡ 현재 모집중인 게시글 ♡</p>
+<div class="cell flex-cell center container w-1700 ">
 	<div class="cell w-100 ing set-color center">
+		<a href="/board/list?category=축구" class="link home-table-title center">		
+			<i class="fa-solid fa-soccer-ball"></i>
+				축구게시판
+			<i class="fa-solid fa-soccer-ball"></i>
+			<hr>
+		</a>
 		<table class="table table-horizontal2">
 			<c:forEach var="boardDto" items="${footballList}">
 				<tr>
@@ -159,6 +178,12 @@
 	</div>
 
 	<div class="cell w-100 ing set-color center">
+		<a href="/board/list?category=야구" class="link home-table-title center">
+			<i class="fa-solid fa-baseball"></i>
+				야구게시판
+			<i class="fa-solid fa-baseball"></i>
+			<hr>
+		</a>
 		<table class="table table-horizontal2">
 			<c:forEach var="boardDto" items="${baseballList}">
 				<tr>
@@ -173,6 +198,12 @@
 	</div>
 
 	<div class="cell w-100 ing set-color center">
+		<a href="/board/list?category=농구" class="link home-table-title center">
+			<i class="fa-solid fa-basketball"></i>
+				농구게시판
+			<i class="fa-solid fa-basketball"></i>
+			<hr>
+		</a>
 		<table class="table table-horizontal2">
 			<c:forEach var="boardDto" items="${basketballList}">
 				<tr>
@@ -186,6 +217,12 @@
 		</table>
 	</div>
 	<div class="cell w-100 ing set-color center">
+		<a href="/board/list?category=E-스포츠" class="link home-table-title center">
+			<i class="fa-solid fa-gamepad"></i>
+				게임게시판
+			<i class="fa-solid fa-gamepad"></i>
+			<hr>
+		</a>
 		<table class="table table-horizontal2">
 			<c:forEach var="boardDto" items="${ESportsList}">
 				<tr>

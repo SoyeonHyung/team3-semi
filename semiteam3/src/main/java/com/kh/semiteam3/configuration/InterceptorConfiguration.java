@@ -31,11 +31,12 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 		registry.addInterceptor(memberInterceptor)
 					.addPathPatterns(
 							"/member/**", "/inquiry/**",
-							"/board/**", "/board/write"
+							"/board/**", "/board/write",
+							"/reportBoard/**", "/reportReply/**"
 							)
 					.excludePathPatterns(
 							"/member/join*", "/member/login", "/member/find*",
-							"/member/exitFinish", "/board/list*", "/board/detail*"
+							"/member/exitFinish", "/board/list*", "/board/detail*", "/board/eventpage"
 							);
 		
 		// 관리자 인터셉터 등록
@@ -48,10 +49,12 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 		registry.addInterceptor(adminInterceptor)
 						.addPathPatterns(
 								"/admin/**",
-								"/reportBoard/**"
+								"/reportBoard/**",
+								"/reportReply/**"
 								)
 						.excludePathPatterns(
-								"/reportBoard/insert*"
+								"/reportBoard/insert*",
+								"/reportReply/insert*"
 								);
 		
 		//게시글 조회수 중복방지 인터셉터 등록

@@ -4,10 +4,14 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
+<script src="/js/exit.js"></script>
 <style>
 .map {
 	width: 100%;
 	height: 400px;
+}
+.write-title > p {
+	font-size: 25px;
 }
 
 
@@ -68,21 +72,21 @@ $(function() {
 <div class="container w-1000">
 	<div class="set-color">
 		<%-- 제목칸 --%>
-		<div class="cell center title">
+		<div class="cell center write-title">
 			<c:if test="${param.category == '축구'}">
-				<h2>축구게시글 작성</h2>
+				<p>축구게시글 작성</p>
 			</c:if>
 			<c:if test="${param.category == '야구'}">
-				<h2>야구게시글 작성</h2>
+				<p>야구게시글 작성</p>
 			</c:if>
 			<c:if test="${param.category == '농구'}">
-				<h2>농구게시글 작성</h2>
+				<p>농구게시글 작성</p>
 			</c:if>
 			<c:if test="${param.category == 'E-스포츠'}">
-				<h2>게임게시글 작성</h2>
+				<p>게임게시글 작성</p>
 			</c:if>
 			<c:if test="${param.category =='관리자'}">
-				<h2>전체 공지 작성</h2>
+				<p>전체 공지 작성</p>
 			</c:if>
 		</div>
 		<div class="cell">

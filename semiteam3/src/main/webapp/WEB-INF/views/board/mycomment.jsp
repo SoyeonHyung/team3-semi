@@ -9,7 +9,7 @@
 <div class="container" style="display: flex; width:1300px;">
 		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
 <div class="container w-1000 set-color">
-<h2>내 댓글</h2>
+<h2>내가 쓴 댓글</h2>
         <div class="cell">
 		<table class="table table-horizontal table-hover">
 			<thead class="center">
@@ -20,9 +20,10 @@
 				</tr>
 			</thead>
 			<!--  -->
+			
 			<c:forEach var="replyDto" items="${replyList}">
 				<tr>
-					<td>${replyDto.replyOrigin}</td>
+					<td>${replyDto.boardTitle}</td>
 					<%-- 제목칸 --%>
 					<td class="left" width="40%">
 						<%-- 제목 출력--%>  <a class="link"
@@ -36,8 +37,7 @@
 		</table>
 		
 				<div class="cell center">
-			<%--네비게이터 출력(구조는 복잡하지만 /board/list와 같지 않을까?) --%>
-			<jsp:include page="/WEB-INF/views/template/navigator.jsp"></jsp:include>
+			<jsp:include page="/WEB-INF/views/template/MycommentNavigator.jsp"></jsp:include>
 		</div>
 		
 	</div>

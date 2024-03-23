@@ -84,7 +84,7 @@ a:hover {
 			//객체에 함수를 변수처럼 생성할 수 있다
 			//- this는 객체 자신(자바와 동일하지만 생략이 불가능)
 			ok : function() {
-				return this.memberIdValid && this.memberPwValid;
+				return this.memberIdValid && this.memberEmail;
 			},
 		};
 

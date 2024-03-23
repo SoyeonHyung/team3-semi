@@ -3,12 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 
-<script>
-    // param.error가 null이 아닌 경우에만 alert을 표시합니다.
-    <c:if test="${param.error != null}">
-        alert("로그인 정보가 일치하지 않습니다");
-    </c:if>
-</script>	
+
 <style>
 .input {
 	width: 350px;
@@ -75,6 +70,12 @@ a:hover {
 }
 </style>
 
+<script>
+// param.error가 null이 아닌 경우에만 alert을 표시합니다.
+<c:if test="${param.error != null}">
+    alert("로그인 정보가 일치하지 않습니다");
+</c:if>
+</script>	
 <script>
 
 $(function() {
@@ -150,9 +151,9 @@ $(function() {
 				</button>
 			</div>
 
+			<input type="hidden" name="referer" value="${referer}" />
 		</form>
 	</div>
 </body>
-</html>
 
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

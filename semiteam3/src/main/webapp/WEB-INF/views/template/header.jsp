@@ -53,11 +53,13 @@
 }
 
 .menu {
+	background-color: #f0f2f5;
 	margin: 0;
 	padding: 0;
 }
 
 ul>li {
+	background-color: #f0f2f5;
 	z-index: 100;
 	height: 40px;
 }
@@ -68,7 +70,7 @@ ul>li {
 }
 
 body {
-	background-color: #eeeeee;
+	background-color: #f0f2f5;
 }
 
 .set-color {
@@ -212,25 +214,25 @@ document.addEventListener('DOMContentLoaded', function() {
 			<li>
 				<a href="/board/list?category=축구">
 					<i class="fa-solid fa-soccer-ball"></i>
-					&nbsp축구게시판
+					 축구게시판
 				</a>
 			</li>
 			<li>
 				<a href="/board/list?category=야구">
 					<i class="fa-solid fa-baseball"></i>
-					&nbsp야구게시판
+					야구게시판
 				</a>
 			</li>
 			<li>
 				<a href="/board/list?category=농구">
 					<i class="fa-solid fa-basketball"></i>
-					&nbsp농구게시판
+					농구게시판
 				</a>
 			</li>
 			<li>
 				<a href="/board/list?category=E-스포츠">
 					<i class="fa-solid fa-gamepad"></i>
-					&nbsp게임게시판
+					게임게시판
 				</a>
 			</li>
 <!-- 			 			<li><a href="/inquiry/list"><i class="fa-solid fa-q"></i> -->

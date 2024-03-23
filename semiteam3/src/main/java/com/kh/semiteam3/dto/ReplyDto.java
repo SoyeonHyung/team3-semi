@@ -1,6 +1,5 @@
 package com.kh.semiteam3.dto;
 
-import java.sql.Date;
 
 public class ReplyDto {
 	private int replyNo; //댓글번호
@@ -8,6 +7,7 @@ public class ReplyDto {
 	private String replyTime; //댓글등록일
 	private String replyWriter; //작성자 - member_id 참조
 	private int replyOrigin; //게시글번호 - board_no 참조
+	
 	
 	public int getReplyNo() {
 		return replyNo;

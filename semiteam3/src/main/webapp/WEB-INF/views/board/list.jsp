@@ -16,11 +16,31 @@
 	color: #e3c7a6;
 }
 
+.list-write {
+	font-size: 18px;
+}
+
+.list-title > p {
+	font-size: 40px;
+	margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0; 
+}
+
+.list-title > hr {
+    width: 23%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 0;
+    margin-right: 0; 
+}
+
+
 </style>
 
 <script type="text/javascript">
 	window.onload = function() {
-		// 클래스 이름이 "status"인 모든 엘리먼트를 가져옵니다.
 		var statusElements = document.querySelectorAll('.status');
 
 		statusElements.forEach(function(statusElement) {
@@ -46,51 +66,37 @@
 		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
 		<div class="container w-1000 set-color">
 			<%-- 제목칸 --%>
-			<div class="cell center">
+			<div class="cell left list-title">
 				<c:if test="${param.category == '축구'}">
-					<h1>
-						<i class="fa-solid fa-soccer-ball"></i> 축구게시판 <i
-							class="fa-solid fa-soccer-ball"></i>
-					</h1>
+					<p>축구게시판</p>
 				</c:if>
 				<c:if test="${param.category == '야구'}">
-					<h1>
-						<i class="fa-solid fa-baseball"></i> 야구게시판 <i
-							class="fa-solid fa-baseball"></i>
-					</h1>
+					<p>야구게시판</p>
 				</c:if>
 				<c:if test="${param.category == '농구'}">
-					<h1>
-						<i class="fa-solid fa-basketball"></i> 농구게시판 <i
-							class="fa-solid fa-basketball"></i>
-					</h1>
+					<p>농구게시판</p>
 				</c:if>
 				<c:if test="${param.category == 'E-스포츠'}">
-					<h1>
-						<i class="fa-solid fa-gamepad"></i> 게임게시판 <i
-							class="fa-solid fa-gamepad"></i>
-					</h1>
+					<p>게임게시판</p>
 				</c:if>
 				<c:if test="${param.category == '관리자'}">
-					<h1>
-						<i class="fa-solid fa-gear"></i> 관리자게시판 <i
-							class="fa-solid fa-gear"></i>
-					</h1>
+					<p>관리자게시판</p>
 				</c:if>
+				<hr>
 			</div>
 
 
 			<div class="cell right pen">
-				<h3>
+				<p class="list-write">
 					<a class="link" href="write?category=${param.category}"> <i
 						class="fa-solid fa-pen"></i> 게시글 작성
 					</a>
-				</h3>
+				</p>
 			</div>
 
 			<div class="cell flex-cell">
 				<div class="cell left">
-					<c:if test="${empty param.status}">
+					<c:if test="${empty param.status && param.category ne '관리자'}">
 						<form action="list" method="get">
 							<input type="hidden" name="category" value="${param.category}">
 							<input type="hidden" name="status" value="recruiting">
@@ -136,7 +142,7 @@
 
 					<c:forEach var="boardDto" items="${adminListAll}">
 						<tr>
-							<td class="left" width="80%">
+							<td class="left"  width="70%">
 								<div class="my-10">
 									<a class="link" href="detail?boardNo=${boardDto.boardNo}">
 										${boardDto.boardTitle} <span class="reply">[${boardDto.boardReply}]</span>
@@ -149,7 +155,7 @@
 									| ${boardDto.boardWriterStr}
 								</div>
 							</td>
-							<td class="info">${boardDto.boardWriteTimeStr}
+							<td class="info" >${boardDto.boardWriteTimeStr}
 								<p>
 									조회수
 									<fmt:formatNumber value="${boardDto.boardView}"
@@ -198,7 +204,7 @@
 					<%--일반 게시판 테이블 --%>
 					<c:forEach var="boardDto" items="${list}">
 						<tr>
-							<td class="left" width="80%">
+							<td class="left">
 								<div class="my-10" >
 									<a class="link" href="detail?boardNo=${boardDto.boardNo}">
 										${boardDto.boardTitle} <span class="reply">[${boardDto.boardReply}]</span>

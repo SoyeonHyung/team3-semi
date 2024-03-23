@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.semiteam3.dto.ReplyDto;
 import com.kh.semiteam3.mapper.ReplyMapper;
+import com.kh.semiteam3.vo.PageVO;
 
 @Repository
 public class ReplyDao {
@@ -59,10 +60,32 @@ public class ReplyDao {
 		return jdbcTemplate.update(sql, data) > 0;
 	}
 	
-	//내가쓴 댓글
-    public List<ReplyDto> findBylist(String memberId) {
-        String sql = "SELECT * FROM reply WHERE member_id = ?";
-        Object[] data = {memberId};
+	//내가 쓴 댓글
+    public List<ReplyDto> findBylist(String memberId, PageVO pageVO) {
+		String sql = "select * from (" 
+				+ "select rownum rn, TMP.* from (" 
+				+ "select reply.reply_no,reply.reply_content,member.member_id "
+				+ "as reply_writer,board.board_title "
+				+ "as board_title from reply "
+				+ "inner join member "
+				+ "on reply.member_id = member.member_id "
+				+ "inner join board on reply.board_no = board.board_no "
+				+ "where member.member_id = ? "
+				+ "order by reply_no desc"
+				+ ")TMP"
+				+ ") where rn between ? and ?";
+        Object[] data = {memberId, pageVO.getBeginRow(), pageVO.getEndRow()};
         return jdbcTemplate.query(sql, replyMapper, data);
     }
+    
+    //내가 쓴 댓글을 위한 카운트
+    public int countForMycomment(String memberId) {
+    	String sql = "select count(*) from reply where member_id = ?";
+    	Object[] data = {memberId};
+    	return jdbcTemplate.queryForObject(sql, int.class, data);
+    }
 }
+
+
+
+
