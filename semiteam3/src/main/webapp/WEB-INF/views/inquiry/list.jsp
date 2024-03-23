@@ -16,6 +16,7 @@
 	color: #e3c7a6;
 }
 
+
 </style>
 
 
@@ -27,6 +28,7 @@
 <div class="container w-1000 set-color">
 	<div class="cell center qna-list-title">
 		<p>Q & A</p>
+		 <hr style="width:250px;">
 	</div>
 	
 	<div class="cell right">
@@ -49,45 +51,55 @@
 	</div>
 		<%-- 테이블 --%>
 		<table class="table table-horizontal table-hover">
-
-	<tbody align="center">
-		</thead>
-		<tbody align="center">
-			<c:forEach var="inquiryDto" items="${list}">
-				<tr>
-					<c:choose>
-						<c:when test="${inquiryDto.inquiryTarget == null}">
-							<td><i class="fa-solid fa-q"></i></td>
-						</c:when>
-						<c:otherwise>
-							<td><i class="fa-solid fa-a red"></i></td>
-						</c:otherwise>
-					</c:choose>
-					
-					<%-- 제목칸 --%>
-					<td class="left">
-					
-						<%-- 제목 앞에 차수만큼 띄어쓰기 처리 --%>
-						<c:forEach var="i" begin="1" end="${inquiryDto.inquiryDepth}" step="1">
-							&nbsp;&nbsp;
-						</c:forEach>
-						
-						<%-- 답글일 경우만 이미지를 출력 --%>
-						<%-- <c:if test="${inquiryDto.inquiryDepth > 0}">
-							→
-						</c:if> --%>
-					
-						<%-- 제목 출력 --%>
-						<a class="link" href="detail?inquiryNo=${inquiryDto.inquiryNo}">
-						${inquiryDto.inquiryTitle}
-						</a>
-					</td>
-					<td>${inquiryDto.inquiryWriterStr}</td><%-- dto 에서 가상의 메소드 하나 만들어주기 --%>
-					<td>${inquiryDto.inquiryWtimeStr}</td><%-- dto 에서 가상의 메소드 하나 만들어주기 --%>
-					<td>${inquiryDto.inquiryEtime}</td>
-				</tr>
-			</c:forEach>
-		</tbody>
+        <thead>
+            <tr>
+                <th></th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일시</th>
+            </tr>
+        </thead>
+        <tbody align="center">
+            <c:forEach var="inquiryDto" items="${list}">
+                <tr>
+                    <c:choose>
+                        <c:when test="${inquiryDto.inquiryTarget == null}">
+                            <td><i class="fa-solid fa-q"></i></td>
+                        </c:when>
+                        <c:otherwise>
+                            <td><i class="fa-solid fa-a red"></i></td>
+                        </c:otherwise>
+                    </c:choose>
+                    
+                    <%-- 제목칸 --%>
+                    <td class="left">
+                    
+                    	
+                        <%-- 제목 앞에 차수만큼 띄어쓰기 처리 --%>
+                        <c:forEach var="i" begin="1" end="${inquiryDto.inquiryDepth}" step="1">
+                            &nbsp;&nbsp;
+                        </c:forEach>
+                        
+                        <%-- 답글일 경우만 이미지를 출력 --%>
+                        <%-- <c:if test="${inquiryDto.inquiryDepth > 0}">
+                            →
+                        </c:if> --%>
+                    
+                        <%-- 제목 출력 --%>
+                        <a class="link" href="detail?inquiryNo=${inquiryDto.inquiryNo}">
+                        ${inquiryDto.inquiryTitle}
+                        </a>
+                        <%--(추가) 수정시각 유무에 따라 수정됨 표시 --%>
+						<c:if test="${inquiryDto.inquiryEtime != null}">
+							(수정됨)
+						</c:if>
+                    </td>
+                    <td>${inquiryDto.inquiryWriterStr}</td><%-- dto 에서 가상의 메소드 하나 만들어주기 --%>
+                    <td><fmt:formatDate value="${inquiryDto.inquiryWtime}"
+                                       pattern="yyyy-MM-dd HH:mm"/></td><%-- dto 에서 가상의 메소드 하나 만들어주기 --%>
+                </tr>
+            </c:forEach>
+        </tbody>
 	</table>
 		</div>
 		<div class="cell center">

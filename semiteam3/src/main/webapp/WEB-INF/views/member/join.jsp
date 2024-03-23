@@ -439,39 +439,39 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
     });
     
     
-    $(function(){
+//     $(function(){
         
-        $("#memberAttach").on("change", function() {
-            var formData = new FormData();
-            formData.append("attach", this.files[0]);
-            $.ajax({
-                url : "/rest/member_attach/upload",
-                method : "post",
-                data : formData,
-                processData : false,
-                contentType : false,
-                success : function(response) {
-                    if (response == null)
-                        return;
-                    $("#preview").attr("src", "image");
-                }
-            });
-        });
+//         $("#memberAttach").on("change", function() {
+//             var formData = new FormData();
+//             formData.append("attach", this.files[0]);
+//             $.ajax({
+//                 url : "/rest/member_attach/upload",
+//                 method : "post",
+//                 data : formData,
+//                 processData : false,
+//                 contentType : false,
+//                 success : function(response) {
+//                     if (response == null)
+//                         return;
+//                     $("#preview").attr("src", "image");
+//                 }
+//             });
+//         });
 
-    });
+//     });
 
-    function previewImage(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+//     function previewImage(input) {
+//         if (input.files && input.files[0]) {
+//             var reader = new FileReader();
 
-            reader.onload = function(e) {
-                $('#preview').attr('src', e.target.result);
-            }
+//             reader.onload = function(e) {
+//                 $('#preview').attr('src', e.target.result);
+//             }
 
-            reader.readAsDataURL(input.files[0]);
+//             reader.readAsDataURL(input.files[0]);
             
-        }
-    }
+//         }
+//     }
 </script>
 
 <div class="box cell container">
@@ -606,7 +606,7 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 				주소
 			</div>
 			<div class="cell">
-				<input name="memberPost" class="tool tool-image w-50"
+				<input name="memberPost" class="tool tool-image w-60"
 					placeholder="우편번호" type="text">
 				<button type="button" class="btn positive btn-address-search">
 					<i class="fa-solid fa-magnifying-glass"></i>
@@ -632,37 +632,27 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 					</button>
 				</div>
 				<div class="w-100 right">
-					<button type="submit" class="btn positive w-100">회원가입</button>
+					<button type="button" class="btn btn-next w-100">
+						다음
+						<i class="fa-solid fa-angle-right"></i>
+					</button>
 				</div>
 			</div>
 		</div>
 
 
 		<!-- 4페이지 - 프로필사진 -->
-<!-- 
-		<div class="cell page w-450 center">
-		
-<div class="cell center">
-    <form action="mypage" method="post" autocomplete="off" enctype="multipart/form-data" >
-             <c:choose>
-            <c:when test="${empty loginMember.memberAttach}">
-                <label for="memberAttach">
-                    <img src="image" width="200" height="200" alt="Preview Image" id="preview" class="preview">
-                </label>
-            </c:when>
-            <c:otherwise>
-                <label for="memberAttach">
-                    <img src="/image/user.svg" id="preview" width="200" height="200" class="preview">
-                </label>
-            </c:otherwise>
-        </c:choose>
-                  
-        <input type="file" id="memberAttach" name="memberAttach" class="input" 
-                    onchange="previewImage(this)" style="display:none">
-		<div class="gray-text">* 사진을 클릭하여 변경하세요</div>
-
-	</form>
-  </div>  
+			<div class="cell page w-450 center">
+			<div class="cell">
+				<label for="attach">
+					<img src="/image/user.svg" width="200px">
+				</label>
+				<label for="attach">
+					<P style="color:gray">클릭하여 프로필을 변경하세요(선택)</P>
+				</label>
+				<input type="file" id="attach" name="attach" 
+						class="too w-100" style="display:none">
+			</div>
   	 
 				
 
@@ -678,9 +668,6 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 				</div>
 			</div>
 		</div>
--->
-
-
 	</div>
 </form>
 </div>

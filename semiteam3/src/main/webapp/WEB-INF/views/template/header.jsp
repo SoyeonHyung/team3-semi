@@ -247,12 +247,6 @@ document.addEventListener('DOMContentLoaded', function() {
 					</a>
 					<ul>
 						<li>
-							<a href="/admin/member/search">
-								<i class="fa-regular fa-rectangle-list"></i>
-								회원관리
-							</a>
-						</li>
-						<li>
 							<a href="/reportBoard/list">
 								<i class="fa-solid fa-reply-all"></i>
 								게시글 신고 목록
@@ -268,6 +262,12 @@ document.addEventListener('DOMContentLoaded', function() {
 							<a href="/board/list?category=관리자">
 								<i class="fa-solid fa-gear"></i>
 								관리자게시판
+							</a>
+						</li>
+						<li>
+							<a href="/admin/member/search">
+								<i class="fa-regular fa-rectangle-list"></i>
+								회원관리
 							</a>
 						</li>
 						<li>

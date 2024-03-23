@@ -126,14 +126,6 @@ body {
 				</div>
 			<hr>
 				<div class="cell">
-					<a href="/board/list?category=관리자" class="my">
-						<i class="fa-solid fa-gear"></i>	
-						관리자게시판
-					</a>
-					<a href="/admin/member/search" class="my">
-						<i class="fa-regular fa-rectangle-list"></i>
-						회원관리
-					</a>
 					<a href="/reportBoard/list" class="my">
 						<i class="fa-solid fa-reply-all"></i>
 						게시글 신고 목록
@@ -141,6 +133,14 @@ body {
 					<a href="/reportReply/list" class="my">
 						<i class="fa-solid fa-reply"></i>
 						댓글 신고 목록
+					</a>
+					<a href="/board/list?category=관리자" class="my">
+						<i class="fa-solid fa-gear"></i>	
+						관리자게시판
+					</a>
+					<a href="/admin/member/search" class="my">
+						<i class="fa-regular fa-rectangle-list"></i>
+						회원관리
 					</a>
     			</div>
     		<hr>

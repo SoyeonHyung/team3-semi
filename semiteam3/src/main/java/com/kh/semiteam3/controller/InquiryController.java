@@ -78,7 +78,7 @@ public class InquiryController {
 	@RequestMapping("/detail")
 	public String detail(@RequestParam int inquiryNo, Model model) {
 		InquiryDto inquiryDto = inquiryDao.selectOne(inquiryNo);
-		model.addAttribute("InquiryDto", inquiryDto);
+		model.addAttribute("inquiryDto", inquiryDto);
 		if (inquiryDto.getInquiryWriter() != null) {// 작성자가 탈퇴하지 않았다면
 			MemberDto memberDto = memberDao.selectOne(inquiryDto.getInquiryWriter());
 			model.addAttribute("memberDto", memberDto);
