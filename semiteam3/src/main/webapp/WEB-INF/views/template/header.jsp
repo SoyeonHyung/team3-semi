@@ -38,7 +38,6 @@
 <!-- jquery cdn -->
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-<script src="/js/commons.js"></script>
 
 
 <!--summernote cdn-->
@@ -47,6 +46,7 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="/js/commons.js"></script>
 <style>
 .note-editor {
 	border: 1px solid #e3c7a6 !important;
@@ -161,7 +161,7 @@ body {
 			}
 		};
 
-		$("[name='boardContent'], [name='inquiryContent']").summernote(options);
+		$("[name='boardContent'], [name='inquiryContent'], [name='reportBoardContent']").summernote(options);
 	});
 	
 	/* 로고 호버 코드	*/

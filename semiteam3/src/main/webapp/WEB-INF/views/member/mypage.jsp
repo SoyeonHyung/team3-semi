@@ -165,15 +165,15 @@ span{
             <th><i class="fa-regular fa-calendar-days"></i> 가입일시</th>
             <td class="left">
                 <fmt:formatDate value="${memberDto.memberJoin}" 
-                                            pattern="y년 M월 d일"/>
+                                            pattern="y년 M월 d일 H시 m분 s초"/>
             </td>
         </tr>
         <tr>
             <th><i class="fa-regular fa-clock"></i> 로그인일시</th>
-            <span class="left">
+            <td class="left">
                 <fmt:formatDate value="${memberDto.memberLogin}" 
                                             pattern="y년 M월 d일 H시 m분 s초"/>
-            </span>>
+            </td>
         </tr>
     </table>
   

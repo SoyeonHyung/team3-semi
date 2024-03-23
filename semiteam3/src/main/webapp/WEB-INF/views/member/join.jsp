@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <script src="/js/exit.js"></script>
@@ -631,16 +632,14 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 					</button>
 				</div>
 				<div class="w-100 right">
-					<button type="button" class="btn btn-next w-100">
-						다음
-						<i class="fa-solid fa-angle-right"></i>
-					</button>
+					<button type="submit" class="btn positive w-100">회원가입</button>
 				</div>
 			</div>
 		</div>
 
 
 		<!-- 4페이지 - 프로필사진 -->
+<!-- 
 		<div class="cell page w-450 center">
 		
 <div class="cell center">
@@ -664,7 +663,7 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 
 	</form>
   </div>  
-  	
+  	 
 				
 
 				<div class="flex-cell">
@@ -679,7 +678,7 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 				</div>
 			</div>
 		</div>
-
+-->
 
 
 	</div>

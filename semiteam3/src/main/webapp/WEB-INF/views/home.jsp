@@ -88,8 +88,10 @@
 <!-- 내가 만든 스크립트 추가(jQuery를 사용했으니 jQuery CDN 아래 작성) -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('img[usemap]').rwdImageMaps();
+// 		$('img[usemap]').rwdImageMaps();
+	
 	});
+
 	$(function() {
 
 		var swiper2 = new Swiper('.demo02', {

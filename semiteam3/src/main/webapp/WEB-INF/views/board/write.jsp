@@ -6,10 +6,6 @@
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
 <script src="/js/exit.js"></script>
 <style>
-.map {
-	width: 100%;
-	height: 400px;
-}
 .write-title > p {
 	font-size: 25px;
 }
@@ -68,8 +64,8 @@ $(function() {
 
 
 <div class="container" style="display: flex; width:1300px;">
-		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
-<div class="container w-1000">
+	<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
+	<div class="container w-1000">
 	<div class="set-color">
 		<%-- 제목칸 --%>
 		<div class="cell center write-title">

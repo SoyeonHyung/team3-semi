@@ -153,7 +153,7 @@ body {
             <c:when test="${sessionScope.loginId !=null}">
  				<div>
                 	<a href="/member/mypage">
-                		<img src="image" alt="Preview Image" class="preview">
+                		<img src="/member/image" alt="Preview Image" class="preview">
                 	</a>
                     <div class="cell">
                         <a href="/member/mypage" class="name">
