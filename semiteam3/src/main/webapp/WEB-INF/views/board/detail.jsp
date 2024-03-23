@@ -38,13 +38,6 @@
 .title2 {
 	background-color: #f0eae2;
 }
-.btn-edit{
- 	background-color:#d6303155;
- 	color:#fff;
-}
-div > p > img{
-	max-width:960px;
-}
 
 .reply-writer {
     font-weight: 500;
@@ -790,36 +783,12 @@ div > p > img{
 					</form>
 				</div>
 			</div>
-
-		</div>
-	</c:if>
-
-
-
-
-	<hr class="detail">
-
-	<div class="cell" style="min-height: 250px">
-		${boardDto.boardContent}</div>
-
-	<hr class="detail">
-
-	<div class="cell right">
-		<a class="btn btn-writer" href="write?category=${boardDto.boardCategory}">글쓰기</a>
-
-		<%-- 수정과 삭제 링크는 회원이면서 본인글이거나 관리자일 경우만 출력 --%>
-		<c:if
-			test="${sessionScope.loginId != null && (sessionScope.loginId == boardDto.boardWriter || sessionScope.loginGrade == '관리자')}">
-			<a class="btn btn-edit" 
-				href="edit?boardNo=${boardDto.boardNo}">글수정</a>
-			<a class="btn negative link-confirm" data-message="정말 삭제하시겠습니까?"
-				href="delete?boardNo=${boardDto.boardNo}">글삭제</a>
 		</c:if>
 	</div>
 </div>
 </body>
 
-<%--이걸 밑에 넣어야 로드가 빨리됨 --%>
+<%--이유는 모르겠지만 이걸 밑에 넣어야 로드가 빨리됨 --%>
 <script type="text/javascript">
     // 마감 시간 설정 (YYYY, MM, DD, HH, MM, SS 순서)
     <c:if test="${not empty boardDto.boardLimitTimeDate && memberDto.memberGrade ne '관리자'}">

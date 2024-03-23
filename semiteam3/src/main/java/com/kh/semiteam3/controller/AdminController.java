@@ -106,7 +106,7 @@ public class AdminController implements HandlerInterceptor{
 		}	
 		
 		//프로필 다운로드 페이지
-		@RequestMapping("member/image")
+		@RequestMapping("/member/image")
 		public String image(HttpSession session) {
 			try {
 				String loginId = (String)session.getAttribute("loginId");

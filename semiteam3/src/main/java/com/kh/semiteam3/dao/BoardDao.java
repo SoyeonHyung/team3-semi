@@ -248,8 +248,8 @@ public class BoardDao {
 	//닉네임으로 검색 카운트
 	public int countForNick(PageVO pageVO) {
 	    if (pageVO.isSearch()) { // 검색
-	        String sql = "SELECT COUNT(*) FROM board b JOIN member m ON b.board_writer = m.member_id WHERE m.member_nick LIKE ?";
-	        Object[] data = {"%" + pageVO.getKeyword() + "%"};
+	        String sql = "SELECT COUNT(*) FROM board b JOIN member m ON b.board_writer = m.member_id WHERE board_category = ? and m.member_nick LIKE ?";
+	        Object[] data = {pageVO.getCategory(), pageVO.getKeyword()};
 	        return jdbcTemplate.queryForObject(sql, int.class, data);
 	    } else { // 목록
 	        String sql = "SELECT COUNT(*) FROM board WHERE board_category = ?";

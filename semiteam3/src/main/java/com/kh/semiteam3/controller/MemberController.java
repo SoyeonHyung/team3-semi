@@ -76,9 +76,9 @@ public class MemberController {
 	public String login(HttpServletRequest request, Model model, HttpSession session) {
 	    String referer = request.getHeader("referer");
 	    model.addAttribute("referer", referer);
-	    
+
 	    String loginId = (String)session.getAttribute("loginId");
-	    
+
 	    if (loginId != null) {
 	        // 이미 로그인된 상태라면 홈 페이지로 리다이렉트합니다.
 	        return "redirect:/";

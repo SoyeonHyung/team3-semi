@@ -93,18 +93,6 @@ public class InquiryDao {
 				return jdbcTemplate.queryForObject(sql, int.class);
 			}
 		}
-		
-		// 닉네임 검색 카운트
-		public int countForNick(PageVO pageVO) {
-			if (pageVO.isSearch()) { // 검색
-		        String sql = "SELECT COUNT(*) FROM inquiry i JOIN member m ON i.inquiry_writer = m.member_id WHERE m.member_nick LIKE ?";
-		        Object[] data = {"%" + pageVO.getKeyword() + "%"};
-		        return jdbcTemplate.queryForObject(sql, int.class, data);
-		    } else { // 목록
-		        String sql = "SELECT COUNT(*) FROM inquiry";
-		        return jdbcTemplate.queryForObject(sql, int.class);
-		    }
-		}
 
 		// 단일조회(상세)
 		public InquiryDto selectOne(int inquiryNo) {

@@ -475,7 +475,8 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 
 <div class="box cell container">
 <form action="join" method="post" enctype="multipart/form-data"
-	class="check-form free-pass"" autocomplete="off">
+
+	class="check-form free-pass" autocomplete="off">
 
 	<div class="container w-450">
 		<div class="cell title center">

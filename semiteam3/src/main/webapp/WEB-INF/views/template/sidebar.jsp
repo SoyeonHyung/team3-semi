@@ -127,7 +127,7 @@ body {
 			<hr>
 				<div class="cell">
 					<a href="/board/list?category=관리자" class="my">
-						<i class="fa-solid fa-gear"></i>
+						<i class="fa-solid fa-gear"></i>	
 						관리자게시판
 					</a>
 					<a href="/admin/member/search" class="my">

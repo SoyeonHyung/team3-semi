@@ -48,12 +48,7 @@ public class InquiryController {
 	@RequestMapping("/list")
 	public String list(@ModelAttribute PageVO pageVO, 
 						Model model) {
-		int count;
-		if (pageVO.getColumn().equals("member_nick")) {
-	        count = inquiryDao.countForNick(pageVO);
-	    } else {
-	        count = inquiryDao.count(pageVO);
-	    }
+		int count = inquiryDao.count(pageVO);
 	
 		pageVO.setCount(count);
 		
