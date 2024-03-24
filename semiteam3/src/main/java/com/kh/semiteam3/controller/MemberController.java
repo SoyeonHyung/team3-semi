@@ -103,7 +103,6 @@ public class MemberController {
 	        session.setAttribute("loginNick", findDto.getMemberNick());
 	      //최종 로그인시각 갱신
 			memberDao.updateMemberLogin(findDto.getMemberId());
-
 	        if (referer != null && !referer.isEmpty()) {
 	            return "redirect:" + referer;
 	        } else {
