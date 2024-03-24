@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.semiteam3.dto.ReplyDto;
+import com.kh.semiteam3.mapper.ReplyForMycommentMapper;
 import com.kh.semiteam3.mapper.ReplyMapper;
 import com.kh.semiteam3.vo.PageVO;
 
@@ -60,23 +61,26 @@ public class ReplyDao {
 		return jdbcTemplate.update(sql, data) > 0;
 	}
 	
-	//내가 쓴 댓글
-    public List<ReplyDto> findBylist(String memberId, PageVO pageVO) {
-		String sql = "select * from (" 
-				+ "select rownum rn, TMP.* from (" 
-				+ "select reply.reply_no,reply.reply_content,member.member_id "
-				+ "as reply_writer,board.board_title "
-				+ "as board_title from reply "
-				+ "inner join member "
-				+ "on reply.member_id = member.member_id "
-				+ "inner join board on reply.board_no = board.board_no "
-				+ "where member.member_id = ? "
-				+ "order by reply_no desc"
-				+ ")TMP"
-				+ ") where rn between ? and ?";
-        Object[] data = {memberId, pageVO.getBeginRow(), pageVO.getEndRow()};
-        return jdbcTemplate.query(sql, replyMapper, data);
-    }
+	@Autowired
+	private ReplyForMycommentMapper replyForMycommentMapper;
+	
+	
+	public List<ReplyDto> findBylist(String memberId, PageVO pageVO) {
+	    String sql = "select * from (" 
+	            + "select rownum rn, TMP.* from (" 
+	            + "select reply.reply_no, reply.reply_content, reply.reply_time, member.member_id "
+	            + "as reply_writer, board.board_view, board.board_title, board.board_reply "
+	            + "from reply "
+	            + "inner join member "
+	            + "on reply.member_id = member.member_id "
+	            + "inner join board on reply.board_no = board.board_no "
+	            + "where member.member_id = ? "
+	            + "order by reply_no desc"
+	            + ")TMP"
+	            + ") where rn between ? and ?";
+	    Object[] data = {memberId, pageVO.getBeginRow(), pageVO.getEndRow()};
+	    return jdbcTemplate.query(sql, replyForMycommentMapper, data);
+	}
     
     //내가 쓴 댓글을 위한 카운트
     public int countForMycomment(String memberId) {
@@ -84,6 +88,10 @@ public class ReplyDao {
     	Object[] data = {memberId};
     	return jdbcTemplate.queryForObject(sql, int.class, data);
     }
+    
+    
+    
+
 }
 
 

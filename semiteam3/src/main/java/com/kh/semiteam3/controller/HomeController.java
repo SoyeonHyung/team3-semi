@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.semiteam3.dao.BoardDao;
@@ -35,12 +36,13 @@ public class HomeController {
 	
 
 	@RequestMapping("/")
-	public String home(Model model) {
+	public String home(@ModelAttribute PageVO pageVO,
+										Model model) {
 		
-	    List<BoardDto> footballList = boardDao.boardStatus(new PageVO(), "축구", "recruiting");
-	    List<BoardDto> baseballList = boardDao.boardStatus(new PageVO(), "야구", "recruiting");
-	    List<BoardDto> basketballList = boardDao.boardStatus(new PageVO(), "농구", "recruiting");
-	    List<BoardDto> ESportsList = boardDao.boardStatus(new PageVO(), "E-스포츠", "recruiting");
+	    List<BoardDto> footballList = boardDao.boardStatus(pageVO, "축구", "recruiting");
+	    List<BoardDto> baseballList = boardDao.boardStatus(pageVO, "야구", "recruiting");
+	    List<BoardDto> basketballList = boardDao.boardStatus(pageVO, "농구", "recruiting");
+	    List<BoardDto> ESportsList = boardDao.boardStatus(pageVO, "E-스포츠", "recruiting");
 	    
 	    
 	    for (BoardDto boardDto : footballList) {

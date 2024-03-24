@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kh.semiteam3.dao.BoardDao;
 import com.kh.semiteam3.dao.MemberDao;
 import com.kh.semiteam3.dao.ReplyDao;
+import com.kh.semiteam3.dto.BoardDto;
 import com.kh.semiteam3.dto.MemberDto;
 import com.kh.semiteam3.dto.ReplyDto;
 
@@ -34,14 +35,19 @@ public class ReplyRestController {
 	@PostMapping("/list")
 	public List<ReplyDto> list(@RequestParam int replyOrigin) {
 	    List<ReplyDto> list = replyDao.selectList(replyOrigin);
+	    
+	    BoardDto boardDto = boardDao.selectOne2(replyOrigin);
+	    String boardWriter = boardDto.getBoardWriterNickname();
 
 	    for (ReplyDto replyDto : list) {
 	        MemberDto memberDto = memberDao.selectOne(replyDto.getReplyWriter());
 	        if (memberDto != null) {
 	            replyDto.setReplyWriter(memberDto.getMemberNick());
+	            
 	        } else {
 	            replyDto.setReplyWriter("탈퇴한 사용자");
 	        }
+	        replyDto.setBoardWriter(boardWriter); // 댓글의 boardWriter 설정
 	    }
 	    return list;
 	}
@@ -73,4 +79,11 @@ public class ReplyRestController {
 	public void edit(@ModelAttribute ReplyDto replyDto) {
 		replyDao.update(replyDto);
 	}
+	
+
+    // 댓글 작성자와 게시글 작성자를 비교하여 결과를 반환하는 메소드
+    @PostMapping("/checkSameWriter")
+    public boolean checkSameWriter(@RequestParam boolean isSameWriter) {
+        return isSameWriter; // 결과 반환
+    }
 }

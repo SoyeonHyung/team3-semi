@@ -156,6 +156,7 @@ public class BoardController {
 		return "/WEB-INF/views/board/list.jsp";
 	}
 
+    
 	// 게시글상세
 	@RequestMapping("/detail")
 	public String detail(@RequestParam int boardNo, @ModelAttribute PageVO pageVO, Model model) {
@@ -203,6 +204,10 @@ public class BoardController {
 				boardDto1.setBoardWriter("탈퇴한사용자");
 			}
 		}
+		
+
+		
+		
 
 		model.addAttribute("list", list);
 

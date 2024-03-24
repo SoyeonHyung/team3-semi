@@ -1,19 +1,15 @@
 package com.kh.semiteam3.dao;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Repository;
 
 import com.kh.semiteam3.dto.BoardDto;
 import com.kh.semiteam3.mapper.BoardListMapper;
 import com.kh.semiteam3.mapper.BoardMapper;
+import com.kh.semiteam3.mapper.BoardWithNicknameMapper;
 import com.kh.semiteam3.vo.PageVO;
 
 @Repository
@@ -24,6 +20,8 @@ public class BoardDao {
 	private BoardMapper boardMapper;
 	@Autowired
 	private BoardListMapper boardListMapper;
+	@Autowired
+	private BoardWithNicknameMapper boardWithNicknameMapper;
 	
 	//커뮤니티 게시글 작성(등록)
 	public void insert(BoardDto boardDto) {//**마감시간 처리방법 생각해보기
@@ -266,6 +264,15 @@ public class BoardDao {
 		return list.isEmpty() ? null : list.get(0);
 	}
 	
+	public BoardDto selectOne2(int boardNo) {
+	    String sql = "SELECT b.*, m.member_nick AS boardWriterNickname " +
+	            "FROM board b " +
+	            "LEFT JOIN member m ON b.board_writer = m.member_id " +
+	            "WHERE b.board_no = ?";
+	    Object[] data = {boardNo};
+	    return jdbcTemplate.queryForObject(sql, boardWithNicknameMapper, data);
+	}
+		
     //게시글 수정
     public boolean update(BoardDto boardDto) {//제목, 내용, 수정일, 카테고리, 마감일을 게시글 번호 뽑아서 수정~!
         String sql = "update board "
@@ -399,5 +406,13 @@ public class BoardDao {
         return jdbcTemplate.query(sql, boardListMapper, data);
     }
 
+    
+    @Autowired
+    private MemberDao memberDao;
+
+
+    public String getBoardWriterNickname(String memberId) {
+        return memberDao.getMemberNickById(memberId);
+    }
 
 }

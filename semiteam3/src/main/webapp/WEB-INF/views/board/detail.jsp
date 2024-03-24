@@ -71,6 +71,18 @@ div > p > img{
 	max-width:960px;
 }
 
+div > p > img{
+	max-width:960px;
+}
+
+.author {
+	font-size: 10px;
+	background-color: #778beb;
+	border-radius: 2em;
+	padding: 5px 7px;
+	color: white;
+}
+
 
 
 
@@ -84,7 +96,9 @@ div > p > img{
 			<div class="cell w-50 left">
 				<i class="fa-regular fa-comment-dots"></i>
 				<span class="reply-writer">작성자</span>
-				<span class="info">(</span>
+				<span class="info">
+					<span class="author">작성자</span>
+				(</span>
 				<span class="reply-time info">yyyy-MM-dd HH:mm:ss</span>
 				<span class="info">)</span>
 			</div>
@@ -141,88 +155,95 @@ div > p > img{
 </script>
 
 <script type="text/javascript">
-	function loadList() {
-		//파라미터에서 게시글 번호를 읽는다
-		var params = new URLSearchParams(location.search);
-		var boardNo = params.get("boardNo");
+function loadList() {
+	//파라미터에서 게시글 번호를 읽는다
+	var params = new URLSearchParams(location.search);
+	var boardNo = params.get("boardNo");
 
-		//현재 사용자의 정보를 저장한다
-		var loginId = "${sessionScope.loginId}";
-		var loginNick = "${sessionScope.loginNick}";
-		var isLogin = loginId.length > 0;
-		var loginGrade = "${sessionScope.loginGrade}";
-		
-		//페이지 로딩 완료 시 댓글 목록을 불러와서 출력
-		$.ajax({
-			url : "/rest/reply/list",
-			method : "post",
-			data : {
-				replyOrigin : boardNo
-			},
-			success : function(response) {
-				//댓글 개수를 표시
-				$(".reply-count").text(response.length);
+	//현재 사용자의 정보를 저장한다
+	var loginId = "${sessionScope.loginId}";
+	var loginNick = "${sessionScope.loginNick}";
+	var isLogin = loginId.length > 0;
+	var loginGrade = "${sessionScope.loginGrade}";
+	
+	//페이지 로딩 완료 시 댓글 목록을 불러와서 출력
+	$.ajax({
+		url : "/rest/reply/list",
+		method : "post",
+		data : {
+			replyOrigin : boardNo
+		},
+		success : function(response) {
+			//댓글 개수를 표시
+			$(".reply-count").text(response.length);
 
-				//기존에 있는 내용을 지우도록 지시
-				$(".reply-list-wrapper").empty();//비워라
+			//기존에 있는 내용을 지우도록 지시
+			$(".reply-list-wrapper").empty();//비워라
 
-				//내용을 목록에 출력
-				//response는 List<ReplyDto>형태
-				for (var i = 0; i < response.length; i++) {
-					//template 불러오고
-					var templateText = $("#reply-item-wrapper").text();
-					var templateHTML = $.parseHTML(templateText);
+			//내용을 목록에 출력
+			//response는 List<ReplyDto>형태
+			for (var i = 0; i < response.length; i++) {
+				//template 불러오고
+				var templateText = $("#reply-item-wrapper").text();
+				var templateHTML = $.parseHTML(templateText);
 
-					//정보출력
-					$(templateHTML).find(".reply-writer").text(
-							response[i].replyWriter);
-					$(templateHTML).find(".reply-content").text(
-							response[i].replyContent);
-					$(templateHTML).find(".reply-time").text(
-							response[i].replyTime);
+				//정보출력
+				$(templateHTML).find(".reply-writer").text(
+						response[i].replyWriter);
+				$(templateHTML).find(".reply-content").text(
+						response[i].replyContent);
+				$(templateHTML).find(".reply-time").text(
+						response[i].replyTime);
 
-					//화면에 필요한 전보를 추가(ex:삭제버튼에 번호 설정)
-					//- data라는 명형으로는 읽기만 가능
-					//- 태그에 글자를 추가하고 싶다면 .attr()명령 사용
-					//- 현재 로그인한 사용자의 댓글에만 버튼을 표시(나머진 삭제)
-					if (loginGrade == '관리자'){//관리자면
-						$(templateHTML).find(".btn-reply-edit").remove();
-						$(templateHTML).find(".btn-reply-delete").attr( //삭제버튼 보여주기
-								"data-reply-no", response[i].replyNo);
-						$(templateHTML).find(".btn-reply-report").remove();
-						$(templateHTML).find(".reply-edit-delete-bar").remove();
-					}
-					
-					//if (isLogin && (loginNick == response[i].replyWriter || loginGrade == '관리자')) {//로그인되엇고 본인 댓글일때 
-					else if (isLogin && loginNick == response[i].replyWriter) {//로그인되엇고 본인 댓글일때  
-						$(templateHTML).find(".btn-reply-edit").attr(
-								"data-reply-no", response[i].replyNo);
-						$(templateHTML).find(".reply-edit-delete-bar").show();
-						$(templateHTML).find(".btn-reply-delete").attr(
-								"data-reply-no", response[i].replyNo);
-
-						$(templateHTML).find(".btn-reply-report").remove();//신고는 못해
-
-					} else {
-						$(templateHTML).find(".btn-reply-edit").remove();
-						$(templateHTML).find(".reply-edit-delete-bar").remove();
-						$(templateHTML).find(".btn-reply-delete").remove();
-
-						if (isLogin) {
-							$(templateHTML).find(".btn-reply-report").attr(
-									"data-reply-no", response[i].replyNo);
-						} else {
-							$(templateHTML).find(".btn-reply-report").remove();
-						}
-					}
-
-					//화면추가
-					$(".reply-list-wrapper").append(templateHTML);
-
+				//화면에 필요한 전보를 추가(ex:삭제버튼에 번호 설정)
+				//- data라는 명형으로는 읽기만 가능
+				//- 태그에 글자를 추가하고 싶다면 .attr()명령 사용
+				//- 현재 로그인한 사용자의 댓글에만 버튼을 표시(나머진 삭제)
+				if (loginGrade == '관리자'){//관리자면
+					$(templateHTML).find(".btn-reply-edit").remove();
+					$(templateHTML).find(".btn-reply-delete").attr( //삭제버튼 보여주기
+							"data-reply-no", response[i].replyNo);
+					$(templateHTML).find(".btn-reply-report").remove();
+					$(templateHTML).find(".reply-edit-delete-bar").remove();
 				}
+				
+				//if (isLogin && (loginNick == response[i].replyWriter || loginGrade == '관리자')) {//로그인되엇고 본인 댓글일때 
+				else if (isLogin && loginNick == response[i].replyWriter) {//로그인되엇고 본인 댓글일때  
+					$(templateHTML).find(".btn-reply-edit").attr(
+							"data-reply-no", response[i].replyNo);
+					$(templateHTML).find(".reply-edit-delete-bar").show();
+					$(templateHTML).find(".btn-reply-delete").attr(
+							"data-reply-no", response[i].replyNo);
+
+					$(templateHTML).find(".btn-reply-report").remove();//신고는 못해
+
+				} else {
+					$(templateHTML).find(".btn-reply-edit").remove();
+					$(templateHTML).find(".reply-edit-delete-bar").remove();
+					$(templateHTML).find(".btn-reply-delete").remove();
+
+					if (isLogin) {
+						$(templateHTML).find(".btn-reply-report").attr(
+								"data-reply-no", response[i].replyNo);
+					} else {
+						$(templateHTML).find(".btn-reply-report").remove();
+					}
+				}
+
+         // 작성자 표시 (게시글 작성자와 동일하면 보여줌)
+			if (response[i].replyWriter === response[i].boardWriter) {
+			    $(templateHTML).find(".author").show();
+			} else {
+			    $(templateHTML).find(".author").hide();
 			}
-		});
-	}
+				//화면추가
+				$(".reply-list-wrapper").append(templateHTML);
+
+			}
+		}
+	});
+}
+
 
 	$(function() {
 		//최초에 목록 불러오기
@@ -656,7 +677,9 @@ div > p > img{
 					<div class="cell flex-cell mx-20">
 						<div class="cell w-50 left">
 							<i class="fa-regular fa-comment-dots"></i> <span class="reply-writer">작성자</span>
-							<span class="info">(</span> <span class="reply-time info">yyyy-MM-dd
+							<span class="info">
+							    <span class="author">작성자</span>
+							(</span> <span class="reply-time info">yyyy-MM-dd
 								HH:mm:ss</span> <span class="info">)</span>
 						</div>
 						<div class="cell w-50 right info">

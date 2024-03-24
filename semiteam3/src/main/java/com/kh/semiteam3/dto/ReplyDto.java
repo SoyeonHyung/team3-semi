@@ -8,6 +8,16 @@ public class ReplyDto {
 	private String replyWriter; //작성자 - member_id 참조
 	private int replyOrigin; //게시글번호 - board_no 참조
 	
+	private String boardWriter; // 게시글 작성자
+	
+	
+    public String getBoardWriter() {
+        return boardWriter;
+    }
+
+    public void setBoardWriter(String boardWriter) {
+        this.boardWriter = boardWriter;
+    }
 	
 	public int getReplyNo() {
 		return replyNo;
@@ -42,6 +52,47 @@ public class ReplyDto {
 	public ReplyDto() {
 		super();
 	}
+
+	
+	//내가 쓴 댓글 하려고
+	private String boardTitle;
+	private String boardContent;
+	private int boardView;
+	private int boardReply;
+
+
+	public String getBoardTitle() {
+		return boardTitle;
+	}
+
+	public void setBoardTitle(String boardTitle) {
+		this.boardTitle = boardTitle;
+	}
+
+	public String getBoardContent() {
+		return boardContent;
+	}
+
+	public void setBoardContent(String boardContent) {
+		this.boardContent = boardContent;
+	}
+
+	public int getBoardView() {
+		return boardView;
+	}
+
+	public void setBoardView(int boardView) {
+		this.boardView = boardView;
+	}
+
+	public int getBoardReply() {
+		return boardReply;
+	}
+
+	public void setBoardReply(int boardReply) {
+		this.boardReply = boardReply;
+	}
+	
 	
 	
 }

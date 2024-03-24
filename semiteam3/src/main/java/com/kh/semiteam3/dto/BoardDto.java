@@ -23,6 +23,16 @@ public class BoardDto {
 	private String boardLimitTime;// 마감시간
 
 	
+	private String boardWriterNickname; // 게시글 작성자의 닉네임
+	
+    public String getBoardWriterNickname() {
+        return boardWriterNickname;
+    }
+
+    public void setBoardWriterNickname(String boardWriterNickname) {
+        this.boardWriterNickname = boardWriterNickname;
+    }
+	
 	
 
 	//마감시간을 Date형태로 변환
