@@ -7,7 +7,7 @@
 
 <style>
 	.title{
-		font-size:30px;
+		font-size:25px;
 	}
 	.info {
 	color: #8395a7;
@@ -34,28 +34,29 @@
 		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include>
 	<div class="box container">
 		<div class="cell center">
-			<c:if test="${InquiryDto.inquiryTarget != null}">
+			<c:if test="${inquiryDto.inquiryTarget != null}">
 				<h2>문의답변</h2>
 			</c:if>
-			<c:if test="${InquiryDto.inquiryTarget == null}">
+			<c:if test="${inquiryDto.inquiryTarget == null}">
 				<h2>문의글</h2>
 			</c:if>
 				
 		</div>
 		<div class="cell">
-			<div class="title">${InquiryDto.inquiryTitle}</div>
+			<div class="title">${inquiryDto.inquiryTitle}
 				<%--(추가) 수정시각 유무에 따라 수정됨 표시 --%>
-				<c:if test="${InquiryDto.inquiryEtime != null}">
+				<c:if test="${inquiryDto.inquiryEtime != null}">
 					(수정됨)
 				</c:if>
+			</div>
 		</div>
 		
 		<div class="cell info">
 			<h3>
 				<%-- 탈퇴한 사용자일 때와 아닐때 나오는 정보가 다르게 구현 --%>
 				<c:choose>
-					<c:when test="${InquiryDto.inquiryWriter == null}">
-						${InquiryDto.inquiryWriterStr}
+					<c:when test="${inquiryDto.inquiryWriter == null}">
+						${inquiryDto.inquiryWriterStr}
 					</c:when>
 					<c:otherwise>
 						작성자 | ${memberDto.memberNick}
@@ -65,9 +66,9 @@
 			</h3>
 		</div>
 		<div class="cell info">
-			<fmt:formatDate value="${InquiryDto.inquiryWtime}"
+			<fmt:formatDate value="${inquiryDto.inquiryWtime}"
 									   pattern="yyyy-MM-dd HH:mm:ss"/>
-			(${InquiryDto.inquiryWtimeDiff})
+			(${inquiryDto.inquiryWtimeDiff})
 		</div>
 		<hr  class="detail">
 		<div class="cell" style="min-height:450px">
@@ -78,7 +79,7 @@
 					<pre>태그를 사용하면 글자를 있는 그대로 출력한다
 					-Rich Text Editor 를 사용하면 문제가 해결된다(ex: summernote)
 				 --%>
-			${InquiryDto.inquiryContent}
+			${inquiryDto.inquiryContent}
 		</div>
 		<hr  class="detail">
 	
@@ -91,15 +92,15 @@
 				
 				- 관리자인 경우만 답글쓰기 가능!
 			--%>
-			<c:if test="${sessionScope.loginId != null && (sessionScope.loginId == InquiryDto.inquiryWriter || sessionScope.loginGrade == '관리자')}">
-				<a class="btn negative" href="edit?inquiryNo=${InquiryDto.inquiryNo}">글수정</a>
+			<c:if test="${sessionScope.loginId != null && (sessionScope.loginId == inquiryDto.inquiryWriter || sessionScope.loginGrade == '관리자')}">
+				<a class="btn negative" href="edit?inquiryNo=${inquiryDto.inquiryNo}">글수정</a>
 				<a class="btn negative link-confirm" 
 					data-message="정말 삭제하시겠습니까?" 
-					href="delete?inquiryNo=${InquiryDto.inquiryNo}">글삭제</a>
+					href="delete?inquiryNo=${inquiryDto.inquiryNo}">글삭제</a>
 			</c:if>
 			
-			<c:if test="${sessionScope.loginGrade == '관리자' && InquiryDto.inquiryTarget == null}">
-				<a class="btn positive" href="insert?inquiryTarget=${InquiryDto.inquiryNo}">답글쓰기</a>
+			<c:if test="${sessionScope.loginGrade == '관리자' && inquiryDto.inquiryTarget == null}">
+				<a class="btn positive" href="insert?inquiryTarget=${inquiryDto.inquiryNo}">답글쓰기</a>
 			</c:if>
 			<a class="btn positive" href="list">글목록</a>
 		</div>

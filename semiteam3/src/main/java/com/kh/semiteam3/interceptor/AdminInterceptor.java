@@ -23,7 +23,8 @@ public class AdminInterceptor implements HandlerInterceptor{
 			return true;
 		}
 		else {
-			response.sendError(403);
+//			response.sendError(403);
+			response.sendRedirect("/member/login"); //로그인 페이지로
 			return false;
 		}
 		

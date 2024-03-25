@@ -3,6 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
     
+    <style>
+    .insert-title > p {
+	font-size: 25px;
+	}
+    </style>
+    
     <script src="/js/exit.js"></script>
     
     
@@ -25,9 +31,14 @@
     <div class="container" style="display: flex; width: 1300px;">
 		<jsp:include page="/WEB-INF/views/template/sidebar.jsp"></jsp:include> 
     <div class="container w-1000 set-color">
-    	<div class="cell center">
-    		<h1>문의글 작성</h1>
-    	</div>
+		<div class="cell center insert-title">
+    		<c:if test="${param.inquiryTarget != null}">
+				<p>문의 답변</p>
+			</c:if>
+			<c:if test="${param.inquiryTarget == null}">
+				<p>문의글 작성</p>
+			</c:if>
+		</div>
     	
 		<div class="cell">
 			<form class="free-pass" action="insert" method="post">
@@ -51,20 +62,20 @@
 				</div>
 				
 				<div class="flex-cell">
-					<div class="w-100 left">
-						<a href="list" class="btn negative">
+					<div class="cell w-50">
+						<a href="list" class="btn negative w-100">
 							취소
 						</a>
 					</div>
-					<div class="w-100 right">
-						<button class="btn positive inquiry-finish">
+					<div class="cell w-50">
+						<button class="btn positive inquiry-finish w-100">
 							완료
 						</button>
 					</div>
 				</div>
 			</form>
 		</div>
-</div>
+	</div>
 </div>
 
 

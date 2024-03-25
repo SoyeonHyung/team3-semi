@@ -80,6 +80,57 @@
 	color: rgba(182, 139, 89, 0.856);
 }
 
+.table.table-horizontal2 td {
+        vertical-align: middle;
+    }
+
+.table.table-horizontal2 {
+    border-collapse: collapse;
+}
+
+.table.table-horizontal2 th,
+.table.table-horizontal2 td {
+    border: none;
+}
+
+.table.table-horizontal2 > thead th,
+.table.table-horizontal2 > tbody th,
+.table.table-horizontal2 > tfoot th,
+.table.table-horizontal2 > thead td,
+.table.table-horizontal2 > tbody td,
+.table.table-horizontal2 > tfoot td {
+    border-bottom: 1px solid #ddd; 
+}
+
+.table.table-horizontal2 > thead th {
+    border-bottom: 2px solid #ddd; 
+}
+
+.table.table-horizontal2 > tfoot td {
+    border-top: 1px solid #ddd; 
+}
+
+.table.table-horizontal2 td a.link {
+    max-width: 13em;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    padding: 0;
+}
+
+.table.table-horizontal2 td a.link > .title2 {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    max-width: 100%;
+    padding: 0;
+    font-size: 15px;
+}
+
+.home-writer {
+	font-size: 14px;
+}
+
 </style>
 
 <!-- jquery cdn -->
@@ -88,8 +139,10 @@
 <!-- 내가 만든 스크립트 추가(jQuery를 사용했으니 jQuery CDN 아래 작성) -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('img[usemap]').rwdImageMaps();
+// 		$('img[usemap]').rwdImageMaps();
+	
 	});
+
 	$(function() {
 
 		var swiper2 = new Swiper('.demo02', {
@@ -169,9 +222,9 @@
 				<tr>
 					<td class="left"><a class="link"
 						href="/board/detail?boardNo=${boardDto.boardNo}"> <span
-							class="title">${boardDto.boardTitle}</span>
+							class="title2">${boardDto.boardTitle}</span>
 					</a> <span class="reply2">[${boardDto.boardReply}]</span></td>
-					<td class="right">${boardDto.boardWriterStr}</td>
+					<td class="right home-writer">${boardDto.boardWriterStr}</td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -189,9 +242,9 @@
 				<tr>
 					<td class="left"><a class="link"
 						href="/board/detail?boardNo=${boardDto.boardNo}"> <span
-							class="title">${boardDto.boardTitle}</span>
+							class="title2">${boardDto.boardTitle}</span>
 					</a> <span class="reply2">[${boardDto.boardReply}]</span></td>
-					<td class="right">${boardDto.boardWriterStr}</td>
+					<td class="right home-writer">${boardDto.boardWriterStr}</td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -209,9 +262,9 @@
 				<tr>
 					<td class="left"><a class="link"
 						href="/board/detail?boardNo=${boardDto.boardNo}"> <span
-							class="title">${boardDto.boardTitle}</span>
+							class="title2">${boardDto.boardTitle}</span>
 					</a> <span class="reply2">[${boardDto.boardReply}]</span></td>
-					<td class="right">${boardDto.boardWriterStr}</td>
+					<td class="right home-writer">${boardDto.boardWriterStr}</td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -230,7 +283,7 @@
 						href="/board/detail?boardNo=${boardDto.boardNo}"> <span
 							class="title2">${boardDto.boardTitle}</span>
 					</a> <span class="reply2">[${boardDto.boardReply}]</span></td>
-					<td class="right">${boardDto.boardWriterStr}</td>
+					<td class="right home-writer">${boardDto.boardWriterStr}</td>
 				</tr>
 			</c:forEach>
 		</table>

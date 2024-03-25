@@ -368,51 +368,8 @@ textarea.tool.tool-fixed {
     border-top: 1px solid #2d3436;
 }
 
-.table.table-horizontal2 td {
-        vertical-align: middle; /* 셀 내에서 수직 정렬을 가운데로 설정합니다. */
-    }
 
-.table.table-horizontal2 {
-    border-collapse: collapse; /* 테이블 셀 경계를 합칩니다. */
-}
 
-.table.table-horizontal2 th,
-.table.table-horizontal2 td {
-    border: none; /* 모든 셀에 선을 없앱니다. */
-}
-
-.table.table-horizontal2 > thead th,
-.table.table-horizontal2 > tbody th,
-.table.table-horizontal2 > tfoot th,
-.table.table-horizontal2 > thead td,
-.table.table-horizontal2 > tbody td,
-.table.table-horizontal2 > tfoot td {
-    border-bottom: 1px solid #ddd; 
-}
-
-.table.table-horizontal2 > thead th {
-    border-bottom: 2px solid #ddd; 
-}
-
-.table.table-horizontal2 > tfoot td {
-    border-top: 1px solid #ddd; 
-}
-
-.table.table-horizontal2 td a.link {
-    max-width: 13em;
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis;
-    padding: 0;
-}
-
-.table.table-horizontal2 td a.link > .title2 {
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis;
-    max-width: 100%;
-    padding: 0;
-}
 
 
 /* :not() 을 이용하여 특정 대상을 선택에서 제거할 수 있다 */

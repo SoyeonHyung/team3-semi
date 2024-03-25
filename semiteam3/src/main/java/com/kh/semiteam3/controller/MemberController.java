@@ -1,6 +1,7 @@
 package com.kh.semiteam3.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,11 +14,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.semiteam3.dao.AttachDao;
+import com.kh.semiteam3.dao.BoardDao;
 import com.kh.semiteam3.dao.MemberDao;
+import com.kh.semiteam3.dao.ReplyDao;
 import com.kh.semiteam3.dto.AttachDto;
+import com.kh.semiteam3.dto.BoardDto;
 import com.kh.semiteam3.dto.MemberDto;
+import com.kh.semiteam3.dto.ReplyDto;
 import com.kh.semiteam3.service.AttachService;
 import com.kh.semiteam3.service.EmailService;
+import com.kh.semiteam3.vo.PageVO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -76,9 +82,9 @@ public class MemberController {
 	public String login(HttpServletRequest request, Model model, HttpSession session) {
 	    String referer = request.getHeader("referer");
 	    model.addAttribute("referer", referer);
-	    
+
 	    String loginId = (String)session.getAttribute("loginId");
-	    
+
 	    if (loginId != null) {
 	        // 이미 로그인된 상태라면 홈 페이지로 리다이렉트합니다.
 	        return "redirect:/";
@@ -101,6 +107,9 @@ public class MemberController {
 	        session.setAttribute("loginId", findDto.getMemberId());
 	        session.setAttribute("loginGrade", findDto.getMemberGrade());
 	        session.setAttribute("loginNick", findDto.getMemberNick());
+	        
+	      //최종 로그인시각 갱신
+	        memberDao.updateMemberLogin(findDto.getMemberId());
 
 	        if (referer != null && !referer.isEmpty()) {
 	            return "redirect:" + referer;
@@ -349,6 +358,82 @@ public class MemberController {
 	public String findPwFail() {
 		return "/WEB-INF/views/member/findPwFail.jsp";
 	}
+	
+	@Autowired BoardDao boardDao;
+	
+	// 내가 쓴 게시글
+	@GetMapping("/mywriting")
+	public String mywriting(@RequestParam(required = false) String category,
+					HttpSession session, Model model, PageVO pageVO) {
+		
+		// 현재 로그인된 사용자의 아이디 가져오기
+		String loginId = (String) session.getAttribute("loginId");
+		int count = boardDao.countForMywriting(pageVO, loginId);
+		pageVO.setCount(count);
+		model.addAttribute("pageVO", pageVO);
+
+		MemberDto memberDto = memberDao.selectOne(loginId);
+
+		model.addAttribute("memberDto", memberDto);
+
+		// 해당 사용자가 작성한 게시글 가져오기
+		List<BoardDto> boardList = boardDao.findBylist(loginId, pageVO, category);
+
+		// 모델에 게시글 목록 추가
+		model.addAttribute("boardList", boardList);
+
+		// 마이페이지 내가 쓴 게시글 화면으로 이동
+		return "/WEB-INF/views/member/mywriting.jsp";
+
+	}
+	
+	@Autowired
+	private ReplyDao replyDao;
+
+	// 내가쓴 댓글
+	@GetMapping("/mycomment")
+	public String mycomment(HttpSession session, Model model, PageVO pageVO) {
+		model.addAttribute("pageVO", pageVO);
+		// 현재 로그인된 사용자의 아이디 가져오기
+		String loginId = (String) session.getAttribute("loginId");
+
+		int count = replyDao.countForMycomment(loginId);
+		pageVO.setCount(count);
+		MemberDto memberDto = memberDao.selectOne(loginId);
+
+		model.addAttribute("memberDto", memberDto);
+
+		// 해당 사용자가 작성한 댓글 가져오기
+		List<ReplyDto> replyList = replyDao.findBylist(loginId, pageVO);
+
+		// 모델에 게시글 목록 추가
+		model.addAttribute("replyList", replyList);
+
+		// 마이페이지 내가 쓴 게시글 화면으로 이동
+		return "/WEB-INF/views/member/mycomment.jsp";
+	}
+	
+	// 찜목록
+	@GetMapping("/mylike")
+	public String mylike(HttpSession session, Model model, PageVO pageVO) {
+		int count = boardDao.count(pageVO);
+		pageVO.setCount(count);
+		model.addAttribute("pageVO", pageVO);
+
+		// 아이디 가져오기
+		String loginId = (String) session.getAttribute("loginId");
+
+		MemberDto memberDto = memberDao.selectOne(loginId);
+
+		model.addAttribute("memberDto", memberDto);
+		// 좋아요 목록 가져오기
+		List<BoardDto> likeList = boardDao.likeList(loginId);
+
+		model.addAttribute("likeList", likeList);
+
+		return "/WEB-INF/views/member/mylike.jsp";
+	}
+	
 	
 	
 	

@@ -78,9 +78,8 @@
 		<div class="cell right">
 			<a class="btn negative link-confirm" data-message="정말 삭제하시겠습니까?"
 					href="delete?reportReplyNo=${reportReplyDto.reportReplyNo}">댓글 신고글삭제</a>
-			<a class="btn positive" onclick="history.back()">댓글 신고글 목록</a>
-<!-- 			<a class="btn positive" href="list">댓글 신고글 목록</a> -->
-			<!-- <a class="btn positive" href="/board/detail?boardNo=${originalBoardNo}">신고된 댓글 보러가기</a> -->
+			<a class="btn positive" href="list">댓글 신고글 목록</a>
+			<a class="btn positive" href="/board/detail?boardNo=${originalBoardNo}">신고된 댓글 보러가기</a>
 
 		</div>
 	</div>

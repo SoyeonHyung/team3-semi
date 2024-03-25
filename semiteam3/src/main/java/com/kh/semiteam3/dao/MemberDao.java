@@ -152,6 +152,20 @@ public class MemberDao {
 		};
 		return jdbcTemplate.update(sql, data)>0;
 	}
+	
+
+    
+	public String getMemberNickById(String memberId) {
+	    String sql = "SELECT member_nick FROM member WHERE member_id = ?";
+	    Object[] params = {memberId};
+	    List<String> results = jdbcTemplate.queryForList(sql, String.class, params);
+	    
+	    if (!results.isEmpty()) {
+	        return results.get(0);
+	    } else {
+	        return null;
+	    }
+	}
 }
 	
 	

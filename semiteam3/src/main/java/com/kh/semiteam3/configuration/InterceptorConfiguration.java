@@ -61,9 +61,12 @@ public class InterceptorConfiguration implements WebMvcConfigurer{
 		registry.addInterceptor(boardViewInterceptor)
 													.addPathPatterns("/board/detail");
 		
-//		//비로그인시 접근 제한
-//		registry.addInterceptor(NonMemberInterceptor)
-//		.addPathPatterns("/board/write");
+		//비로그인시 접근 제한
+		registry.addInterceptor(NonMemberInterceptor)
+					.addPathPatterns(
+							"/member/find*", 
+							"/member/join*"
+					);
 	
 	}	
 

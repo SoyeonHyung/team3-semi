@@ -38,7 +38,6 @@
 <!-- jquery cdn -->
 <script
 	src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-<script src="/js/commons.js"></script>
 
 
 <!--summernote cdn-->
@@ -47,6 +46,7 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="/js/commons.js"></script>
 <style>
 .note-editor {
 	border: 1px solid #e3c7a6 !important;
@@ -161,7 +161,7 @@ body {
 			}
 		};
 
-		$("[name='boardContent'], [name='inquiryContent']").summernote(options);
+		$("[name='boardContent'], [name='inquiryContent'], [name='reportBoardContent']").summernote(options);
 	});
 	
 	/* 로고 호버 코드	*/
@@ -247,12 +247,6 @@ document.addEventListener('DOMContentLoaded', function() {
 					</a>
 					<ul>
 						<li>
-							<a href="/admin/member/search">
-								<i class="fa-regular fa-rectangle-list"></i>
-								회원관리
-							</a>
-						</li>
-						<li>
 							<a href="/reportBoard/list">
 								<i class="fa-solid fa-reply-all"></i>
 								게시글 신고 목록
@@ -268,6 +262,12 @@ document.addEventListener('DOMContentLoaded', function() {
 							<a href="/board/list?category=관리자">
 								<i class="fa-solid fa-gear"></i>
 								관리자게시판
+							</a>
+						</li>
+						<li>
+							<a href="/admin/member/search">
+								<i class="fa-regular fa-rectangle-list"></i>
+								회원관리
 							</a>
 						</li>
 						<li>

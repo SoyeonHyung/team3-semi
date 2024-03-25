@@ -28,7 +28,7 @@
 					<%-- 제목칸 --%>
 					<td class="left" width="40%">
 						<%-- 제목 출력 --%> <a class="link"
-						href="detail?boardNo=${boardDto.boardNo}">
+						href="/board/detail?boardNo=${boardDto.boardNo}">
 							${boardDto.boardTitle} </a>
 					</td>
 					<td>${boardDto.boardWriterStr}</td>

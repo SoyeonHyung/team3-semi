@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
-</style>
 
 
 <script>
@@ -170,30 +169,14 @@ $(function() {
 				<div class="fail-feedback">비밀번호를 입력하세여</div>
 				<div class="success-feedback">비밀번호가 동일합니다</div>
 			</div>
-    	<div class="form-actions">
+    		<div class="form-actions">
 				<button type="submit" class="btn">
 					<i class="fa-solid fa-check"></i>확인
 				</button>
 			</div>
-				</div>
-<h1>비밀번호 변경</h1>
-<c:if test="${param.originError != null}">
-    <div class="error-message">현재 비밀번호가 일치하지 않습니다</div>
-</c:if>
-<c:if test="${param.formatError != null}">
-    <div class="error-message">비밀번호가 형식에 맞지 않습니다</div>
-</c:if>
-<c:if test="${param.equalsError != null}">
-    <div class="error-message">현재 비밀번호와 변경할 비밀번호가 같습니다</div>
-</c:if>
 
-<form action="password" method="post">
-    현재 비밀번호: <input name="originPw" type="password" required><br><br>
-    변경할 비밀번호: <input name="changePw" type="password" required><br><br>
-    <button>확인</button>
-</form>
-</div>
+		</form>
+	</div>
 </body>
-</html>
 
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>

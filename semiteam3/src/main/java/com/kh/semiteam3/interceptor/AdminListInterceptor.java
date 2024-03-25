@@ -29,7 +29,8 @@ public class AdminListInterceptor implements HandlerInterceptor{
             if (isAdmin) {
                 return true; // 관리자이면 접근 허용
             } else {
-                response.sendError(403); // 관리자가 아닌 경우에는 접근 거부
+//                response.sendError(403); // 관리자가 아닌 경우에는 접근 거부
+    			response.sendRedirect("/member/login"); //로그인 페이지로
                 return false;
             }
         } else {

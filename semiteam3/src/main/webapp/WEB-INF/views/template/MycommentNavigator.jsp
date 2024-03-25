@@ -15,7 +15,7 @@
 		</c:when>
 		<c:otherwise>
 			<a
-				href="mywriting?category=${param.category}&page=${pageVO.prevBlock}&${pageVO.queryString}">&lt;이전</a>
+				href="?page=${pageVO.prevBlock}&${pageVO.queryString}">&lt;이전</a>
 		</c:otherwise>
 	</c:choose>
 
@@ -29,7 +29,7 @@
 			</c:when>
 			<c:otherwise>
 				<a
-					href="mywriting?category=${param.category}&page=${i}&${pageVO.getQueryString()}">${i}</a>
+					href="?page=${i}&${pageVO.getQueryString()}">${i}</a>
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>
@@ -42,7 +42,7 @@
 		</c:when>
 		<c:otherwise>
 			<a
-				href="mywriting?category=${param.category}&page=${pageVO.getNextBlock()}&${pageVO.getQueryString()}">다음&gt;</a>
+				href="?page=${pageVO.getNextBlock()}&${pageVO.getQueryString()}">다음&gt;</a>
 		</c:otherwise>
 	</c:choose>
 </div>
