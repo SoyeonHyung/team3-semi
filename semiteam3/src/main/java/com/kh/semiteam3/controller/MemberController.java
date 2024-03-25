@@ -114,7 +114,7 @@ public class MemberController {
 	        if (referer != null && !referer.isEmpty()) {
 	            return "redirect:" + referer;
 	        } else {
-	            return "redirect:/";
+	            return "redirect:joinFinsh";
 	        }
 	    } else {
 	        // 로그인 실패 시

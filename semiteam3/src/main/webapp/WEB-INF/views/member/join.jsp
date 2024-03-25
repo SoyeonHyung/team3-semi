@@ -472,6 +472,16 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
             
 //         }
 //     }
+
+// 이미지 파일 가져오기
+const imageFile = document.querySelector('#image-file').files[0];
+
+// Blob으로 이미지 파일 생성
+const blob = new Blob([imageFile], { type: 'image/jpeg/png/svg/' });
+
+// Blob을 URL로 변환
+const imageUrl = URL.createObjectURL(blob);
+
 </script>
 
 <div class="box cell container">
@@ -652,6 +662,7 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 				</label>
 				<input type="file" id="attach" name="attach" 
 						class="too w-100" style="display:none">
+						
 			</div>
   	 
 				

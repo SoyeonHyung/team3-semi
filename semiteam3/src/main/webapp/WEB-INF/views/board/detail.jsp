@@ -82,8 +82,10 @@ div > p > img{
 	padding: 5px 7px;
 	color: white;
 }
-
-
+.reply-content {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
 
 
 </style>
@@ -689,7 +691,7 @@ function loadList() {
 							<i class="fa-solid fa-bell btn-reply-report ms-10 my-15"><span class="btn-reply-report not-bell"> 신고</span></i>
 					</div>
 
-					<pre class="reply-content">댓글 내용</pre>
+					<pre class="reply-content pre">댓글 내용</pre>
 
 					<c:if
 						test="${sessionScope.loginId != null && (sessionScope.loginId == boardDto.boardWriter || sessionScope.loginGrade == '관리자')}">
