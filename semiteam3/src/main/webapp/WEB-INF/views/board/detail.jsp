@@ -79,8 +79,13 @@ div > p > img{
 	font-size: 10px;
 	background-color: #778beb;
 	border-radius: 2em;
-	padding: 5px 7px;
+	padding: 4px 7px;
 	color: white;
+}
+
+.reply-content {
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 
@@ -617,7 +622,7 @@ function loadList() {
 
 						<c:if test="${sessionScope.loginId != null}">
 							<a class="link btn-board-report"
-								href="http://localhost:8080/reportBoard/insert?reportBoardOrigin=${boardDto.boardNo}">
+								href="/reportBoard/insert?reportBoardOrigin=${boardDto.boardNo}">
 								<i class="fa-solid fa-bell btn-board-report"></i> 신고
 							</a>
 						</c:if>
@@ -669,7 +674,7 @@ function loadList() {
 			<div class="cell">
 				<hr class="detail">
 			</div>
-			<div class="cell reply-list-wrapper ">
+			<div class="cell reply-list-wrapper">
 				<div class="reply-item">
 					<div class="cell flex-cell mx-20">
 						<div class="cell w-50 left">
@@ -692,7 +697,7 @@ function loadList() {
 						test="${sessionScope.loginId != null && (sessionScope.loginId == boardDto.boardWriter || sessionScope.loginGrade == '관리자')}">
 						<div>
 							<a class="btn"
-								href="http://localhost:8080/reportBoard/insert?reportBoardOrigin=${boardDto.boardNo}">신고</a>
+								href="/reportBoard/insert?reportBoardOrigin=${boardDto.boardNo}">신고</a>
 						</div>
 					</c:if>
 

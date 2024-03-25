@@ -90,7 +90,7 @@
 								</a>
 							</td>
 							<td>
-								<a class="link" href="http://localhost:8080/board/detail?boardNo=${reportBoardDto.reportBoardOrigin}">
+								<a class="link" href="/board/detail?boardNo=${reportBoardDto.reportBoardOrigin}">
 								${reportBoardDto.reportBoardOrigin}
 								</a>
 							</td>
