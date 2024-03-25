@@ -21,7 +21,7 @@
 				<p class="edit-title">게시글 수정</p>
 			</div>
 
-			<div class="cell right">
+			<div class="cell right" id="datetimepicker-div">
 				<label for="datetimepicker">마감 시간</label> <input type="text"
 					name="boardLimitTime" id="datetimepicker"
 					class="form-control tool w-50" value="${boardDto.boardLimitTime}">
@@ -66,9 +66,10 @@
 		minDate : "today",
 		enableminute : false,
 		
-		//기본 시간값 현재 시간,분으로 설정했음
-		defaultHour : new Date().getHours(),
-		defaultMinute : new Date().getMinutes(),
+		minTime : new Date().getHours() + ":" + (new Date().getMinutes() + 1),
+		
+		defaultHour: new Date().getHours(),
+		defaultMinute: new Date().getMinutes(), 
 	});
 
 	$(function() {
@@ -110,6 +111,13 @@
 				return false;
 			}
 		});
+		
+	    // 페이지 로드시 관리자인 경우 마감시간 칸 숨김
+	    var loginGrade = "${sessionScope.loginGrade}";
+	    if (loginGrade === "관리자") {
+	        $("#datetimepicker-div").hide();
+	    }
+	    
 	});
 </script>
 
