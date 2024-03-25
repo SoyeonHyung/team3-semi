@@ -38,7 +38,7 @@ public class ReportReplyRestController {
 	
 	@PostMapping("/insert")
 	public void insert(@ModelAttribute ReportReplyDto reportReplyDto, HttpSession session) {
-		String loginId = (String) session.getAttribute("loginId");//댓글신고자
+		String loginId = (String) session.getAttribute("loginId");//댓글신고자아이디
 
 		// 댓글 수 증가
 		//boardDao.increaseBoardReply(replyDto.getReplyOrigin());

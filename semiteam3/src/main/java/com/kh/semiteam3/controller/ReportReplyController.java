@@ -33,7 +33,7 @@ public class ReportReplyController {
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
+		binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));//페이지네이션때문에
 	}
 	
 	@Autowired
@@ -45,7 +45,7 @@ public class ReportReplyController {
 	@Autowired
 	private AttachService attachService;
 	
-	//목록
+	//목록--관리자만 보든거 가능!
 	@RequestMapping("/list")
 	public String list(
 			@ModelAttribute PageVO pageVO,
@@ -60,7 +60,7 @@ public class ReportReplyController {
 		return "/WEB-INF/views/reportReply/list.jsp";
 	}
 	
-	//삭제
+	//삭제--관리자가 댓글 신고한 글 삭제할 수 있도록.. 댓글 달린 게시글 가서 판단 후에 그 댓글 삭제할 수 있도록..
 	@GetMapping("/delete")
 	public String delete(@RequestParam int reportReplyNo) {
 		ReportReplyDto reportReplyDto =  reportReplyDao.selectOne(reportReplyNo);
@@ -96,7 +96,7 @@ public class ReportReplyController {
 //			return "redirect:detail?reportReplyNo="+reportReplyDto.getReportReplyOrigin();
 //		}
 		
-		//상세
+		//상세--관리자만 상세 보는거 가능
 		@RequestMapping("/detail")
 		public String detail(@RequestParam int reportReplyNo, Model model) {
 			ReportReplyDto reportReplyDto = reportReplyDao.selectOne(reportReplyNo);
@@ -108,7 +108,7 @@ public class ReportReplyController {
 			}
 			// 신고된 댓글이 있는 원본 게시글 번호를 가져옴
 	        int originalBoardNo = reportReplyDao.getReportReplyBoardOrigin(reportReplyNo);
-	        model.addAttribute("originalBoardNo", originalBoardNo);
+	        model.addAttribute("originalBoardNo", originalBoardNo);//신고당한 댓글이 달린 원본게시글 번호 
 	        
 	        // 신고당한 댓글의 내용을 가져와 모델에 추가
 	        Map<String, Object> reportedReplyData = reportReplyDao.getReportReplyContent(reportReplyNo);
@@ -117,7 +117,7 @@ public class ReportReplyController {
 			return "/WEB-INF/views/reportReply/detail.jsp";
 		}
 		
-		//프로필 다운로드 페이지
+		//프로필 다운로드 페이지--사이드바에 프로필 이미지 안되는거 해결
 				@RequestMapping("/image")
 				public String image(HttpSession session) {
 					try {

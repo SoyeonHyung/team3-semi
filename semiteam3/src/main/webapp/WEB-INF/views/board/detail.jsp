@@ -375,7 +375,7 @@ function loadList() {
 							var templateText = $("#reply-item-report-wrapper")
 									.text();
 							var templateHTML = $.parseHTML(templateText);
-							$(this).parents(".reply-item").after(templateHTML);
+							$(this).parents(".reply-item").after(templateHTML);//신고하려는 댓글 밑에 창 생김
 
 							// 신고 등록 버튼 클릭 시
 							$(document)
@@ -400,8 +400,7 @@ function loadList() {
 												}
 
 												// AJAX를 통해 신고 등록 요청
-												$
-														.ajax({
+												$.ajax({
 															url : "/rest/reportReply/insert",
 															method : "post",
 															data : {
@@ -413,9 +412,7 @@ function loadList() {
 															success : function(
 																	response) {
 																// 신고 완료 후 신고 창을 숨김
-																$(
-																		".reply-item-report")
-																		.remove();
+																$(".reply-item-report").remove();
 																alert("댓글 신고가 완료되었습니다.");
 															}
 														});
