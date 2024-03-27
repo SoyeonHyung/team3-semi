@@ -103,6 +103,8 @@
 					<c:if test="${empty param.status && param.category ne '관리자'}">
 						<form action="list" method="get">
 							<input type="hidden" name="category" value="${param.category}">
+							<input type="hidden" name="column" value="${param.column}">
+							<input type="hidden" name="keyword" value="${param.keyword}">
 							<input type="hidden" name="status" value="recruiting">
 							<button class="btn positive status-btn">모집중인 게시글만 보기</button>
 						</form>
@@ -117,7 +119,7 @@
 
 				<div class="cell width-fill right">
 					<%-- 검색창 --%>
-					<form action="list" method="get">
+					<form action="list" method="get" class="search-form">
 						<!-- 카테고리를 넘겨줘야함 -->
 						<input type="hidden" name="category" value="${param.category}">
 						<input type="hidden" name="status" value="${param.status}">
@@ -130,7 +132,7 @@
 								${param.column == 'member_nick' ? 'selected' : ''}>작성자</option>
 						</select> <input class="tool" type="search" name="keyword"
 							placeholder="검색어 입력" value="${param.keyword}">
-						<button class="btn positive empty-check">검색</button>
+						<button class="btn positive empty-check2">검색</button>
 					</form>
 				</div>
 
