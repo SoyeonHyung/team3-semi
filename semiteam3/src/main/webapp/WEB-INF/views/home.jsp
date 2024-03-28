@@ -181,23 +181,23 @@
 						<a href="/"><img src="/image/home/main4.png"></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="http://localhost:8080/board/eventpage"> <img
+						<a href="/board/eventpage"> <img
 							src="/image/home/event.png">
 						</a>
 					</div>
 					<div class="swiper-slide">
 						<a
-							href="http://localhost:8080/board/list?category=%EC%B6%95%EA%B5%AC"><img
+							href="/board/list?category=%EC%B6%95%EA%B5%AC"><img
 							src="/image/home/football.png"></a>
 					</div>
 					<div class="swiper-slide">
 						<a
-							href="http://localhost:8080/board/list?category=%EC%95%BC%EA%B5%AC"><img
+							href="/board/list?category=%EC%95%BC%EA%B5%AC"><img
 							src="/image/home/baseball.png"></a>
 					</div>
 					<div class="swiper-slide">
 						<a
-							href="http://localhost:8080/board/list?category=%EB%86%8D%EA%B5%AC"><img
+							href="/board/list?category=%EB%86%8D%EA%B5%AC"><img
 							src="/image/home/basketball.png"></a>
 					</div>
 				</div>

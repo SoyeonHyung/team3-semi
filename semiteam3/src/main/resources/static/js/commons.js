@@ -35,6 +35,21 @@ $(function(){
     });
 });
 
+$(function(){
+    $("button.empty-check2").off().click(function(){
+        var keyword = $(this).closest('form.search-form').find('input[name="keyword"]').val(); // 검색어 입력란의 값 가져오기
+        if (!keyword.trim()) { // 검색어가 비어있는지 확인
+            var message = $(this).data("message");
+            if (message === undefined) {
+                 message = "검색어를 입력해주세요.";
+            }
+            window.alert(message);
+        } else {
+            $(this).closest('form').submit();
+        }
+    });
+});
+
 
 /*
     전체선택 체크박스에 대한 이벤트 구현
