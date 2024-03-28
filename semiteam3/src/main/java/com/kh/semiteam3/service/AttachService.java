@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.kh.semiteam3.configuration.FilePathProperties;
 import com.kh.semiteam3.dao.AttachDao;
 import com.kh.semiteam3.dto.AttachDto;
 
@@ -16,10 +17,13 @@ public class AttachService {
 	@Autowired
 	private AttachDao attachDao;
 	
+	@Autowired
+	private FilePathProperties filePathProperties;
+	
 	//파일저장 + DB저장
 	public int save(MultipartFile attach) throws IllegalStateException, IOException {
 		int attachNo = attachDao.getSequence();
-		File dir = new File(System.getProperty("user.home"), "upload");
+		File dir = new File(filePathProperties.getPath());
 		dir.mkdir();
 		File target = new File(dir, String.valueOf(attachNo));
 		attach.transferTo(target);//실물파일저장
@@ -38,7 +42,7 @@ public class AttachService {
 	
 	//삭제
 	public void remove(int attachNo) {
-		File dir = new File(System.getProperty("user.home"), "upload");
+		File dir = new File(filePathProperties.getPath());
 		File target = new File(dir, String.valueOf(attachNo));
 		target.delete();
 		attachDao.delete(attachNo);//파일 정보 지우기

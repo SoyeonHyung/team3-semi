@@ -53,7 +53,6 @@ public class ScheduleService {
 
 	@Scheduled(cron = "0 0 * * * *")
 	public void clearCert() {
-		System.out.println(LocalDateTime.now());
 		certDao.deleteLegacy();
 	}
 
