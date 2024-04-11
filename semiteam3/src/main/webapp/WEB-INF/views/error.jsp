@@ -13,8 +13,8 @@
 	rel="stylesheet">
 
 <!-- 내가 구현한 스타일 -->
-<link rel="stylesheet" type="text/CSS" href="/css/commons.css">
-<!-- <link rel="stylesheet" type="text/CSS" href="/css/test.css"> -->
+<link rel="stylesheet" type="text/CSS" href="/${pageContext.request.contextPath}/css/commons.css">
+<!-- <link rel="stylesheet" type="text/CSS" href="/${pageContext.request.contextPath}/css/test.css"> -->
 
 <!-- font awesome 아이콘 CDN -->
 <link rel="stylesheet" type="text/css"
@@ -75,7 +75,7 @@
  <body>
     <div class="background-blur">
      
-		<a href="/"><i class="fa-solid fa-house"></i>Main</a>
+		<a href="/${pageContext.request.contextPath}/"><i class="fa-solid fa-house"></i>Main</a>
 	</div>
   </body>
 </html>

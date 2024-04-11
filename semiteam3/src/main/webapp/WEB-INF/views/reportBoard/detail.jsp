@@ -80,7 +80,7 @@
 					href="delete?reportBoardNo=${reportBoardDto.reportBoardNo}">게시글 신고글삭제</a>
 			<a class="btn positive" onclick="history.back()">게시글 신고글 목록</a>
 <!-- 			<a class="btn positive" href="list">게시글 신고글 목록</a> -->
-			<a class="btn positive" href="/board/detail?boardNo=${reportBoardDto.reportBoardOrigin}">신고된 게시글 보러가기</a>
+			<a class="btn positive" href="/${pageContext.request.contextPath}/board/detail?boardNo=${reportBoardDto.reportBoardOrigin}">신고된 게시글 보러가기</a>
 
 		</div>
 	</div>

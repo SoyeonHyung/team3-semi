@@ -8,7 +8,7 @@
 	</div>
 
 	<div class="cell center">
-		<h3><a href="/" class="link link-animation" style="margin-bottom:200px">홈으로 이동</a></h3>
+		<h3><a href="/${pageContext.request.contextPath}/" class="link link-animation" style="margin-bottom:200px">홈으로 이동</a></h3>
 	</div>
 </div>
 <jsp:include page="/WEB-INF/views/template/footer.jsp"></jsp:include>
