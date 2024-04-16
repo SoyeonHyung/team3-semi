@@ -206,9 +206,9 @@ $(document).ready(function() {
  
 </div>
 		<div class="cell right pe-30">
-			<a href="/${pageContext.request.contextPath}/member/password" class="button">비밀번호 변경</a><span> | </span><a
-				href="/${pageContext.request.contextPath}/member/edit" class="button">개인정보 변경</a><span> | </span><a
-				href="/${pageContext.request.contextPath}/member/exit" class="button">회원 탈퇴</a>
+			<a href="${pageContext.request.contextPath}/member/password" class="button">비밀번호 변경</a><span> | </span><a
+				href="${pageContext.request.contextPath}/member/edit" class="button">개인정보 변경</a><span> | </span><a
+				href="${pageContext.request.contextPath}/member/exit" class="button">회원 탈퇴</a>
 		</div>
 
 

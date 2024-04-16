@@ -178,27 +178,27 @@
 				<div class="swiper-wrapper">
 					<!-- Slides -->
 					<div class="swiper-slide">
-						<a href="/${pageContext.request.contextPath}/"><img src="/image/home/main4.png"></a>
+						<a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/image/home/main4.png"></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="/${pageContext.request.contextPath}/board/eventpage"> <img
-							src="/image/home/event.png">
+						<a href="${pageContext.request.contextPath}/board/eventpage"> <img
+							src="${pageContext.request.contextPath}/image/home/event.png">
 						</a>
 					</div>
 					<div class="swiper-slide">
 						<a
-							href="/${pageContext.request.contextPath}/board/list?category=%EC%B6%95%EA%B5%AC"><img
-							src="/image/home/football.png"></a>
+							href="${pageContext.request.contextPath}/board/list?category=%EC%B6%95%EA%B5%AC"><img
+							src="${pageContext.request.contextPath}/image/home/football.png"></a>
 					</div>
 					<div class="swiper-slide">
 						<a
-							href="/${pageContext.request.contextPath}/board/list?category=%EC%95%BC%EA%B5%AC"><img
-							src="/image/home/baseball.png"></a>
+							href="${pageContext.request.contextPath}/board/list?category=%EC%95%BC%EA%B5%AC"><img
+							src="${pageContext.request.contextPath}/image/home/baseball.png"></a>
 					</div>
 					<div class="swiper-slide">
 						<a
-							href="/${pageContext.request.contextPath}/board/list?category=%EB%86%8D%EA%B5%AC"><img
-							src="/image/home/basketball.png"></a>
+							href="${pageContext.request.contextPath}/board/list?category=%EB%86%8D%EA%B5%AC"><img
+							src="${pageContext.request.contextPath}/image/home/basketball.png"></a>
 					</div>
 				</div>
 				<!-- If we need pagination -->
@@ -211,7 +211,7 @@
 <p class="home-title center mt-20">♡ 현재 모집중인 게시글 ♡</p>
 <div class="cell flex-cell center container w-1700 ">
 	<div class="cell w-100 ing set-color center">
-		<a href="/${pageContext.request.contextPath}/board/list?category=축구" class="link home-table-title center">		
+		<a href="${pageContext.request.contextPath}/board/list?category=축구" class="link home-table-title center">		
 			<i class="fa-solid fa-soccer-ball"></i>
 				축구게시판
 			<i class="fa-solid fa-soccer-ball"></i>
@@ -221,7 +221,7 @@
 			<c:forEach var="boardDto" items="${footballList}">
 				<tr>
 					<td class="left"><a class="link"
-						href="/${pageContext.request.contextPath}/board/detail?boardNo=${boardDto.boardNo}"> <span
+						href="${pageContext.request.contextPath}/board/detail?boardNo=${boardDto.boardNo}"> <span
 							class="title2">${boardDto.boardTitle}</span>
 					</a> <span class="reply2">[${boardDto.boardReply}]</span></td>
 					<td class="right home-writer">${boardDto.boardWriterStr}</td>
@@ -231,7 +231,7 @@
 	</div>
 
 	<div class="cell w-100 ing set-color center">
-		<a href="/${pageContext.request.contextPath}/board/list?category=야구" class="link home-table-title center">
+		<a href="${pageContext.request.contextPath}/board/list?category=야구" class="link home-table-title center">
 			<i class="fa-solid fa-baseball"></i>
 				야구게시판
 			<i class="fa-solid fa-baseball"></i>
@@ -241,7 +241,7 @@
 			<c:forEach var="boardDto" items="${baseballList}">
 				<tr>
 					<td class="left"><a class="link"
-						href="/${pageContext.request.contextPath}/board/detail?boardNo=${boardDto.boardNo}"> <span
+						href="${pageContext.request.contextPath}/board/detail?boardNo=${boardDto.boardNo}"> <span
 							class="title2">${boardDto.boardTitle}</span>
 					</a> <span class="reply2">[${boardDto.boardReply}]</span></td>
 					<td class="right home-writer">${boardDto.boardWriterStr}</td>
@@ -251,7 +251,7 @@
 	</div>
 
 	<div class="cell w-100 ing set-color center">
-		<a href="/${pageContext.request.contextPath}/board/list?category=농구" class="link home-table-title center">
+		<a href="${pageContext.request.contextPath}/board/list?category=농구" class="link home-table-title center">
 			<i class="fa-solid fa-basketball"></i>
 				농구게시판
 			<i class="fa-solid fa-basketball"></i>
@@ -261,7 +261,7 @@
 			<c:forEach var="boardDto" items="${basketballList}">
 				<tr>
 					<td class="left"><a class="link"
-						href="/${pageContext.request.contextPath}/board/detail?boardNo=${boardDto.boardNo}"> <span
+						href="${pageContext.request.contextPath}/board/detail?boardNo=${boardDto.boardNo}"> <span
 							class="title2">${boardDto.boardTitle}</span>
 					</a> <span class="reply2">[${boardDto.boardReply}]</span></td>
 					<td class="right home-writer">${boardDto.boardWriterStr}</td>
@@ -270,7 +270,7 @@
 		</table>
 	</div>
 	<div class="cell w-100 ing set-color center">
-		<a href="/${pageContext.request.contextPath}/board/list?category=E-스포츠" class="link home-table-title center">
+		<a href="${pageContext.request.contextPath}/board/list?category=E-스포츠" class="link home-table-title center">
 			<i class="fa-solid fa-gamepad"></i>
 				게임게시판
 			<i class="fa-solid fa-gamepad"></i>
@@ -280,7 +280,7 @@
 			<c:forEach var="boardDto" items="${ESportsList}">
 				<tr>
 					<td class="left"><a class="link"
-						href="/${pageContext.request.contextPath}/board/detail?boardNo=${boardDto.boardNo}"> <span
+						href="${pageContext.request.contextPath}/board/detail?boardNo=${boardDto.boardNo}"> <span
 							class="title2">${boardDto.boardTitle}</span>
 					</a> <span class="reply2">[${boardDto.boardReply}]</span></td>
 					<td class="right home-writer">${boardDto.boardWriterStr}</td>

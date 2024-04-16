@@ -9,7 +9,7 @@
 	</div>
 
 	<div class="cell center">
-		<h3><a href="/${pageContext.request.contextPath}/" class="link link-animation">홈으로 이동</a></h3>
+		<h3><a href="${pageContext.request.contextPath}/" class="link link-animation">홈으로 이동</a></h3>
 	</div>
 </div>
 

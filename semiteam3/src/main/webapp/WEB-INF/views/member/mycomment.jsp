@@ -42,7 +42,7 @@
                             		${replyDto.replyTime}
                             	</div>
                             	<div class="board-title mb-10">
-		                            <a class="link info" href="/${pageContext.request.contextPath}/board/detail?boardNo=${replyDto.replyOrigin}">
+		                            <a class="link info" href="${pageContext.request.contextPath}/board/detail?boardNo=${replyDto.replyOrigin}">
 		                            ${replyDto.boardTitle}<span class="reply"> [${replyDto.boardReply}]</span></a>
 	                            </div>
 	                       	</td>

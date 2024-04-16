@@ -29,7 +29,7 @@ hr {
 	<div class="flex-cell w-100">
 
 		<div class="cell right mt-40 w-25 first">
-			<a href="/${pageContext.request.contextPath}/" class="link"> <img src="/image/home/NosilLogo.png"
+			<a href="${pageContext.request.contextPath}/" class="link"> <img src="/image/home/NosilLogo.png"
 				class="w-50">
 			</a>
 		</div>
@@ -38,7 +38,7 @@ hr {
 				: 즙지환</p>
 			<p class="center second-2">서울 영등포구 선유동2로 57 이레빌딩 19층</p>
 			<p class="center second-3">
-				<a href="/${pageContext.request.contextPath}/inquiry/list" class="link">고객센터</a> | 010-1234-5678 |
+				<a href="${pageContext.request.contextPath}/inquiry/list" class="link">고객센터</a> | 010-1234-5678 |
 				kh13soyeon@gmail.com
 			</p>
 		</div>

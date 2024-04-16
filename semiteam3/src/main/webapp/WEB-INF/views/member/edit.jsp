@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
-<script src="/js/exit.js"></script>
+<script src="${pageContext.request.contextPath}/js/exit.js"></script>
 <style>
     .preview {
         border: 2px solid #ccc;

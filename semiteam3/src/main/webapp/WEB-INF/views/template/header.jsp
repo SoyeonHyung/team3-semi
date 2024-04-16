@@ -28,8 +28,8 @@
 	rel="stylesheet">
 
 <!-- 내가 구현한 스타일 -->
-<link rel="stylesheet" type="text/CSS" href="/${pageContext.request.contextPath}/css/commons.css">
-<!-- <link rel="stylesheet" type="text/CSS" href="/${pageContext.request.contextPath}/css/test.css"> -->
+<link rel="stylesheet" type="text/CSS" href="${pageContext.request.contextPath}/css/commons.css">
+<!-- <link rel="stylesheet" type="text/CSS" href="${pageContext.request.contextPath}/css/test.css"> -->
 
 <!-- font awesome 아이콘 CDN -->
 <link rel="stylesheet" type="text/css"
@@ -46,7 +46,7 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-<script src="/js/commons.js"></script>
+<script src="${pageContext.request.contextPath}/js/commons.js"></script>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <style>
@@ -171,12 +171,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const imageToChange = document.getElementById('changeName');
     imageToChange.addEventListener('mouseover', function() {
         // 이미지 파일의 이름을 변경합니다.
-        imageToChange.src = "/image/home/nosilLogoHover.png";
+        imageToChange.src = "${pageContext.request.contextPath}/image/home/nosilLogoHover.png";
     });
 
     imageToChange.addEventListener('mouseout', function() {
         // 마우스가 벗어나면 다시 원래의 이미지 파일로 변경합니다.
-        imageToChange.src = "/image/home/nosilLogo.png";
+        imageToChange.src = "${pageContext.request.contextPath}/image/home/nosilLogo.png";
     });
 });
 
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!--ChartJD CDN-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="/js/commons.js"></script>
+<script src="${pageContext.request.contextPath}/js/commons.js"></script>
 
 
 </head>
@@ -201,11 +201,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	 
 <div class="container w-1800 center">
 	<div class="right">
-    	<a href="/${pageContext.request.contextPath}/inquiry/list" class="link inquieryLink me-30">고객센터</a>
+    	<a href="${pageContext.request.contextPath}/inquiry/list" class="link inquieryLink me-30">고객센터</a>
 	</div>
 	<div class="cell center Logo ">
-		<a href="/${pageContext.request.contextPath}/" class="link "> 
-       		<img src="/image/home/nosilLogo.png" alt="nosilLogo" 
+		<a href="${pageContext.request.contextPath}/" class="link "> 
+       		<img src="${pageContext.request.contextPath}/image/home/nosilLogo.png" alt="nosilLogo" 
        			class="nosilLogo w-50 m-10" id="changeName">
 		</a>
     </div>
@@ -214,66 +214,66 @@ document.addEventListener('DOMContentLoaded', function() {
 	<div class="cell w-100">
 		<ul class="menu" width="400px">
 			<li>
-				<a href="/${pageContext.request.contextPath}/board/list?category=축구">
+				<a href="${pageContext.request.contextPath}/board/list?category=축구">
 					<i class="fa-solid fa-soccer-ball"></i>
 					 축구게시판
 				</a>
 			</li>
 			<li>
-				<a href="/${pageContext.request.contextPath}/board/list?category=야구">
+				<a href="${pageContext.request.contextPath}/board/list?category=야구">
 					<i class="fa-solid fa-baseball"></i>
 					야구게시판
 				</a>
 			</li>
 			<li>
-				<a href="/${pageContext.request.contextPath}/board/list?category=농구">
+				<a href="${pageContext.request.contextPath}/board/list?category=농구">
 					<i class="fa-solid fa-basketball"></i>
 					농구게시판
 				</a>
 			</li>
 			<li>
-				<a href="/${pageContext.request.contextPath}/board/list?category=E-스포츠">
+				<a href="${pageContext.request.contextPath}/board/list?category=E-스포츠">
 					<i class="fa-solid fa-gamepad"></i>
 					게임게시판
 				</a>
 			</li>
-<!-- 			 			<li><a href="/${pageContext.request.contextPath}/inquiry/list"><i class="fa-solid fa-q"></i> -->
+<!-- 			 			<li><a href="${pageContext.request.contextPath}/inquiry/list"><i class="fa-solid fa-q"></i> -->
 <!-- 					<i class="fa-solid fa-list"></i></a></li>  -->
-			<!-- <li><a href="/${pageContext.request.contextPath}/"><i class="fa-solid fa-home"></i> <i
+			<!-- <li><a href="${pageContext.request.contextPath}/"><i class="fa-solid fa-home"></i> <i
 					class="fa-solid fa-arrow-right-to-bracket"></i></a></li> -->
 		<li class="menu-end">
 			<c:choose>
 				<c:when test="${sessionScope.loginGrade == '관리자'}">
-					<a href="/${pageContext.request.contextPath}/member/mypage">
+					<a href="${pageContext.request.contextPath}/member/mypage">
 						<i class="fa-solid fa-user"></i>${sessionScope.loginNick}
 					</a>
 					<ul>
 						<li>
-							<a href="/${pageContext.request.contextPath}/reportBoard/list">
+							<a href="${pageContext.request.contextPath}/reportBoard/list">
 								<i class="fa-solid fa-reply-all"></i>
 								게시글 신고 목록
 							</a>
 						</li>
 						<li>
-							<a href="/${pageContext.request.contextPath}/reportReply/list">
+							<a href="${pageContext.request.contextPath}/reportReply/list">
 								<i class="fa-solid fa-reply"></i>
 								댓글 신고 목록
 							</a>
 						</li>
 						<li>
-							<a href="/${pageContext.request.contextPath}/board/list?category=관리자">
+							<a href="${pageContext.request.contextPath}/board/list?category=관리자">
 								<i class="fa-solid fa-gear"></i>
 								관리자게시판
 							</a>
 						</li>
 						<li>
-							<a href="/${pageContext.request.contextPath}/admin/member/search">
+							<a href="${pageContext.request.contextPath}/admin/member/search">
 								<i class="fa-regular fa-rectangle-list"></i>
 								회원관리
 							</a>
 						</li>
 						<li>
-							<a href="/${pageContext.request.contextPath}/member/logout">
+							<a href="${pageContext.request.contextPath}/member/logout">
 								<i class="fa-solid fa-arrow-right-from-bracket"></i>
 								로그아웃
 							</a>
@@ -281,12 +281,12 @@ document.addEventListener('DOMContentLoaded', function() {
 					</ul>
 				</c:when>
 				<c:when test="${sessionScope.loginId !=null}">
-					<a href="/${pageContext.request.contextPath}/member/mypage">
+					<a href="${pageContext.request.contextPath}/member/mypage">
 						<i class="fa-solid fa-user"></i>${sessionScope.loginNick}
 					</a>
 				<ul>	
 					<li>
-						<a href="/${pageContext.request.contextPath}/member/logout">
+						<a href="${pageContext.request.contextPath}/member/logout">
 							<i class="fa-solid fa-arrow-right-from-bracket"></i>
 								로그아웃
 						</a>
@@ -294,13 +294,13 @@ document.addEventListener('DOMContentLoaded', function() {
 				</ul>
 				</c:when>
 				<c:otherwise>
-					<a href="/${pageContext.request.contextPath}/member/login">
+					<a href="${pageContext.request.contextPath}/member/login">
 						<i class="fa-regular fa-user"></i>
 							로그인
 					</a>
 				<ul>
 					<li>
-						<a href="/${pageContext.request.contextPath}/member/join">
+						<a href="${pageContext.request.contextPath}/member/join">
 							<i class="fa-solid fa-user-plus"></i>
 								회원가입
 						</a>

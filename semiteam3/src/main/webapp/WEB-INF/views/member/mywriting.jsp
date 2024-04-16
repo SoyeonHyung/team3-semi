@@ -72,7 +72,7 @@ p.mywriting {
 						<tr>
 							<td class="left" width="70%">
 								<div class="my-10">
-									<a class="link" href="/${pageContext.request.contextPath}/board/detail?boardNo=${boardDto.boardNo}">
+									<a class="link" href="${pageContext.request.contextPath}/board/detail?boardNo=${boardDto.boardNo}">
 										${boardDto.boardTitle} <span class="reply">[${boardDto.boardReply}]</span>
 									</a>
 								</div>

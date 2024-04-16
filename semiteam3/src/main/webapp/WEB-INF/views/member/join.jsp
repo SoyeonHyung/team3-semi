@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 <jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
-<script src="/js/exit.js"></script>
+<script src="${pageContext.request.contextPath}/js/exit.js"></script>
 <head>
 
 </head>
@@ -11,39 +11,39 @@
 
 <style>
 input[name=memberId] {
-	background-image: url("/image/joinImage/user-login.png");
+	background-image: url("${pageContext.request.contextPath}/image/joinImage/user-login.png");
 }
 
 input[name=memberPw], input[id="pw-reinput"] {
-	background-image: url("/image/joinImage/lock-login.png");
+	background-image: url("${pageContext.request.contextPath}/image/joinImage/lock-login.png");
 }
 
 input[name=memberNick] {
-	background-image: url("/image/joinImage/nickname.png");
+	background-image: url("${pageContext.request.contextPath}/image/joinImage/nickname.png");
 }
 
 input[name=memberBirth] {
-	background-image: url("/image/joinImage/calendar.png");
+	background-image: url("${pageContext.request.contextPath}/image/joinImage/calendar.png");
 }
 
 input[name=memberContact] {
-	background-image: url("/image/joinImage/telephone.png");
+	background-image: url("${pageContext.request.contextPath}/image/joinImage/telephone.png");
 }
 
 input[name=memberEmail] {
-	background-image: url("/image/joinImage/email.png");
+	background-image: url("${pageContext.request.contextPath}/image/joinImage/email.png");
 }
 
 input[name=memberPost] {
-	background-image: url("/image/joinImage/post.png");
+	background-image: url("${pageContext.request.contextPath}/image/joinImage/post.png");
 }
 
 input[name=memberAddress1] {
-	background-image: url("/image/joinImage/letterbox.png");
+	background-image: url("${pageContext.request.contextPath}/image/joinImage/letterbox.png");
 }
 
 input[name=memberAddress2] {
-	background-image: url("/image/joinImage/home.png");
+	background-image: url("${pageContext.request.contextPath}/image/joinImage/home.png");
 }
 
 input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
@@ -645,7 +645,7 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 			<div class="cell page w-450 center">
 			<div class="cell">
 				<label for="attach">
-					<img src="/image/user.svg" width="200px">
+					<img src="${pageContext.request.contextPath}/image/user.svg" width="200px">
 				</label>
 				<label for="attach">
 					<P style="color:gray">클릭하여 프로필을 변경하세요(선택)</P>

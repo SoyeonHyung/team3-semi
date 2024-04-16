@@ -82,11 +82,11 @@ body {
         <c:choose>
             <c:when test="${sessionScope.loginGrade == '관리자'}">
                 <div>
-                	<a href="/${pageContext.request.contextPath}/member/mypage" >
-                		<img src="/member/image" alt="Preview Image" class="preview">
+                	<a href="${pageContext.request.contextPath}/member/mypage" >
+                		<img src="${pageContext.request.contextPath}/member/image" alt="Preview Image" class="preview">
                 	</a>
                    		<div class="cell">
-                        	<a href="/${pageContext.request.contextPath}/member/mypage" class="name">
+                        	<a href="${pageContext.request.contextPath}/member/mypage" class="name">
                         		${sessionScope.loginNick}
                         	</a>                      
                     	</div>
@@ -95,115 +95,115 @@ body {
                     	${sessionScope.loginGrade}
                     </span>
                     <hr>
-                    <a href="/${pageContext.request.contextPath}/member/mywriting" class="my">
+                    <a href="${pageContext.request.contextPath}/member/mywriting" class="my">
                     	<i class="fa-solid fa-pencil"></i>
                     	내가 쓴 글
                     </a>
-                    <a href="/${pageContext.request.contextPath}/member/mycomment" class="my">
+                    <a href="${pageContext.request.contextPath}/member/mycomment" class="my">
                     	<i class="fa-regular fa-comment-dots"></i>
                     	내가 쓴 댓글
                     </a>
                 </div>
    			<hr>             
     			<div class="cell">
-					<a href="/${pageContext.request.contextPath}/board/list?category=축구" class="my">
+					<a href="${pageContext.request.contextPath}/board/list?category=축구" class="my">
 						<i class="fa-solid fa-soccer-ball"></i>
 						축구게시판
 					</a>
-					<a href="/${pageContext.request.contextPath}/board/list?category=야구" class="my">
+					<a href="${pageContext.request.contextPath}/board/list?category=야구" class="my">
 						<i class="fa-solid fa-baseball"></i>
 						야구게시판
 					</a>
-					<a href="/${pageContext.request.contextPath}/board/list?category=농구" class="my">
+					<a href="${pageContext.request.contextPath}/board/list?category=농구" class="my">
 						<i class="fa-solid fa-basketball"></i>
 						농구게시판
 					</a>
-					<a href="/${pageContext.request.contextPath}/board/list?category=E-스포츠" class="my">
+					<a href="${pageContext.request.contextPath}/board/list?category=E-스포츠" class="my">
 						<i class="fa-solid fa-gamepad"></i>
 						게임게시판
 					</a>
-					<a href="/${pageContext.request.contextPath}/inquiry/list" class="my">
+					<a href="${pageContext.request.contextPath}/inquiry/list" class="my">
 						<i class="fa-solid fa-q"></i>
 						문의게시판
 					</a>
 				</div>
 			<hr>
 				<div class="cell">
-					<a href="/${pageContext.request.contextPath}/reportBoard/list" class="my">
+					<a href="${pageContext.request.contextPath}/reportBoard/list" class="my">
 						<i class="fa-solid fa-reply-all"></i>
 						게시글 신고 목록
 					</a>
-					<a href="/${pageContext.request.contextPath}/reportReply/list" class="my">
+					<a href="${pageContext.request.contextPath}/reportReply/list" class="my">
 						<i class="fa-solid fa-reply"></i>
 						댓글 신고 목록
 					</a>
-					<a href="/${pageContext.request.contextPath}/board/list?category=관리자" class="my">
+					<a href="${pageContext.request.contextPath}/board/list?category=관리자" class="my">
 						<i class="fa-solid fa-gear"></i>	
 						관리자게시판
 					</a>
-					<a href="/${pageContext.request.contextPath}/admin/member/search" class="my">
+					<a href="${pageContext.request.contextPath}/admin/member/search" class="my">
 						<i class="fa-regular fa-rectangle-list"></i>
 						회원관리
 					</a>
     			</div>
     		<hr>
         		<div class="cell">
-                    <a href="/${pageContext.request.contextPath}/member/logout" class="my">
+                    <a href="${pageContext.request.contextPath}/member/logout" class="my">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     로그아웃</a>
             	</div>
 			</c:when>          
             <c:when test="${sessionScope.loginId !=null}">
  				<div>
-                	<a href="/${pageContext.request.contextPath}/member/mypage">
-                		<img src="/member/image" alt="Preview Image" class="preview">
+                	<a href="${pageContext.request.contextPath}/member/mypage">
+                		<img src="${pageContext.request.contextPath}/member/image" alt="Preview Image" class="preview">
                 	</a>
                     <div class="cell">
-                        <a href="/${pageContext.request.contextPath}/member/mypage" class="name">
+                        <a href="${pageContext.request.contextPath}/member/mypage" class="name">
                         	${sessionScope.loginNick}
                         </a>                      
                     </div>
                     <span class="grade">${sessionScope.loginGrade}</span>
 			<hr>
-                    <a href="/${pageContext.request.contextPath}/member/mywriting" class="my">
+                    <a href="${pageContext.request.contextPath}/member/mywriting" class="my">
                     	<i class="fa-solid fa-pencil"></i>
                     	내가 쓴 글
                     </a>
-                    <a href="/${pageContext.request.contextPath}/member/mycomment" class="my">
+                    <a href="${pageContext.request.contextPath}/member/mycomment" class="my">
                     	<i class="fa-regular fa-comment-dots"></i>
                      	내가 쓴 댓글
                     </a>
-                    <a href="/${pageContext.request.contextPath}/member/mylike" class="my">
+                    <a href="${pageContext.request.contextPath}/member/mylike" class="my">
                     	<i class="fa-regular fa-heart"></i>
                      	찜목록
                     </a>
                 </div>
 			<hr>
 				<div class="cell">
-					<a href="/${pageContext.request.contextPath}/board/list?category=축구" class="my">
+					<a href="${pageContext.request.contextPath}/board/list?category=축구" class="my">
 						<i class="fa-solid fa-soccer-ball"></i>
 						축구게시판
 					</a>
-					<a href="/${pageContext.request.contextPath}/board/list?category=야구" class="my">
+					<a href="${pageContext.request.contextPath}/board/list?category=야구" class="my">
 						<i class="fa-solid fa-baseball"></i>
 						야구게시판
 					</a>
-					<a href="/${pageContext.request.contextPath}/board/list?category=농구" class="my">
+					<a href="${pageContext.request.contextPath}/board/list?category=농구" class="my">
 						<i class="fa-solid fa-basketball"></i>
 						농구게시판
 					</a>
-					<a href="/${pageContext.request.contextPath}/board/list?category=E-스포츠" class="my">
+					<a href="${pageContext.request.contextPath}/board/list?category=E-스포츠" class="my">
 						<i class="fa-solid fa-gamepad"></i>
 						게임게시판
 					</a>
-					<a href="/${pageContext.request.contextPath}/inquiry/list" class="my">
+					<a href="${pageContext.request.contextPath}/inquiry/list" class="my">
 						<i class="fa-solid fa-q"></i>
 						문의게시판
 					</a>
 				</div>
     		<hr>
         		<div class="cell">
-                    <a href="/${pageContext.request.contextPath}/member/logout" class="my">
+                    <a href="${pageContext.request.contextPath}/member/logout" class="my">
                     	<i class="fa-solid fa-arrow-right-from-bracket"></i>
                     	로그아웃
                     </a>
@@ -211,7 +211,7 @@ body {
 			</c:when>
             <c:otherwise>
                 <div class="container">
-                    <a href="/${pageContext.request.contextPath}/member/login" class="button btnFloat btnlogin">로그인</a>
+                    <a href="${pageContext.request.contextPath}/member/login" class="button btnFloat btnlogin">로그인</a>
                 </div>
 			</c:otherwise>
         </c:choose>

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>댓글 신고</title>
 	<jsp:include page="/WEB-INF/views/template/header.jsp"></jsp:include>
-<script src="/js/exit.js"></script>
+<script src="${pageContext.request.contextPath}/js/exit.js"></script>
 </head>
 <body>
 	<div class="container" style="display: flex; width:1300px;">
