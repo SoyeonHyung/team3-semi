@@ -173,7 +173,7 @@ function loadList() {
 	
 	//페이지 로딩 완료 시 댓글 목록을 불러와서 출력
 	$.ajax({
-		url : "/rest/reply/list",
+		url : "${pageContext.request.contextPath}/rest/reply/list",
 		method : "post",
 		data : {
 			replyOrigin : boardNo
@@ -268,7 +268,7 @@ function loadList() {
 			var boardNo = params.get("boardNo");
 			
 			$.ajax({
-				url : "/rest/reply/delete",
+				url : "${pageContext.request.contextPath}/rest/reply/delete",
 				method : "post",
 				data : {
 					replyNo : replyNo,
@@ -291,7 +291,7 @@ function loadList() {
 			var boardNo = params.get("boardNo");
 
 			$.ajax({
-				url : "/rest/reply/insert",
+				url : "${pageContext.request.contextPath}/rest/reply/insert",
 				method : "post",
 				data : {
 					replyContent : replyContent,
@@ -344,7 +344,7 @@ function loadList() {
 						return;
 
 					$.ajax({
-						url : "/rest/reply/edit",
+						url : "${pageContext.request.contextPath}/rest/reply/edit",
 						method : "post",
 						data : {
 							replyNo : replyNo,
@@ -407,7 +407,7 @@ function loadList() {
 												// AJAX를 통해 신고 등록 요청
 												$
 														.ajax({
-															url : "/rest/reportReply/insert",
+															url : "${pageContext.request.contextPath}/rest/reportReply/insert",
 															method : "post",
 															data : {
 																reportReplyReason : reportReplyReason,
@@ -473,7 +473,7 @@ function loadList() {
 			$(".board-like").find(".fa-heart").click(
 					function() {
 						$.ajax({
-							url : "/rest/board_like/toggle",//같은 서버이므로 앞 경로 생략
+							url : "${pageContext.request.contextPath}/rest/board_like/toggle",//같은 서버이므로 앞 경로 생략
 							method : "post",
 							data : {
 								boardNo : boardNo
@@ -524,7 +524,7 @@ function loadList() {
 
 		//최초에 표시될 화면을 위해 화면이 로딩되자마자 서버로 비동기 통신 시도
 		$.ajax({
-			url : "/rest/board_like/check",
+			url : "${pageContext.request.contextPath}/rest/board_like/check",
 			method : "post",
 			data : {
 				boardNo : boardNo
