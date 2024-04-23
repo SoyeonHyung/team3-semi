@@ -98,16 +98,16 @@
 				- 관리자인 경우만 답글쓰기 가능!
 			--%>
 			<c:if test="${sessionScope.loginId != null && (sessionScope.loginId == inquiryDto.inquiryWriter || sessionScope.loginGrade == '관리자')}">
-				<a class="btn btn-edit" href="edit?inquiryNo=${inquiryDto.inquiryNo}">글수정</a>
+				<a class="btn btn-edit" href="${pageContext.request.contextPath}/edit?inquiryNo=${inquiryDto.inquiryNo}">글수정</a>
 				<a class="btn negative link-confirm" 
 					data-message="정말 삭제하시겠습니까?" 
-					href="delete?inquiryNo=${inquiryDto.inquiryNo}">글삭제</a>
+					href="${pageContext.request.contextPath}/delete?inquiryNo=${inquiryDto.inquiryNo}">글삭제</a>
 			</c:if>
 			
 			<c:if test="${sessionScope.loginGrade == '관리자' && inquiryDto.inquiryTarget == null}">
-				<a class="btn positive" href="insert?inquiryTarget=${inquiryDto.inquiryNo}">답글쓰기</a>
+				<a class="btn positive" href="${pageContext.request.contextPath}/insert?inquiryTarget=${inquiryDto.inquiryNo}">답글쓰기</a>
 			</c:if>
-			<a class="btn positive" href="list">글목록</a>
+			<a class="btn positive" href="${pageContext.request.contextPath}/list">글목록</a>
 		</div>
 	</div>
 </div>

@@ -92,7 +92,7 @@
 
 			<div class="cell right pen">
 				<p class="list-write">
-					<a class="link" href="write?category=${param.category}"> <i
+					<a class="link" href="${pageContext.request.contextPath}/write?category=${param.category}"> <i
 						class="fa-solid fa-pen"></i> 게시글 작성
 					</a>
 				</p>
@@ -150,7 +150,7 @@
 						<tr>
 							<td class="left"  width="70%">
 								<div class="my-10">
-									<a class="link" href="detail?boardNo=${boardDto.boardNo}">
+									<a class="link" href="${pageContext.request.contextPath}/detail?boardNo=${boardDto.boardNo}">
 										${boardDto.boardTitle} <span class="reply">[${boardDto.boardReply}]</span>
 									</a>
 								</div>
@@ -188,7 +188,7 @@
 						<tr>
 							<td class="left">
 								<div class="my-10">
-									<a class="link" href="detail?boardNo=${boardDto.boardNo}">
+									<a class="link" href="${pageContext.request.contextPath}/detail?boardNo=${boardDto.boardNo}">
 										${boardDto.boardTitle} <span class="reply">[${boardDto.boardReply}]</span>
 									</a>
 								</div>
@@ -222,7 +222,7 @@
 						<tr>
 							<td class="left">
 								<div class="mt-10" >
-									<a class="link" href="detail?boardNo=${boardDto.boardNo}">
+									<a class="link" href="${pageContext.request.contextPath}/detail?boardNo=${boardDto.boardNo}">
 										${boardDto.boardTitle} <span class="reply">[${boardDto.boardReply}]</span>
 									</a>
 								</div>

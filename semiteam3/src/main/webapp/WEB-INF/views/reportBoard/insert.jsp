@@ -51,13 +51,13 @@
 					</div>
 					<div class="flex-cell">
 						<div class="cell w-50">
-							<a href="list?category=${param.category}"
+							<a href="${pageContext.request.contextPath}/list?category=${param.category}"
 								class="btn negative w-100"> 취소 </a>
 						</div>
 						<div class="cell w-50">
 							<button type="submit" id="submitBtn" class="btn positive w-100">등록</button>
 							<c:if test="${sessionScope.loginGrade == '관리자'}">
-								<a href="list" class="btn">목록</a>
+								<a href="${pageContext.request.contextPath}/list" class="btn">목록</a>
 							</c:if>
 						</div>
 					</div>

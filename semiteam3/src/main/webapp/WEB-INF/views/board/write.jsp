@@ -115,7 +115,7 @@ $(function() {
 				</div>
 				<div class="flex-cell">
 					<div class="cell w-50">
-						<a href="list?category=${param.category}"
+						<a href="${pageContext.request.contextPath}/list?category=${param.category}"
 							class="btn negative w-100"> 취소 </a>
 					</div>
 					<div class="cell w-50">

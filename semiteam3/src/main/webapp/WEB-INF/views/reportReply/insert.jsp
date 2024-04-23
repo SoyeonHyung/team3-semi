@@ -30,7 +30,7 @@
 				rows="10"></textarea>
 		</div>
 		<div class="cell right">
-			<a href="list" class="btn">목록</a>
+			<a href="${pageContext.request.contextPath}/list" class="btn">목록</a>
 			<button class="btn positive">등록</button>
 		</div>
 	</div>

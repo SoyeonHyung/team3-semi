@@ -63,7 +63,7 @@
 				
 				<div class="flex-cell">
 					<div class="cell w-50">
-						<a href="list" class="btn negative w-100">
+						<a href="${pageContext.request.contextPath}/list" class="btn negative w-100">
 							취소
 						</a>
 					</div>

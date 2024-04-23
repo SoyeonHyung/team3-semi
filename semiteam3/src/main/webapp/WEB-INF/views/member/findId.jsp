@@ -134,7 +134,7 @@ a:hover {
 		</div>	
 			
 	<div class="cell right" >
-		<a href="findPw">비밀번호 찾기</a>
+		<a href="${pageContext.request.contextPath}/findPw">비밀번호 찾기</a>
 	</div>
 	</div>
 	

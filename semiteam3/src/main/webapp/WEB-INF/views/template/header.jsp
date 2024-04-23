@@ -139,7 +139,7 @@ body {
 					}
 
 					$.ajax({
-						url : "/rest/board_attach/upload",
+						url : "${pageContext.request.contextPath}/rest/board_attach/upload",
 						method : "post",
 						data : formData,
 						processData : false,

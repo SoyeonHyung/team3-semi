@@ -104,8 +104,8 @@
 		</table>
 	</div>
 	<div class="cell right pe-20">
-		<a class="btn positive" href="edit?memberId=${memberDto.memberId}">수정</a>
-		<a href="delete?memberId=${memberDto.memberId}" class="link-confirm btn negative" data-message="정말 탈퇴시키시겠습니까?">
+		<a class="btn positive" href="${pageContext.request.contextPath}/edit?memberId=${memberDto.memberId}">수정</a>
+		<a href="${pageContext.request.contextPath}/delete?memberId=${memberDto.memberId}" class="link-confirm btn negative" data-message="정말 탈퇴시키시겠습니까?">
 			회원 강제탈퇴</a>
 	</div>
 </div>

@@ -8,7 +8,7 @@
 		<h2>존재하지 않는 닉네임입니다</h2>
 	</div>
 	<div class="cell center">
-		<h3><a href="findId" class="link link-animation">다시 입력하기</a></h3>
+		<h3><a href="${pageContext.request.contextPath}/findId" class="link link-animation">다시 입력하기</a></h3>
 	</div>
 </div>
 

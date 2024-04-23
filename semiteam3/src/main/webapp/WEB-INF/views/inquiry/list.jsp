@@ -86,7 +86,7 @@
                         </c:if> --%>
                     
                         <%-- 제목 출력 --%>
-                        <a class="link" href="detail?inquiryNo=${inquiryDto.inquiryNo}">
+                        <a class="link" href="${pageContext.request.contextPath}/detail?inquiryNo=${inquiryDto.inquiryNo}">
                         ${inquiryDto.inquiryTitle}
                         </a>
                         <%--(추가) 수정시각 유무에 따라 수정됨 표시 --%>

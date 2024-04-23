@@ -74,7 +74,7 @@ $(document).ready(function() {
             var formData = new FormData();
             formData.append("attach", this.files[0]);
             $.ajax({
-                url : "/rest/member_attach/upload",
+                url : "${pageContext.request.contextPath}/rest/member_attach/upload",
                 method : "post",
                 data : formData,
                 processData : false,
@@ -94,7 +94,7 @@ $(document).ready(function() {
 	    	var formData = new FormData();
     		formData.append("attach", this.files[0]);
     		$.ajax({
-	        	url : "/rest/member_attach/delete",
+	        	url : "${pageContext.request.contextPath}/rest/member_attach/delete",
         		method : "post",
         		data : formData,
         		processData : false,
@@ -131,12 +131,12 @@ $(document).ready(function() {
         <c:choose>
             <c:when test="${empty loginMember.memberAttach}">
                 <label for="memberAttach">
-                    <img src="image" width="200" height="200" alt="Preview Image" id="preview" class="preview">
+                    <img src="${pageContext.request.contextPath}/image" width="200" height="200" alt="Preview Image" id="preview" class="preview">
                 </label>
             </c:when>
             <c:otherwise>
                 <label for="memberAttach">
-                    <img src="/image/user.svg" id="preview" width="200" height="200" class="preview">
+                    <img src="${pageContext.request.contextPath}/image/user.svg" id="preview" width="200" height="200" class="preview">
                 </label>
             </c:otherwise>
         </c:choose>

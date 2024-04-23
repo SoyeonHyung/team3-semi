@@ -30,7 +30,7 @@
         <textarea name="inquiryContent" required class="tool w-100" rows="10">${inquiryDto.inquiryContent}</textarea>
     </div>
     <div class="cell right">
-        <a href="list" class="btn">목록</a>
+        <a href="${pageContext.request.contextPath}/list" class="btn">목록</a>
         <button class="btn positive">수정</button>
     </div>
 </div>

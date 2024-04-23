@@ -15,7 +15,7 @@
 		</c:when>
 		<c:otherwise>
 			<a
-				href="list?category=${boardDto.boardCategory}&page=${pageVO.prevBlock}&${pageVO.queryString}">&lt;이전</a>
+				href="${pageContext.request.contextPath}/list?category=${boardDto.boardCategory}&page=${pageVO.prevBlock}&${pageVO.queryString}">&lt;이전</a>
 		</c:otherwise>
 	</c:choose>
 
@@ -29,7 +29,7 @@
 			</c:when>
 			<c:otherwise>
 				<a
-					href="list?category=${boardDto.boardCategory}&page=${i}&${pageVO.getQueryString()}">${i}</a>
+					href="${pageContext.request.contextPath}/list?category=${boardDto.boardCategory}&page=${i}&${pageVO.getQueryString()}">${i}</a>
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>
@@ -42,7 +42,7 @@
 		</c:when>
 		<c:otherwise>
 			<a
-				href="list?category=${boardDto.boardCategory}&page=${pageVO.getNextBlock()}&${pageVO.getQueryString()}">다음&gt;</a>
+				href="${pageContext.request.contextPath}/list?category=${boardDto.boardCategory}&page=${pageVO.getNextBlock()}&${pageVO.getQueryString()}">다음&gt;</a>
 		</c:otherwise>
 	</c:choose>
 </div>

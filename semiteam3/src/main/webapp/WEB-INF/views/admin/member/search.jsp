@@ -92,10 +92,10 @@
 					<c:forEach var="memberDto" items="${list}">
 					<tr>
 						<td>
-							<a class="link" href="detail?memberId=${memberDto.memberId}">${memberDto.memberId}</a>
+							<a class="link" href="${pageContext.request.contextPath}/detail?memberId=${memberDto.memberId}">${memberDto.memberId}</a>
 						</td>
 						<td>
-							<a class="link" href="detail?memberId=${memberDto.memberId}">${memberDto.memberNick}</a>
+							<a class="link" href="${pageContext.request.contextPath}/detail?memberId=${memberDto.memberId}">${memberDto.memberNick}</a>
 						</td>
 						<td>${memberDto.memberEmail}</td>
 						<td>${memberDto.memberContact}</td>

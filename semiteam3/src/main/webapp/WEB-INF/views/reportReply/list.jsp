@@ -86,7 +86,7 @@
 					<c:forEach var="reportReplyDto" items="${list}">
 						<tr>
 							<td>
-								<a class="link" href="detail?reportReplyNo=${reportReplyDto.reportReplyNo}">
+								<a class="link" href="${pageContext.request.contextPath}/detail?reportReplyNo=${reportReplyDto.reportReplyNo}">
 								${reportReplyDto.reportReplyNo}
 								</a>
 							</td>

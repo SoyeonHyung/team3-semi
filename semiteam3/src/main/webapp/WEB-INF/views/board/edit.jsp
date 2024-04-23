@@ -37,7 +37,7 @@
 				<textarea name="boardContent" id="boardContent" class="tool w-100">${boardDto.boardContent}</textarea>
 			</div>
 			<div class="cell right">
-				<a href="list?category=${boardDto.boardCategory}" class="btn">목록</a>
+				<a href="${pageContext.request.contextPath}/list?category=${boardDto.boardCategory}" class="btn">목록</a>
 				<button class="btn positive">수정</button>
 			</div>
 		</div>

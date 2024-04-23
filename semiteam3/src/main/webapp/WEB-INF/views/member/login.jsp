@@ -140,9 +140,9 @@ $(function() {
 				<div class="fail-feedback">형식에 맞게 다시 작성해주세요.</div>
 				</div>
 			<div class="form-group center">
-				<a href="findId">아이디 찾기</a><span style="color: #e3c7a6"> |</span> <a
-					href="findPw"> 비밀번호 찾기</a><span style="color: #e3c7a6"> |</span> <a
-					href="join"> 회원가입</a>
+				<a href="${pageContext.request.contextPath}/findId">아이디 찾기</a><span style="color: #e3c7a6"> |</span> <a
+					href="${pageContext.request.contextPath}/findPw"> 비밀번호 찾기</a><span style="color: #e3c7a6"> |</span> <a
+					href="${pageContext.request.contextPath}/join"> 회원가입</a>
 			</div>
 
 			<div class="form-actions">

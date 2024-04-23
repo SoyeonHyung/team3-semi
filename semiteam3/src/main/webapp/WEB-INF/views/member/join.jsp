@@ -141,7 +141,7 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 
 					if (regex.test(value)) {//아이디 형식 검사를 통과했다면
 						$.ajax({
-							url : "/rest/member/checkId",
+							url : "${pageContext.request.contextPath}/rest/member/checkId",
 							method : "post",//전송방식(get/post)
 							data : {
 								memberId : value
@@ -197,7 +197,7 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 
 					if (regex.test(value)) {
 						$.ajax({
-							url : "/rest/member/checkMemberNick",
+							url : "${pageContext.request.contextPath}/rest/member/checkMemberNick",
 							method : "post",
 							data : {
 								memberNick : value
@@ -275,7 +275,7 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 			if(email.length == 0) return;
 			
 			$.ajax({
-				url:"/rest/member/sendCert",
+				url:"${pageContext.request.contextPath}/rest/member/sendCert",
 				method:"post",//제출
 				data:{ memberEmail : email },
 				
@@ -312,7 +312,7 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 						return;
 
 					$.ajax({
-						url : "/rest/member/checkCert",
+						url : "${pageContext.request.contextPath}/rest/member/checkCert",
 						method : "post",
 						data : {
 							certEmail : memberEmail,

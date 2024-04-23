@@ -52,18 +52,18 @@ p.mywriting {
 				내가 쓴 글
 			</p>
 			<div class="mywriting category right">
-				<a href="mywriting" class="link me-20">All</a> 
+				<a href="${pageContext.request.contextPath}/mywriting" class="link me-20">All</a> 
 				
-				<a href="?category=축구" class="link me-20">
+				<a href="${pageContext.request.contextPath}?category=축구" class="link me-20">
 				<i class="fa-solid fa-soccer-ball"></i></a> 
 					
-				<a href="?category=야구" class="link me-20">
+				<a href="${pageContext.request.contextPath}?category=야구" class="link me-20">
 				<i class="fa-solid fa-baseball"></i></a> 
 					
-				<a href="?category=농구" class="link me-20">
+				<a href="${pageContext.request.contextPath}?category=농구" class="link me-20">
 				<i class="fa-solid fa-basketball"></i></a> 
 				
-				<a href="?category=E-스포츠" class="link">
+				<a href="${pageContext.request.contextPath}?category=E-스포츠" class="link">
 				<i class="fa-solid fa-gamepad"></i></a>
 			</div>
 			<div class="cell">

@@ -37,7 +37,7 @@
 	</div>
 
 	<div class="cell">
-		<img src="/image/eventPage960.png">
+		<img src="${pageContext.request.contextPath}/image/eventPage960.png">
 	</div>
 	<div class="cell">
 		24-03-20 12:00:00
@@ -45,7 +45,7 @@
 
 	<div class="cell right">
 					<a class="btn positive" onclick="history.back()"">뒤로가기</a>
-					<a class="btn positive" href="list?category=E-스포츠">글목록</a>
+					<a class="btn positive" href="${pageContext.request.contextPath}/list?category=E-스포츠">글목록</a>
 	</div>
 
 </div>

@@ -11,7 +11,7 @@
 	</div>
 	
 	<div class="cell center">
-		<h3><a href="login" class="link link-animation">로그인 페이지로 이동</a></h3>
+		<h3><a href="${pageContext.request.contextPath}/login" class="link link-animation">로그인 페이지로 이동</a></h3>
 	</div>
 </div>
 

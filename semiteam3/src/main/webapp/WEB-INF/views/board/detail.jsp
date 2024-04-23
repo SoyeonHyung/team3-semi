@@ -651,15 +651,15 @@ function loadList() {
 			<hr class="detail">
 
 			<div class="cell right">
-				<a class="btn" href="write?category=${boardDto.boardCategory}">글쓰기</a>
+				<a class="btn" href="${pageContext.request.contextPath}/write?category=${boardDto.boardCategory}">글쓰기</a>
 
 				<%-- 수정과 삭제 링크는 회원이면서 본인글이거나 관리자일 경우만 출력 --%>
 				<c:if
 					test="${sessionScope.loginId != null && (sessionScope.loginId == boardDto.boardWriter || sessionScope.loginGrade == '관리자')}">
 					<a class="btn btn-edit"
-						href="edit?boardNo=${boardDto.boardNo}">글수정</a>
+						href="${pageContext.request.contextPath}/edit?boardNo=${boardDto.boardNo}">글수정</a>
 					<a class="btn negative link-confirm" data-message="정말 삭제하시겠습니까?"
-						href="delete?boardNo=${boardDto.boardNo}">글삭제</a>
+						href="${pageContext.request.contextPath}/delete?boardNo=${boardDto.boardNo}">글삭제</a>
 				</c:if>
 
 				<c:choose>
@@ -668,7 +668,7 @@ function loadList() {
 					</c:when>
 					<c:otherwise>
 						<a class="btn positive"
-							href="list?category=${boardDto.boardCategory}">글목록</a>
+							href="${pageContext.request.contextPath}/list?category=${boardDto.boardCategory}">글목록</a>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -765,7 +765,7 @@ function loadList() {
 							</c:choose>
 							<td class="left" width="70%">
 								<div class="my-10">
-									<a class="link" href="detail?boardNo=${boardDto.boardNo}">
+									<a class="link" href="${pageContext.request.contextPath}/detail?boardNo=${boardDto.boardNo}">
 										${boardDto.boardTitle} <span class="reply">[${boardDto.boardReply}]</span>
 									</a>
 								</div>

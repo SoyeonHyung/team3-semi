@@ -15,11 +15,11 @@
 		</c:when>
 		<c:when test="${not empty param.category}">
 			<a
-				href="?category=${param.category}&page=${pageVO.prevBlock}&${pageVO.queryString}">&lt;이전</a>
+				href="${pageContext.request.contextPath}?category=${param.category}&page=${pageVO.prevBlock}&${pageVO.queryString}">&lt;이전</a>
 		</c:when>
 		<c:otherwise>
 			<a
-				href="?&page=${pageVO.prevBlock}&${pageVO.queryString}">&lt;이전</a>
+				href="${pageContext.request.contextPath}?&page=${pageVO.prevBlock}&${pageVO.queryString}">&lt;이전</a>
 		</c:otherwise>
 	</c:choose>
 
@@ -33,11 +33,11 @@
 			</c:when>
 			<c:when test="${not empty param.category}">
 				<a
-					href="?category=${param.category}&page=${i}&${pageVO.getQueryString()}">${i}</a>
+					href="${pageContext.request.contextPath}?category=${param.category}&page=${i}&${pageVO.getQueryString()}">${i}</a>
 			</c:when>
 			<c:otherwise>
 				<a
-					href="?page=${i}&${pageVO.getQueryString()}">${i}</a>
+					href="${pageContext.request.contextPath}?page=${i}&${pageVO.getQueryString()}">${i}</a>
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>
@@ -50,7 +50,7 @@
 		</c:when>
 		<c:otherwise>
 			<a
-				href="?category=${param.category}&page=${pageVO.getNextBlock()}&${pageVO.getQueryString()}">다음&gt;</a>
+				href="${pageContext.request.contextPath}?category=${param.category}&page=${pageVO.getNextBlock()}&${pageVO.getQueryString()}">다음&gt;</a>
 		</c:otherwise>
 	</c:choose>
 </div>
