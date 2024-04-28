@@ -460,18 +460,20 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 
 //     });
 
-//     function previewImage(input) {
-//         if (input.files && input.files[0]) {
-//             var reader = new FileReader();
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-//             reader.onload = function(e) {
-//                 $('#preview').attr('src', e.target.result);
-//             }
+            reader.onload = function(e) {
+                $('#preview').attr('src', e.target.result);
+            }
 
-//             reader.readAsDataURL(input.files[0]);
+            reader.readAsDataURL(input.files[0]);
             
-//         }
-//     }
+        }
+    }
+
+
 </script>
 
 <div class="box cell container">
@@ -653,10 +655,7 @@ input[name=memberId],[name=memberPw],[id="pw-reinput"],[name=memberNick] ,
 				<input type="file" id="attach" name="attach" 
 						class="too w-100" style="display:none">
 			</div>
-  	 
-				
-
-				<div class="flex-cell">
+  	 		<div class="flex-cell">
 				<div class="w-100 left">
 					<button type="button" class="btn btn-prev w-100 pink">
 						<i class="fa-solid fa-angle-left"></i>
