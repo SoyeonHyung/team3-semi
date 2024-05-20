@@ -77,8 +77,8 @@
 		<hr class="detail">
 		<div class="cell right">
 			<a class="btn negative link-confirm" data-message="정말 삭제하시겠습니까?"
-					href="${pageContext.request.contextPath}/delete?reportReplyNo=${reportReplyDto.reportReplyNo}">댓글 신고글삭제</a>
-			<a class="btn positive" href="${pageContext.request.contextPath}/list">댓글 신고글 목록</a>
+					href="${pageContext.request.contextPath}/reportReply/delete?reportReplyNo=${reportReplyDto.reportReplyNo}">댓글 신고글삭제</a>
+			<a class="btn positive" href="${pageContext.request.contextPath}/reportReply/list">댓글 신고글 목록</a>
 			<a class="btn positive" href="${pageContext.request.contextPath}/board/detail?boardNo=${originalBoardNo}">신고된 댓글 보러가기</a>
 
 		</div>

@@ -222,7 +222,7 @@
 						<tr>
 							<td class="left">
 								<div class="mt-10" >
-									<a class="link" href="${pageContext.request.contextPath}/detail?boardNo=${boardDto.boardNo}">
+									<a class="link" href="${pageContext.request.contextPath}/board/detail?boardNo=${boardDto.boardNo}">
 										${boardDto.boardTitle} <span class="reply">[${boardDto.boardReply}]</span>
 									</a>
 								</div>

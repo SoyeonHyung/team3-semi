@@ -29,7 +29,7 @@ hr {
 	<div class="flex-cell w-100">
 
 		<div class="cell right mt-40 w-25 first">
-			<a href="${pageContext.request.contextPath}/" class="link"> <img src="${pageContext.request.contextPath}/image/home/NosilLogo.png"
+			<a href="${pageContext.request.contextPath}/" class="link"> <img src="${pageContext.request.contextPath}/image/home/nosilLogo.png"
 				class="w-50">
 			</a>
 		</div>
